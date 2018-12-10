@@ -16,6 +16,10 @@ Route::get('/', function () {
 });
 //进入后台
 Route::resource('/admin','Admin\AdminController');
+//登录页面
+Route::get('/adminlogin',function(){
+	return view('Admin.Login.login');
+});
 //管理员管理(后台)
 Route::resource('/adminuser','Admin\User\UserController');
 //管理员权限
