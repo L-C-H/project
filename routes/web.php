@@ -10,11 +10,11 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/',function(){
+
+Route::get('/admin',function(){
 	return view('Admin.index');
 });
-//进入后台
-Route::resource('/admin','Admin\AdminController');
+
 //登录页面
 Route::get('/adminlogin',function(){
 	return view('Admin.Login.login');
