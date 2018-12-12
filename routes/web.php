@@ -40,6 +40,11 @@ Route::group([],function(){
 	Route::resource('/adminannounce','Admin\Announce\AnnounceController');
 	//广告管理
 	Route::resource('/adminadvertisement','Admin\Advertisement\AdController');
+		//广告删除
+		Route::get('/adminadvertisementdel','Admin\Advertisement\AdController@del');
+		//下架广告
+		Route::get('/adminadvertisementsta','Admin\Advertisement\AdController@sta');
+
 	//友情链接
 	Route::resource('/adminlink','Admin\Link\LinkController');
 	//评价管理
