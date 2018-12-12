@@ -31,7 +31,7 @@ Route::group([],function(){
 	Route::get('/adminmemberpwd/{id}','Admin\Member\MemberController@p');
 	Route::get('/adminmemberpupdate/{id}','Admin\Member\MemberController@pupdate');
 	//删除会员管理
-	// Route::resource('/adminmemberdel','Admin\Member\MemberdelController');
+	// Route::resource('/adminmemberdels','Admin\Member\MemberdelController');
 	//浏览会员管理
 	Route::resource('/adminmemberrecord','Admin\Member\MemberrecordController');
 	//轮播图管理
