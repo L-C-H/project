@@ -10,13 +10,13 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-
-Route::group([],function(){
-	//登录页面
+//登录页面
 	Route::get('/adminlogin',function(){
 		return view('Admin.Login.login');
 	});
+
+Route::group([],function(){
+	
 	//后台首页
 	Route::get('/admin',function(){
 		return view('Admin.index');
@@ -25,13 +25,13 @@ Route::group([],function(){
 	Route::resource('/adminuser','Admin\User\UserController');
 	//管理员权限
 	Route::resource('/adminrole','Admin\User\RoleController');
-	//导入会员管理(前台)
+	//会员管理(前台)
 	Route::resource('/adminmember','Admin\Member\MemberController');
 	//密码
 	Route::get('/adminmemberpwd/{id}','Admin\Member\MemberController@p');
 	Route::get('/adminmemberpupdate/{id}','Admin\Member\MemberController@pupdate');
 	//删除会员管理
-	Route::resource('/adminmemberdel','Admin\Member\MemberdelController');
+	// Route::resource('/adminmemberdel','Admin\Member\MemberdelController');
 	//浏览会员管理
 	Route::resource('/adminmemberrecord','Admin\Member\MemberrecordController');
 	//轮播图管理
@@ -54,8 +54,14 @@ Route::group([],function(){
 	Route::resource('/adminbrand','Admin\Brand\BrandController');
 	//商品管理
 	Route::resource('/admingoods','Admin\Goods\GoodsController');
-	//商品分类
+	//商品无限分类
 	Route::resource('/admincates','Admin\Cates\CatesController');
+	//商品分类ajax删除
+	Route::get('/admincatessss','Admin\Cates\CatesController@del');
+	//ajax发布
+	Route::get('/admincatesdis','Admin\Cates\CatesController@display');
+	//会员管理ajax删除
+	Route::get('/adminmemberdel','Admin\Member\MemberController@del');
 });
 
 
