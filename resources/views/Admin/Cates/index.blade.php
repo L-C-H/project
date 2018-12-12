@@ -68,7 +68,7 @@
 							{{ method_field('DELETE') }}
 							<button type="submit" style="text-decoration:none" class="ml-5" title="删除"><i class="Hui-iconfont">&#xe6e2;</i></button>
 						</form> -->
-						<a href="javascript:;" style="text-decoration:none" class="ml-5" title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a>
+						<a href="javascript:;" style="text-decoration:none" class="ml-5 del" title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a>
 					</td>
 				</tr>	
 				@endforeach
@@ -91,7 +91,7 @@
 <script>
 	// ajax删除
 	// alert($);
-	$('.ml-5').click(function(){
+	$('.del').click(function(){
 		id=$(this).parents('tr').find('td').eq(1).html();
 		s=$(this).parents('tr');
 		ss=confirm('确定要删除吗?');

@@ -61,12 +61,10 @@ Route::group([],function(){
 	Route::resource('/admingoods','Admin\Goods\GoodsController');
 	//商品无限分类
 	Route::resource('/admincates','Admin\Cates\CatesController');
-	//商品分类ajax删除
-	Route::get('/admincatessss','Admin\Cates\CatesController@del');
-	//ajax发布
-	Route::get('/admincatesdis','Admin\Cates\CatesController@display');
-	//会员管理ajax删除
-	Route::get('/adminmemberdel','Admin\Member\MemberController@del');
+		//商品分类ajax删除
+		Route::get('/admincatessss','Admin\Cates\CatesController@del');
+		//ajax发布
+		Route::get('/admincatesdis','Admin\Cates\CatesController@display');
 });
 
 
