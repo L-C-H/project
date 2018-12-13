@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Home;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use DB;
 class PersonalController extends Controller
 {
     /**
@@ -15,7 +15,8 @@ class PersonalController extends Controller
     public function index()
     {
         //加载个人主页
-        return view('Home.Personal.personal');
+        // $order = DB::table('order')->where('id','=',$id)->get();
+        return view('Home.Personal.personal',['order'=>$order]);
     }
 
     /**
