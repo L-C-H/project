@@ -1457,7 +1457,7 @@ var _hmt = _hmt || [];
       <li> <a href="http://www.yougou.com/help/zhaopin.shtml" class="title">招贤纳士</a>| </li> 
       <li> <a href="http://www.yougou.com/topics/mobile.shtml" class="title">手机优购</a>| </li> 
       <li> <a href="http://www.yougou.com/help/contactus.shtml" class="title">联系我们</a>| </li> 
-      <li> <a href="http://www.yougou.com/friendlink.shtml" class="title">友情链接</a> </li> 
+      <li> <a href="/Homelink" class="title">友情链接</a> </li> 
      </ul> 
     </div> 
     <div class="copyright"> 

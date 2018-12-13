@@ -24,42 +24,42 @@
 <body>
 <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 物流管理 <span class="c-gray en">&gt;</span> 物流列表 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
 <div class="page-container">
-	<div class="text-c"> 日期范围：
-		<input type="text" name="" id="" placeholder=" 图片名称" style="width:250px" class="input-text">
-		<button name="" id="" class="btn btn-success" type="submit"><i class="Hui-iconfont">&#xe665;</i> 搜图片</button>
-	</div>
 	<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a>
 		<!-- <a class="btn btn-primary radius" onclick="picture_add('添加物流','/adminlogistics/create')" href="javascript:;"><i class="Hui-iconfont">&#xe600;</i> 添加物流</a></span>  -->
-		<span class="r">共有数据：<strong>{{$count}}</strong> 条</span> </div>
+		<span class="r">共有数据：<strong>1</strong> 条</span> </div>
 	<div class="mt-20">
 		<table class="table table-border table-bordered table-bg table-hover table-sort">
 			<thead>
 				<tr class="text-c">
 					<th width="40"><input name="" type="checkbox" value=""></th>
 					<th width="80">ID</th>
-					<th width="100">物流公司</th>
-					<th width="150">收件人</th>
-					<th width="60">地址</th>
-					<th width="60">电话</th>
-					<th width="100">操作</th>
+					<th width="80">订单编号</th>
+					<th width="100">用户名</th>
+					<th width="100">商品名</th>
+					<th width="100">商品图片</th>
+					<th width="100">商品数量</th>
+					<th width="100">商品单价</th>
+					<th width="100">商品总价格</th>
+					<th width="100">订单创建时间</th>
+					<th width="100">订单更新时间</th>
+					<th width="100">商品状态</th>
 				</tr>
 			</thead>
 			<tbody>
-				@foreach($data as $v)
 				<tr class="text-c">
 					<td><input name="" type="checkbox" value=""></td>
-					<td>{{$v->id}}</td>
-					<td class="text-l">{{$v->name}}</td>
-					<td class="text-c">{{$v->consignee}}</td>
-					<td class="td-status">{{$v->log_address}}</td>
-					<td class="td-status">{{$v->phone}}</td>
-					<td class="td-manage">
-						<a style="text-decoration:none" href="/adminlogistics/{{$v->id}}" title="禁用"><i class="Hui-iconfont">&#xe6de;</i></a>
-							<a style="text-decoration:none" class="ml-5" href="adminlogistics/{{$v->id}}/edit" title="编辑"><i class="Hui-iconfont">&#xe6df;</i></a> 
-
-						<!-- <a style="text-decoration:none" class="ml-5 del"  href="javascript:;" title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a></td> -->
+					<td>{{$data->id}}</td>
+					<td class="text-l">{{$data->order_id}}</td>
+					<td class="text-c">{{$data->name}}</td>
+					<td class="td-status">{{$data->goods_name}}</td>
+					<td class="td-status"><img src="{{$data->goods_pic}}" width="30"></td>
+					<td class="td-status">{{$data->order_num}}</td>
+					<td class="td-status">{{$data->goods_price}}</td>
+					<td class="td-status">{{$data->price}}</td>
+					<td class="td-status">{{$data->created_at}}</td>
+					<td class="td-status">{{$data->updated_at}}</td>
+					<td class="td-status">{{$data->status}}</td>
 				</tr>
-				@endforeach
 			</tbody>
 		</table>
 	</div>

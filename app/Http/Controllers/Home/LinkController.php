@@ -1,24 +1,22 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Evaluate;
+namespace App\Http\Controllers\Home;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use DB;
-class EvController extends Controller
+class LinkController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-        //引入评价列表
-        $k = $request->input('keywords');
-        $data = DB::table('evaluate')->where('goods_name','like','%'.$k.'%')->get();
-        $count = count($data);
-        return view('Admin.Evaluate.index',['data'=>$data,'count'=>$count]);
+        //加载友情链接界面
+        $data = DB::table('link')->get();
+        return view('Home.Link.link',['data'=>$data]);
     }
 
     /**
@@ -85,15 +83,5 @@ class EvController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-    public function del(Request $request){
-        $id = $request->input('id');
-        // echo $id;
-        // dd($request->all());
-        if(DB::table('evaluate')->where('id','=',$id)->delete()){
-            echo 1;
-        }
-        // dd($request->all());
     }
 }
