@@ -50,7 +50,7 @@
             <label class="form-label col-xs-4 col-sm-2">图片上传：</label>
             <div class="formControls col-xs-8 col-sm-9">
             <span class="btn-upload form-group">
-  				<input class="input-text upload-url radius" type="text" name="uploadfile-1" id="uploadfile-1" readonly value="{{$data->pic}}"><a href="javascript:void();" class="btn btn-primary radius"><i class="iconfont">&#xf0020;</i> 选择文件</a>
+  				<input class="input-text upload-url radius" type="text" name="pic" id="uploadfile-1" readonly value="{{$data->pic}}"><a href="javascript:void();" class="btn btn-primary radius"><i class="iconfont">&#xf0020;</i> 选择文件</a>
   				<input type="file" multiple name="pic" class="input-file"></span>
             </div>
         </div>

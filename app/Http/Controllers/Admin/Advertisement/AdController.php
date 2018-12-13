@@ -14,6 +14,8 @@ class AdController extends Controller
      */
     public function index(Request $request)
     {
+        //获取总条数
+        $total=DB::table('advertisement')->count();
         //获取关键字
         // var_dump($request);exit;
         $k = $request->input('keywords');
@@ -31,7 +33,7 @@ class AdController extends Controller
         }
         // var_dump($data);exit;
         //引入广告列表页
-        return view('Admin.Advertisement.index',['data'=>$data,'request'=>$request->all()]);
+        return view('Admin.Advertisement.index',['data'=>$data,'total'=>$total,'request'=>$request->all()]);
     }
 
     /**
@@ -56,6 +58,13 @@ class AdController extends Controller
         //获取表单的内容
         $data = $request->except('_token');
         // var_dump($data);exit;
+        $name = $request->name;
+        $content = $request->content;
+        if ($name==null || $content==null) {
+            return back()->withInput();
+        }
+        
+        // var_dump($data);exit;
         //判断是否有文件上传
         if ($request->hasFile('pic')) {
             //初始化名字
@@ -74,6 +83,8 @@ class AdController extends Controller
                 return redirect('/adminadvertisement')->with('error','添加失败');
             }
             
+        }else{
+            return back()->withInput();
         }
         
     }
@@ -112,11 +123,16 @@ class AdController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $name = $request->name;
+        $content = $request->content;
+        if ($name==null || $content==null) {
+            return back()->withInput();
+        }
         // echo $id;
       //判断图片是否修改
         if ($request->hasFile('pic')) {
             $data = $request->except('_token','_method','uploadfile-1');
-            var_dump($data);exit;
+            // var_dump($data);exit;
             //初始化名字
             $name = time()+rand(1,10000);
             //获取上传文件后缀
@@ -134,8 +150,7 @@ class AdController extends Controller
             }
         }
         $data = $request->except('_token','_method');
-        var_dump($data);exit;
-        $data['pic'] = $data['uploadfile-1'];
+         $data['status'] = 0;
         if (DB::table('advertisement')->where('id','=',$id)->update($data)) {
           return redirect('/adminadvertisement')->with('success','修改成功');
         }else{
@@ -156,6 +171,7 @@ class AdController extends Controller
         //
     }
     public function del(Request $request){
+        // echo 1;exit;
        $id = $request->input('id');
        // echo $id; exit;
        if (DB::table('advertisement')->where('id','=',$id)->delete()) {
@@ -178,7 +194,8 @@ class AdController extends Controller
        // echo $status;
        $s = DB::table('advertisement')->where('id','=',$id)->update(['status'=>$status]);
        // echo $s;
-       return $s?1:0;
+      $res = DB::table('advertisement')->where('id','=',$id)->first();
+      return $res->status;
          
 
     }

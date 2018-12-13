@@ -20,6 +20,14 @@
 <script>DD_belatedPNG.fix('*');</script>
 <![endif]-->
 <title>新增广告</title>
+<style>
+.btn-upload{position: relative; display:inline-block;height:36px; *display:inline;overflow:hidden;vertical-align:middle;cursor:pointer}
+.upload-url{cursor: pointer;}
+.input-file{position:absolute; right:0; top:0; cursor: pointer; z-index:1; font-size:30em; *font-size:30px;opacity:0;filter: alpha(opacity=0)}
+.btn-upload .input-text{ width:300px}
+.form-group .upload-btn{ margin-left:-1px}
+
+</style>
 <link href="/static/lib/webuploader/0.1.5/webuploader.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -28,20 +36,22 @@
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>图片名称：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="" placeholder="" id="" name="name">
+				<input type="text" class="input-text" value="{{old('name')}}" placeholder="" id="" name="name">
 			</div>
 		</div>
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2">内容：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<textarea name="content" cols="" rows="" class="textarea"  placeholder="说点什么...最少输入10个字符" datatype="*10-100" dragonfly="true" nullmsg="备注不能为空！" ></textarea>
+				<textarea name="content" cols="" rows="" class="textarea"  placeholder="说点什么...最少输入10个字符" datatype="*10-100" dragonfly="true" nullmsg="备注不能为空！" value="{{old('content')}}"></textarea>
 				<p class="textarea-numberbar"><em class="textarea-length">0</em>/200</p>
 			</div>
 		</div>
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-2">图片上传：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <input type="file" name="pic" class="text-word" value="">
+            <span class="btn-upload form-group">
+  				<input class="input-text upload-url radius" type="text" name="pic" id="uploadfile-1" readonly value="{{old('pic')}}"><a href="javascript:void();" class="btn btn-primary radius"><i class="iconfont">&#xf0020;</i> 选择文件</a>
+  				<input type="file" multiple name="pic" class="input-file"></span>
             </div>
         </div>
          <div class="row cl">
