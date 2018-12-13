@@ -24,13 +24,14 @@ class AdminInsert extends FormRequest
     public function rules()
     {
         return [
-            'name'=>'required'
+            //类名规则
+            'name'=>'required',
         ];
     }
 
     public function messages(){
         return[
-            'name.required'=>'类名不能为空'
+            'name.required'=>'类名不能为空',
             ];
         }
 }

@@ -30,12 +30,20 @@
 </head>
 <body>
 <article class="page-container">
+	@if (count($errors) > 0)
+	<div class="alert alert-danger">
+		<ul>
+			@foreach ($errors->all() as $error)
+				<div class="Huialert Huialert-danger"><i class="Hui-iconfont">&#xe6a6;</i>{{ $error }}</div>
+			@endforeach
+		</ul>
+	</div>
+	@endif
 	<form action="/adminmember" method="post" class="form form-horizontal">
-		
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>用户名：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="" placeholder="输入用户名" id="username" name="username">
+				<input type="text" class="input-text" placeholder="输入用户名" id="username" name="username" value="{{old('username')}}">
 			</div>
 		</div>
 		<div class="row cl">
@@ -58,13 +66,13 @@
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>手机：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="" placeholder="请输入11位手机号" id="mobile" name="phone">
+				<input type="text" class="input-text" placeholder="请输入11位手机号" id="mobile" name="phone" value="{{old('phone')}}">
 			</div>
 		</div>
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>邮箱：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" placeholder="@请输入您的邮箱" name="email" id="email">
+				<input type="text" class="input-text" placeholder="@请输入您的邮箱" name="email" id="email" value="{{old('email')}}">
 			</div>
 		</div>
 		<div class="row cl">
@@ -77,20 +85,19 @@
 			<label class="form-label col-xs-4 col-sm-3">所在地：</label>
 			<div class="formControls col-xs-8 col-sm-9">
 				<span class="select-box">
-					<select class="select" size="1">
+					<select class="select" size="1" name="city">
 						<option value="0" selected disabled>请选择城市</option>
 						@foreach($data as $row)
 						<option value="{{$row->id}}">{{$row->name}}</option>
 						@endforeach
 					</select>
-					<input type="hidden" name="address">
 				</span>
 			</div>
 		</div>
 		<div class="row cl">
 			<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
 				{{csrf_field()}}
-				<input class="btn btn-primary radius give" type="submit" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
+				<input class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
 			</div>
 		</div>
 	</form>
@@ -109,37 +116,11 @@
 <script type="text/javascript" src="/static/lib/jquery.validation/1.14.0/validate-methods.js"></script> 
 <script type="text/javascript" src="/static/lib/jquery.validation/1.14.0/messages_zh.js"></script>
 <script type="text/javascript">
-$(function(){
-	$('.skin-minimal input').iCheck({
-		checkboxClass: 'icheckbox-blue',
-		radioClass: 'iradio-blue',
-		increaseArea: '20%'
-	});
+
+//点击隐藏错误信息
+$('.Huialert').click(function(){
+	$(this).css('display','none');
 });
-// $('.give').click(function(){
-// 	$city=$('select').find('option:selected').eq(1).html();
-// 	console.log($city);
-
-// });
-//获取选中的数据提交到操作页面
-	$(':submit').click(function(){
-		// console.log($('select'));
-		arr =[];
-		$('select').each(function(){
-			
-			opdata=$(this).find('option:selected').html();
-			
-			console.log(opdata);
-			//将我们得到的每个值放置到数组中
-			arr.push(opdata);
-
-		})
-
-		//将 得到的数组直接赋值给隐藏域的value即可
-		$('input[name=address]').val(arr);
-		parent.window.location.href = "/adminmember";
-	})
-
 </script> 
 <!--/请在上方写此页面业务相关的脚本-->
 </body>

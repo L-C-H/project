@@ -61,7 +61,7 @@
 			<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
 				{{csrf_field()}}
 				<button class="btn btn-primary radius" type="submit"><i class="Hui-iconfont">&#xe632;</i> 保存并提交审核</button>
-				<button onClick="removeIframe();" class="btn btn-default radius" type="button">&nbsp;&nbsp;取消&nbsp;&nbsp;</button>
+				<a href="/admincates" class="btn btn-default radius" type="button">&nbsp;&nbsp;取消&nbsp;&nbsp;</a>
 			</div>
 		</div>
 	</form>
@@ -82,6 +82,5 @@
 <script type="text/javascript" src="/static/lib/ueditor/1.4.3/ueditor.config.js"></script> 
 <script type="text/javascript" src="/static/lib/ueditor/1.4.3/ueditor.all.min.js"> </script> 
 <script type="text/javascript" src="/static/lib/ueditor/1.4.3/lang/zh-cn/zh-cn.js"></script>
-
 </body>
 </html>

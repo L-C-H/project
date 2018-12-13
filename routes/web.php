@@ -27,13 +27,17 @@ Route::group([],function(){
 	Route::resource('/adminrole','Admin\User\RoleController');
 	//会员管理(前台)
 	Route::resource('/adminmember','Admin\Member\MemberController');
-	//密码
-	Route::get('/adminmemberpwd/{id}','Admin\Member\MemberController@p');
-	Route::get('/adminmemberpupdate/{id}','Admin\Member\MemberController@pupdate');
-	//删除会员管理
-	// Route::resource('/adminmemberdels','Admin\Member\MemberdelController');
-	//浏览会员管理
-	Route::resource('/adminmemberrecord','Admin\Member\MemberrecordController');
+		//会员管理ajax删除
+		Route::get('/adminmemberdel','Admin\Member\MemberController@del');
+		//会员管理ajax上下架
+		Route::get('/adminmemberdis','Admin\Member\MemberController@display');
+		//密码修改
+		Route::get('/adminmemberpwd/{id}','Admin\Member\MemberController@p');
+		Route::get('/adminmemberpupdate/{id}','Admin\Member\MemberController@pupdate');
+		//删除会员管理
+		Route::resource('/adminmemberdels','Admin\Member\MemberdelController');
+		//浏览会员管理
+		Route::resource('/adminmemberrecord','Admin\Member\MemberrecordController');
 	//轮播图管理
 	Route::resource('/adminrotation','Admin\Rotation\RotationController');
 	//公告管理
