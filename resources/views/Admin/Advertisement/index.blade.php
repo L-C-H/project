@@ -36,7 +36,7 @@
 			<button id="example" class="btn btn-success" type="submit"><i class="Hui-iconfont">&#xe665;</i> 搜图片</button>
 		</div>
 	</form>
-	<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> <a class="btn btn-primary radius" href="/adminadvertisement/create"><i class="Hui-iconfont">&#xe600;</i> 添加广告</a></span> <span class="r">共有数据：<strong>54</strong> 条</span> </div>
+	<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> <a class="btn btn-primary radius" href="/adminadvertisement/create"><i class="Hui-iconfont">&#xe600;</i> 添加广告</a></span> <span class="r">共有数据：<strong>{{$total}}</strong> 条</span> </div>
 	<div class="mt-20">
 		<table class="table table-border table-bordered table-bg table-hover table-sort">
 			<thead>
@@ -44,7 +44,7 @@
 					<th width="40"><input name="" type="checkbox" value=""></th>
 					<th width="80">ID</th>
 					<th width="100">广告图片:</th>
-					<th>广告名称</th>
+					<th width="100">广告名称</th>
 					<th width="150">内容</th>
 					<th width="150">发布时间</th>
 					<th width="60">状态</th>
@@ -58,10 +58,10 @@
 					<td>{{$row->id}}</td>
 					<td><a href=""><img width="210" class="picture-thumb" src="{{$row->pic}}"></a></td>
 					<td class="text-l"><a class="maincolor" href="/adminadvertisement/{{$row->id}}/edit">{{$row->name}}</a></td>
-					<td class="text-c">{{$row->content}}</td>
+					<td class="text-1">{{$row->content}}</td>
 					<td>{{date('Y-m-d',$row->updatetime)}}</td>
 					<td class="td-status"><span class="label label-success radius">{{$row->status}}</span></td>
-					<td class="td-manage"><a style="text-decoration:none" href="javascript:;" title="下架" class="status"><i class="Hui-iconfont">&#xe6de;</i></a> <a style="text-decoration:none" class="ml-5" href="/adminadvertisement/{{$row->id}}/edit" title="编辑"><i class="Hui-iconfont">&#xe6df;</i></a> <a style="text-decoration:none" class="ml-5 del" href="javascript:;" title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
+					<td class="f-14 td-manage"><a style="text-decoration:none" href="javascript:;" title="下架" class="status"><i class="Hui-iconfont">{{$row->status=='下架'?'&#xe631;':'&#xe6e1;'}}</i></a> <a style="text-decoration:none" class="ml-5" href="/adminadvertisement/{{$row->id}}/edit" title="编辑"><i class="Hui-iconfont">&#xe6df;</i></a> <a style="text-decoration:none" class="ml-5 del" href="javascript:;" title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
 				</tr>
 				@endforeach
 			</tbody>
@@ -89,13 +89,20 @@ $('.del').click(function(){
 	s = $(this).parents('tr');
 	ss = confirm('确定要删除吗?');
 		$.get('/adminadvertisementdel',{'id':id},function($data){
-		if (ss) {
+		if (ss==true) {
+			// console.log(ss);
 			if ($data==1) {
 				s.remove();
 				alert('删除成功');
+				$('nav').after('<div class="Huialert Huialert-success"><i class="Hui-iconfont">&#xe6a6;</i>删除成功</div>');
+				$('.Huialert').click(function(){
+					$(this).css('display','none');
+				});
 			}else{
 				alert('删除失败');
 			}
+		}else{
+			location.href = location.href;
 		}
 	});
 	
@@ -103,37 +110,29 @@ $('.del').click(function(){
 //修改状态
 $('.status').click(function(){
 	id = $(this).parents('tr').find('td').eq(1).html();
+	// alert(id);
 	status = $(this).parents('tr').find('td').eq(6).find('span').first().html();
-	s = $(this).parents('tr');
-	if (status=='发布') {
-		ss = confirm('确定要下架吗?');
-			$.get('/adminadvertisementsta',{'id':id},function($data){
-				// console.log($data);
-			if (ss) {
-				if ($data==1) {
-					alert('下架成功');
-					location.href = location.href;
-				}else{
-					alert('下架失败');
-					location.href = location.href;
-				}
-			}
-		});
-	}
-	if (status=='下架') {
+	// alert(status);
+	s = $(this);
 		$.get('/adminadvertisementsta',{'id':id},function($data){
+			// alert($data);
 			if ($data==1) {
-				alert('发布成功');
-				location.href = location.href;
-			}else{
-				alert('发布失败');
-				location.href = location.href;
+				s.parents('td').prev().find('span').html('下架');
+				s.find('i').html('&#xe631;');
+				layer.msg('已下架!',{icon: 5,time:1000});
+				
+			}else if($data==0){
+				s.parents('td').prev().find('span').html('发布');
+				s.find('i').html('&#xe6e1;')
+				layer.msg('已发布!',{icon: 6,time:1000});
 			}
-		
+			
 		});
-	}
 	
+
+		
 });
+
 
 
 

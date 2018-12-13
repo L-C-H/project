@@ -79,7 +79,10 @@ Route::group([],function(){
 
 	//品牌管理
 	Route::resource('/adminbrand','Admin\Brand\BrandController');
-
+		//品牌删除
+		Route::get('/adminbrandel','Admin\Brand\BrandController@del');
+		//下架品牌
+		Route::get('/adminbrandsta','Admin\Brand\BrandController@sta');
 	//商品管理
 	Route::resource('/admingoods','Admin\Goods\GoodsController');
 	//商品无限分类
