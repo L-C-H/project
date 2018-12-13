@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
 <!-- saved from url=(0038)http://www.yougou.com/my/ucindex.jhtml -->
 <html xmlns="http://www.w3.org/1999/xhtml" data-blockbyte-bs-uid="49981"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
@@ -1479,6 +1479,7 @@ YouGou.Util.setHrefStamp('.ucwelcom');
 			<col width="153">
 		</colgroup>
 		<tbody>
+                @foreach($order as $o)
 								<tr>
 								<td class="ttd1">
 									<div class="uc_goods_item uc_myorder_item clearfix">
@@ -1486,18 +1487,21 @@ YouGou.Util.setHrefStamp('.ucwelcom');
 											<dl id="uc_goods_list1" class="uc_goods_list clearfix">
 												<div style="width: 300px; height: 83px; float: left;">
 														<dt class="info1 relative">
-															<a target="_blank" href="http://www.yougou.com/c-staccato/sku-9d978am9-101049362.shtml?t=154441158200210603">
-																	<img src="/static/Home/images/101049362_01_t.jpg" onerror="this.src=&#39;http://pcs2.ygimg.cn/images/common/60x60.jpg&#39;" width="60" height="60" alt="STACCATO/思加图2019专柜同款休闲尖头低跟女皮鞋9D978AM9" title="STACCATO/思加图2019专柜同款休闲尖头低跟女皮鞋9D978AM9">
-															</a> <span class="pink-size" style="display: none;">33码</span>
+															<a target="_blank" href="">
+																	<img src="{{$o->goods_pic}}" onerror="this.src=&#39;http://pcs2.ygimg.cn/images/common/60x60.jpg&#39;" width="60" height="60" alt="STACCATO/思加图2019专柜同款休闲尖头低跟女皮鞋9D978AM9" title="STACCATO/思加图2019专柜同款休闲尖头低跟女皮鞋9D978AM9">
+															</a> <span class="pink-size" style="display: none;">{{$o->order_size}}</span>
 														</dt>
 													<dd class="info3new">
-			                                            <span class="tot_goods fl" style="color: rgb(102, 102, 102); cursor: default;">共1件商品</span>
+			                                            <span class="tot_goods fl" style="color: rgb(102, 102, 102); cursor: default;">共{{$o->order_num}}件商品</span>
 			                                        </dd>
 												</div>
 												<dd class="express info2 fl" style="left: 0px; margin-left: 50px;">
 													<p>
-														订单状态： <span class="pinred"> 		等待买家付款
-								                                   </span>
+														订单状态： <span class="pinred">
+                              @if({{$o->status}}==0)
+                              未付款
+                              @endif
+                            </span>
 
 													</p>
 													
@@ -1518,6 +1522,7 @@ YouGou.Util.setHrefStamp('.ucwelcom');
 				                        </div>
 								</td>
 							</tr>
+              @endforeach
 					<!--判断有没有子订单 end-->
 				<!--有主订单 end-->
 			<!--判断有没有主订单  end-->

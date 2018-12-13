@@ -34,6 +34,12 @@ class CatesController extends Controller
             //重复字符串函数
             $cate[$key]->name=str_repeat('--|',$len).$value->name;
         }
+
+        //修改状态以文字显示
+        $arr=array('上架','下架');
+        foreach($cate as $k=>$v){
+            $v->display=$arr[$v->display];
+        }
         // dd($cate);
         //引入分类列表
         return view('Admin.Cates.index',['cate'=>$cate,'total'=>$total,'request'=>$request->all()]);
@@ -124,7 +130,18 @@ class CatesController extends Controller
         $cate=DB::table('cates')->where('id','=',$id)->get();
         // var_dump($cate);exit;
         //获取所有分类
-        $cates=DB::table('cates')->get();
+        $cates=DB::table('cates')->select(DB::raw("*,concat(path,',',id)as paths"))->orderBy('paths')->get();
+        //加分隔符
+        foreach($cates as $key=>$value){
+            // echo $value->path."<br>";
+            //把path字符串转换为数组
+            $arr=explode(",",$value->path);
+            // var_dump($arr);
+            //获取逗号个数
+            $len=count($arr)-1;
+            //重复字符串函数
+            $cates[$key]->name=str_repeat('--|',$len).$value->name;
+        }
          //引入分类修改页
         return view('Admin.Cates.edit',['cate'=>$cate,'cates'=>$cates,'id'=>$id]);
     }
@@ -195,6 +212,8 @@ class CatesController extends Controller
         }
         // echo $display;
         $result=DB::table('cates')->where('id','=',$id)->update(['display'=>$display]);
-        return $result?'1':'0';
+        // return $result?'1':'0';
+        $res=DB::table('cates')->where('id','=',$id)->first();
+        return $res->display;
     }
 }

@@ -126,7 +126,7 @@
             <dd>
                 <ul>
                     <li><a data-href="/adminmember" data-title="会员列表" href="javascript:;">会员列表</a></li>
-                    <li><a data-href="/adminmemberdel" data-title="删除的会员" href="javascript:;">删除的会员</a></li>
+                    <li><a data-href="/adminmemberdels" data-title="删除的会员" href="javascript:;">删除的会员</a></li>
                     <li><a data-href="/adminmemberrecord" data-title="浏览记录" href="javascript:void(0)">浏览记录</a></li>
             </ul>
         </dd>
