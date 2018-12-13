@@ -24,10 +24,10 @@
 <body>
 <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 商品管理 <span class="c-gray en">&gt;</span> 分类列表 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
 	@if(session('success'))
-		<div class="Huialert Huialert-success"><i class="Hui-iconfont">&#xe6a6;</i>修改成功</div>
+		<div class="Huialert Huialert-success"><i class="Hui-iconfont">&#xe6a6;</i>{{session('success')}}</div>
 	@endif
 	@if(session('error'))
-		<div class="Huialert Huialert-danger"><i class="Hui-iconfont">&#xe6a6;</i>修改失败</div>
+		<div class="Huialert Huialert-danger"><i class="Hui-iconfont">&#xe6a6;</i>{{session('error')}}</div>
 	@endif
 <div class="page-container">
 	<form action="/admincates" method="get">
