@@ -10,13 +10,13 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-
-Route::group([],function(){
-	//登录页面
+//登录页面
 	Route::get('/adminlogin',function(){
 		return view('Admin.Login.login');
 	});
+
+Route::group([],function(){
+	
 	//后台首页
 	Route::get('/admin',function(){
 		return view('Admin.index');
@@ -26,8 +26,12 @@ Route::group([],function(){
 
 	//管理员权限
 	Route::resource('/adminrole','Admin\User\RoleController');
+<<<<<<< HEAD
 
 	//导入会员管理(前台)
+=======
+	//会员管理(前台)
+>>>>>>> 784551f2dafe0d7b64b5d4fdb66944a0747c21ba
 	Route::resource('/adminmember','Admin\Member\MemberController');
 
 	//密码
@@ -35,8 +39,12 @@ Route::group([],function(){
 	Route::get('/adminmemberpupdate/{id}','Admin\Member\MemberController@pupdate');
 
 	//删除会员管理
+<<<<<<< HEAD
 	Route::resource('/adminmemberdel','Admin\Member\MemberdelController');
 
+=======
+	// Route::resource('/adminmemberdels','Admin\Member\MemberdelController');
+>>>>>>> 784551f2dafe0d7b64b5d4fdb66944a0747c21ba
 	//浏览会员管理
 	Route::resource('/adminmemberrecord','Admin\Member\MemberrecordController');
 
@@ -48,6 +56,13 @@ Route::group([],function(){
 
 	//广告管理
 	Route::resource('/adminadvertisement','Admin\Advertisement\AdController');
+<<<<<<< HEAD
+=======
+		//广告删除
+		Route::get('/adminadvertisementdel','Admin\Advertisement\AdController@del');
+		//下架广告
+		Route::get('/adminadvertisementsta','Admin\Advertisement\AdController@sta');
+>>>>>>> 784551f2dafe0d7b64b5d4fdb66944a0747c21ba
 
 	//友情链接
 	Route::resource('/adminlink','Admin\Link\LinkController');
@@ -71,9 +86,17 @@ Route::group([],function(){
 
 	//商品管理
 	Route::resource('/admingoods','Admin\Goods\GoodsController');
+<<<<<<< HEAD
 
 	//商品分类
+=======
+	//商品无限分类
+>>>>>>> 784551f2dafe0d7b64b5d4fdb66944a0747c21ba
 	Route::resource('/admincates','Admin\Cates\CatesController');
+		//商品分类ajax删除
+		Route::get('/admincatessss','Admin\Cates\CatesController@del');
+		//ajax发布
+		Route::get('/admincatesdis','Admin\Cates\CatesController@display');
 });
 
 

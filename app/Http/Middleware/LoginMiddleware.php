@@ -18,10 +18,10 @@ class LoginMiddleware
         // $request 请求报文
         //检测用户是否具有登录的session
         if($request->session()->has('id')){
-        return $next($request);
+            return $next($request);
         }else{
         //跳转到登录界面
-        return redirect("/Homelogin");
+        return redirect("/adminlogin");
         }
     }
 }

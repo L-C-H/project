@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin\Advertisement;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use DB;
 class AdController extends Controller
 {
     /**
@@ -12,10 +12,26 @@ class AdController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        //获取关键字
+        // var_dump($request);exit;
+        $k = $request->input('keywords');
+        // var_dump($k);exit;
+        //获取数据库中的数据
+        $data = DB::table('advertisement')->where('name','like','%'.$k.'%')->paginate(2);
+        // var_dump($data);exit;
+        $arr = array('发布','下架');
+        // var_dump($data);exit;
+        foreach ($data as $key => $value) {
+            // var_dump($value);exit;
+            $value->status = $arr[$value->status];
+            // var_dump($value);exit;
+
+        }
+        // var_dump($data);exit;
         //引入广告列表页
-        return view('Admin.Advertisement.index');
+        return view('Admin.Advertisement.index',['data'=>$data,'request'=>$request->all()]);
     }
 
     /**
@@ -37,7 +53,29 @@ class AdController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //获取表单的内容
+        $data = $request->except('_token');
+        // var_dump($data);exit;
+        //判断是否有文件上传
+        if ($request->hasFile('pic')) {
+            //初始化名字
+            $name = time()+rand(1,10000);
+            //获取上传文件后缀
+            $ext = $request->file('pic')->getClientOriginalExtension();
+            //移动到指定的目录下
+            $request->file('pic')->move('./uploads/Advertisement',$name.".".$ext);
+            //获取图片的名字
+            $data['pic'] = "/uploads/Advertisement/".$name.".".$ext;
+            $data['status'] = 0;
+            // var_dump($data);exit;
+            if (DB::table('advertisement')->insert($data)) {
+               return redirect('/adminadvertisement')->with('success','添加成功');
+            }else{
+                return redirect('/adminadvertisement')->with('error','添加失败');
+            }
+            
+        }
+        
     }
 
     /**
@@ -60,7 +98,9 @@ class AdController extends Controller
     public function edit($id)
     {
          //引入广告修改页
-        return view('Admin.Advertisement.edit');
+         $data = DB::table('advertisement')->where('id','=',$id)->first();
+         // var_dump($data);exit;
+        return view('Admin.Advertisement.edit',['data'=>$data]);
     }
 
     /**
@@ -72,7 +112,37 @@ class AdController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // echo $id;
+      //判断图片是否修改
+        if ($request->hasFile('pic')) {
+            $data = $request->except('_token','_method','uploadfile-1');
+            var_dump($data);exit;
+            //初始化名字
+            $name = time()+rand(1,10000);
+            //获取上传文件后缀
+            $ext = $request->file('pic')->getClientOriginalExtension();
+            //移动到指定的目录下
+            $request->file('pic')->move('./uploads/Advertisement',$name.".".$ext);
+            //获取图片的名字
+            $data['pic'] = "/uploads/Advertisement/".$name.".".$ext;
+            $data['status'] = 0;
+            // var_dump($data);exit;
+            if (DB::table('advertisement')->where('id','=',$id)->update($data)) {
+              return redirect('/adminadvertisement')->with('success','修改成功');
+            }else{
+              return redirect('/adminadvertisement')->with('error','修改失败');
+            }
+        }
+        $data = $request->except('_token','_method');
+        var_dump($data);exit;
+        $data['pic'] = $data['uploadfile-1'];
+        if (DB::table('advertisement')->where('id','=',$id)->update($data)) {
+          return redirect('/adminadvertisement')->with('success','修改成功');
+        }else{
+          return redirect('/adminadvertisement')->with('error','修改失败');
+        }
+
+
     }
 
     /**
@@ -84,5 +154,32 @@ class AdController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function del(Request $request){
+       $id = $request->input('id');
+       // echo $id; exit;
+       if (DB::table('advertisement')->where('id','=',$id)->delete()) {
+            return 1;
+       }else{
+            return 0;
+       }
+    }
+     public function sta(Request $request){
+       $id = $request->input('id');
+       // echo $id; exit;
+       $res = DB::table('advertisement')->where('id','=',$id)->first();
+       // var_dump($res);
+        $status = $res->status;
+        if ($status==0) {
+           $status=1;
+        }else{
+            $status=0;
+        }
+       // echo $status;
+       $s = DB::table('advertisement')->where('id','=',$id)->update(['status'=>$status]);
+       // echo $s;
+       return $s?1:0;
+         
+
     }
 }
