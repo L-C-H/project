@@ -24,9 +24,12 @@ class MemberController extends Controller
         $k=$request->input('keywords');
         //获取所有数据
         $data=DB::table('member')->where('username','like','%'.$k.'%')->paginate(5);
+        //修改用户状态和用户性别以文字显示
         $arr=array('已启用','已禁用');
+        $arr1=array('男','女','保密');
         foreach($data as $key=>$val){
             $val->status=$arr[$val->status];
+            $val->sex=$arr1[$val->sex];
         }
         // dd($data);exit;
         //获取数据总条数
@@ -59,8 +62,8 @@ class MemberController extends Controller
     {
         //执行添加
         // dd($request->all());exit;
-        $city=$request->input('city');
-        $res=DB::table('address')->where('id','=',$city)->first();
+        $address=$request->input('address');
+        $res=DB::table('address')->where('id','=',$address)->first();
         $addressname=$res->name;
         // var_dump($addressname);exit;
         $username=$request->username;
@@ -71,7 +74,7 @@ class MemberController extends Controller
         }
         //去除掉_token字段
         $data=$request->except('_token');
-        $data['city']=$addressname;
+        $data['address']=$addressname;
         //加密密码
         $data['password']=Hash::make($data['password']);
         //格式化时间
@@ -113,9 +116,11 @@ class MemberController extends Controller
         $address=DB::table('address')->where('upid','=',0)->get();
         //通过id获取数据
         $data=DB::table('member')->where('id','=',$id)->first();
-        var_dump($data);
+        // var_dump($data);
+        $addressname=$data->address;
+        $res=DB::table('address')->where('name','=',$addressname)->first();
         //修改密码
-        return view('Admin.Member.edit',['address'=>$address,'data'=>$data]);
+        return view('Admin.Member.edit',['address'=>$address,'data'=>$data,'res'=>$res,'id'=>$id]);
     }
 
     /**
@@ -127,7 +132,23 @@ class MemberController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // echo $id;
+        // var_dump($request->all());exit;
+        //获取到地址id
+        $address=$request->address;
+        //通过地址id查询到地址名字
+        $res=DB::table('address')->where('id','=',$address)->first();
+        // echo $res->name;
+        //把_token和_method字段去掉
+        $data=$request->except('_token','_method');
+        $data['address']=$res->name;
+        // var_dump($data);exit;
+        //更新数据库信息
+        if(DB::table('member')->where('id','=',$id)->update($data)){
+            return redirect('/adminmember')->with('success','修改成功');
+        }else{
+            return redirect('/Adminmember')->with('error','修改失败');
+        }
     }
 
     /**
@@ -147,12 +168,43 @@ class MemberController extends Controller
     }  
 
     //Ajax删除
-    public function del(Request $request){
-        // var_dump($request);
-        $id=$request->input('id');
+    public function del($id){
         // echo $id;
-        $res=DB::table('member')->where('id','=',$id)->delete();
-        return $res?'1':'0';
+        // $id=$request->input('id');
+        // echo $id;exit;
+        //通过id查询数据
+        $res=DB::table('member')->where('id','=',$id)->first();
+        // var_dump($res);exit;
+        //获取到每一个字段的信息
+        $id=$res->id;
+        $username=$res->username;
+        $phone=$res->phone;
+        $sex=$res->sex;
+        $address=$res->address;
+        $email=$res->email;
+        $password=$res->password;
+        $status=$res->status;
+        $addtime=$res->addtime;
+        //把字段信息存到数组中
+        $data=array();
+        $data['id']=$id;
+        $data['username']=$username;
+        $data['phone']=$phone;
+        $data['sex']=$sex;
+        $data['address']=$address;
+        $data['email']=$email;
+        $data['password']=$password;
+        $data['status']=$status;
+        $data['addtime']=$addtime;
+        // var_dump($data);exit;
+        //把查询到的数据添加到删除的用户表中
+        DB::table('del_member')->insert($data);
+        //删除数据
+        if(DB::table('member')->where('id','=',$id)->delete()){
+            return redirect('/adminmember')->with('success','删除成功');
+        }else{
+            return redirect('/adminmember')->with('errror','删除失败');
+        }
     }
 
     //密码修改
@@ -168,7 +220,7 @@ class MemberController extends Controller
     public function pupdate(AdminPedit $request,$id){
         // echo $id;
         //获取全部参数
-        // var_dump($request->all());exit;
+        // var_dump($request->all());
         //存入闪存
         $request->flash();
         //去掉重复密码
@@ -177,9 +229,9 @@ class MemberController extends Controller
         $password=Hash::make($request->input('password'));
         //更新数据库
         if(DB::table('member')->where('id','=',$id)->update(['password'=>$password])){
-            return redirect('/adminmember')->with('successs','密码修改成功');
+            return redirect('/adminmember')->with('success','密码修改成功');
         }else{
-            return redirect('/adminmember')->with('errors','密码修改失败');
+            return redirect('/adminmember')->with('error','密码修改失败');
         }
     }
 

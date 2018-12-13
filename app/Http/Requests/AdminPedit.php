@@ -30,7 +30,7 @@ class AdminPedit extends FormRequest
             'repassword'=>'required|regex:/\w{8,16}/|same:password'
         ];
     }
-
+    //自定义错误信息
     public function messages(){
         return [
             'password.required'=>'密码不能为空',

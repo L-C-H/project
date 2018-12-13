@@ -23,14 +23,20 @@
 </head>
 <body>
 <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 会员中心 <span class="c-gray en">&gt;</span> 删除的会员<a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+@if(session('success'))
+	<div class="Huialert Huialert-success"><i class="Hui-iconfont">&#xe6a6;</i>{{session('success')}}</div>
+@endif
+@if(session('error'))
+	<div class="Huialert Huialert-danger"><i class="Hui-iconfont">&#xe6a6;</i>{{session('error')}}</div>
+@endif
 <div class="page-container">
-	<div class="text-c"> 日期范围：
-		<input type="text" onfocus="WdatePicker({ maxDate:'#F{$dp.$D(\'datemax\')||\'%y-%M-%d\'}' })" id="datemin" class="input-text Wdate" style="width:120px;">
-		-
-		<input type="text" onfocus="WdatePicker({ minDate:'#F{$dp.$D(\'datemin\')}',maxDate:'%y-%M-%d' })" id="datemax" class="input-text Wdate" style="width:120px;">
-		<input type="text" class="input-text" style="width:250px" placeholder="输入会员名称、电话、邮箱" id="" name="">
-		<button type="submit" class="btn btn-success radius" id="" name=""><i class="Hui-iconfont">&#xe665;</i> 搜用户</button>
-	</div>
+	<form action="/adminmemberdels" method="get">
+		{{csrf_field()}}
+		<div class="text-c">
+			<input type="text" class="input-text" style="width:250px" placeholder="输入会员名称、电话、邮箱" id="" name="keywords" value="{{$request['keywords'] or ''}}">
+			<button type="submit" class="btn btn-success radius" id="" name=""><i class="Hui-iconfont">&#xe665;</i> 搜用户</button>
+		</div>
+	</form>
 	<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> </span> <span class="r">共有数据：<strong>88</strong> 条</span> </div>
 	<div class="mt-20">
 	<table class="table table-border table-bordered table-hover table-bg table-sort">
@@ -49,20 +55,26 @@
 			</tr>
 		</thead>
 		<tbody>
+			@foreach($data as $row)
 			<tr class="text-c">
 				<td><input type="checkbox" value="1" name=""></td>
-				<td>1</td>
-				<td><u style="cursor:pointer" class="text-primary" onclick="member_show('张三','member-show.html','10001','360','400')">张三</u></td>
-				<td>男</td>
-				<td>13000000000</td>
-				<td>admin@mail.com</td>
-				<td class="text-l">北京市 海淀区</td>
-				<td>2014-6-11 11:11:42</td>
-				<td class="td-status"><span class="label label-danger radius">已删除</span></td>
-				<td class="td-manage"><a style="text-decoration:none" href="javascript:;" onClick="member_huanyuan(this,'1')" title="还原"><i class="Hui-iconfont">&#xe66b;</i></a> <a title="删除" href="javascript:;" onclick="member_del(this,'1')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
+				<td>{{$row->id}}</td>
+				<td><u style="cursor:pointer" class="text-primary" onclick="member_show('张三','member-show.html','10001','360','400')">{{$row->username}}</u></td>
+				<td>{{$row->sex}}</td>
+				<td>{{$row->phone}}</td>
+				<td>{{$row->email}}</td>
+				<td class="text-l">{{$row->address}}</td>
+				<td>{{$row->addtime}}</td>
+				<td class="td-status"><span class="label label-danger radius">{{$row->status}}</span></td>
+				<td class="td-manage">
+					<a style="text-decoration:none" href="/adminmemberresert/{{$row->id}}" class="resert" title="还原"><i class="Hui-iconfont">&#xe66b;</i></a>
+					<a title="删除" href="javascript:;" class="ml-5 del" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a>
+				</td>
 			</tr>
+			@endforeach
 		</tbody>
 	</table>
+	{{$data->render()}}
 	</div>
 </div>
 <!--_footer 作为公共模版分离出去-->
@@ -76,32 +88,24 @@
 <script type="text/javascript" src="/static/lib/datatables/1.10.0/jquery.dataTables.min.js"></script> 
 <script type="text/javascript" src="/static/lib/laypage/1.2/laypage.js"></script> 
 <script type="text/javascript">
-/*用户-还原*/
-function member_huanyuan(obj,id){
-	layer.confirm('确认要还原吗？',function(index){
-		
-		$(obj).remove();
-		layer.msg('已还原!',{icon: 6,time:1000});
+// ajax删除
+	// alert($);
+	$('.del').click(function(){
+		id=$(this).parents('tr').find('td').eq(1).html();
+		s=$(this).parents('tr');
+		ss=confirm('确定要删除吗?');
+		if(ss){
+			$.get('/adminmemberthrow',{'id':id},function(data){
+				// console.log(data);
+					if (data==1) {
+						layer.msg('删除成功',{icon: 6,time:1000});
+						s.remove();
+					}else{
+						layer.msg('删除失败',{icon: 6,time:1000});
+					}		
+			});
+		}
 	});
-}
-
-/*用户-删除*/
-function member_del(obj,id){
-	layer.confirm('确认要删除吗？',function(index){
-		$.ajax({
-			type: 'POST',
-			url: '',
-			dataType: 'json',
-			success: function(data){
-				$(obj).parents("tr").remove();
-				layer.msg('已删除!',{icon:1,time:1000});
-			},
-			error:function(data) {
-				console.log(data.msg);
-			},
-		});		
-	});
-}
 </script> 
 </body>
 </html>

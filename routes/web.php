@@ -30,8 +30,8 @@ Route::group([],function(){
 	//会员管理(前台)
 	Route::resource('/adminmember','Admin\Member\MemberController');
 
-		//会员管理ajax删除
-		Route::get('/adminmemberdel','Admin\Member\MemberController@del');
+		//会员管理删除
+		Route::get('/adminmemberdel/{id}','Admin\Member\MemberController@del');
 		//会员管理ajax上下架
 		Route::get('/adminmemberdis','Admin\Member\MemberController@display');
 		//密码修改
@@ -39,6 +39,10 @@ Route::group([],function(){
 		Route::get('/adminmemberpupdate/{id}','Admin\Member\MemberController@pupdate');
 		//删除会员管理
 		Route::resource('/adminmemberdels','Admin\Member\MemberdelController');
+			//干掉删除的用户
+			Route::get('/adminmemberthrow','Admin\Member\MemberdelController@del');
+			//还原删除的用户
+			Route::get('/adminmemberresert/{id}','Admin\Member\MemberdelController@resert');
 		//浏览会员管理
 		Route::resource('/adminmemberrecord','Admin\Member\MemberrecordController');
 

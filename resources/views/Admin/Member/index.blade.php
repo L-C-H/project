@@ -29,12 +29,6 @@
 	@if(session('error'))
 		<div class="Huialert Huialert-danger"><i class="Hui-iconfont">&#xe6a6;</i>{{session('error')}}</div>
 	@endif
-	@if(session('successs'))
-		<div class="Huialert Huialert-success"><i class="Hui-iconfont">&#xe6a6;</i>{{session('successs')}}</div>
-	@endif
-	@if(session('errors'))
-		<div class="Huialert Huialert-danger"><i class="Hui-iconfont">&#xe6a6;</i>{{session('errors')}}</div>
-	@endif
 <div class="page-container">
 	<form action="/adminmember" method="get">
 		<div class="text-c">
@@ -80,7 +74,7 @@
 						{{method_field('DELETE')}}
 						<button title="删除" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></button>
 					</form> -->
-					<a title="删除" href="javascript:;" class="ml-5 del" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a>
+					<a title="删除" href="/adminmemberdel/{{$row->id}}" class="ml-5 del" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a>
 				</td>
 			</tr>
 			@endforeach
@@ -128,14 +122,14 @@ $('.dis').click(function(){
 });
 
 // ajax删除
-$('.del').click(function(){
+/*$('.del').click(function(){
 	id=$(this).parents('tr').find('td').eq(1).html();
 	// alert(id);
 	s=$(this);
 	ss=confirm('你确定要删除吗?');
 	if(ss){
 		$.get('/adminmemberdel',{'id':id},function(data){
-			// console.log(data);
+			console.log(data);
 			if(data==1){
 				s.parents('tr').remove();
 				$('nav').after('<div class="Huialert Huialert-success"><i class="Hui-iconfont">&#xe6a6;</i>删除成功</div>');
@@ -150,7 +144,7 @@ $('.del').click(function(){
 			}
 		});
 	}
-});
+});*/
 </script> 
 </body>
 </html>

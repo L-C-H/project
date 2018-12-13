@@ -30,7 +30,9 @@
 </head>
 <body>
 <article class="page-container">
-	<form action="" method="post" class="form form-horizontal" id="form-member-add">
+	<form action="/adminmember/{{$id}}" method="post" class="form form-horizontal" id="form-member-add">
+		{{csrf_field()}}
+		{{method_field('PUT')}}
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>用户名：</label>
 			<div class="formControls col-xs-8 col-sm-9">
@@ -57,7 +59,7 @@
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>手机：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" placeholder="" id="mobile" name="mobile" value="{{$data->phone}}">
+				<input type="text" class="input-text" placeholder="" id="mobile" name="phone" value="{{$data->phone}}">
 			</div>
 		</div>
 		<div class="row cl">
@@ -69,8 +71,8 @@
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3">所在城市：</label>
 			<div class="formControls col-xs-8 col-sm-9"> <span class="select-box">
-				<select class="select" size="1" name="city">
-					<option value="" selected>请选择城市</option>
+				<select class="select" size="1" name="address">
+					<option value="{{$res->id}}" selected disabled>{{$res->name}}</option>
 					@foreach($address as $row)
 					<option value="{{$row->id}}">{{$row->name}}</option>
 					@endforeach

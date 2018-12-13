@@ -85,7 +85,7 @@
 			<label class="form-label col-xs-4 col-sm-3">所在地：</label>
 			<div class="formControls col-xs-8 col-sm-9">
 				<span class="select-box">
-					<select class="select" size="1" name="city">
+					<select class="select" size="1" name="address">
 						<option value="0" selected disabled>请选择城市</option>
 						@foreach($data as $row)
 						<option value="{{$row->id}}">{{$row->name}}</option>
