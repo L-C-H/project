@@ -25,41 +25,34 @@
 <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 物流管理 <span class="c-gray en">&gt;</span> 物流列表 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
 <div class="page-container">
 	<div class="text-c"> 日期范围：
+		<input type="text" onfocus="WdatePicker({ maxDate:'#F{$dp.$D(\'logmax\')||\'%y-%M-%d\'}' })" id="logmin" class="input-text Wdate" style="width:120px;">
+		-
+		<input type="text" onfocus="WdatePicker({ minDate:'#F{$dp.$D(\'logmin\')}',maxDate:'%y-%M-%d' })" id="logmax" class="input-text Wdate" style="width:120px;">
 		<input type="text" name="" id="" placeholder=" 图片名称" style="width:250px" class="input-text">
 		<button name="" id="" class="btn btn-success" type="submit"><i class="Hui-iconfont">&#xe665;</i> 搜图片</button>
 	</div>
-	<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a>
-		<!-- <a class="btn btn-primary radius" onclick="picture_add('添加物流','/adminlogistics/create')" href="javascript:;"><i class="Hui-iconfont">&#xe600;</i> 添加物流</a></span>  -->
-		<span class="r">共有数据：<strong>{{$count}}</strong> 条</span> </div>
+	<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a><a class="btn btn-primary radius" onclick="picture_add('添加物流','/adminlogistics/create')" href="javascript:;"><i class="Hui-iconfont">&#xe600;</i> 添加物流</a></span> <span class="r">共有数据：<strong>54</strong> 条</span> </div>
 	<div class="mt-20">
 		<table class="table table-border table-bordered table-bg table-hover table-sort">
 			<thead>
 				<tr class="text-c">
 					<th width="40"><input name="" type="checkbox" value=""></th>
 					<th width="80">ID</th>
-					<th width="100">物流公司</th>
-					<th width="150">收件人</th>
-					<th width="60">地址</th>
-					<th width="60">电话</th>
+					<th width="100">物流公司名称</th>
+					<th width="150">物流名称</th>
+					<th width="60">显示状态</th>
 					<th width="100">操作</th>
 				</tr>
 			</thead>
 			<tbody>
-				@foreach($data as $v)
 				<tr class="text-c">
 					<td><input name="" type="checkbox" value=""></td>
-					<td>{{$v->id}}</td>
-					<td class="text-l">{{$v->name}}</td>
-					<td class="text-c">{{$v->consignee}}</td>
-					<td class="td-status">{{$v->log_address}}</td>
-					<td class="td-status">{{$v->phone}}</td>
-					<td class="td-manage">
-						<a style="text-decoration:none" href="/adminlogistics/{{$v->id}}" title="禁用"><i class="Hui-iconfont">&#xe6de;</i></a>
-							<a style="text-decoration:none" class="ml-5" href="adminlogistics/{{$v->id}}/edit" title="编辑"><i class="Hui-iconfont">&#xe6df;</i></a> 
-
-						<!-- <a style="text-decoration:none" class="ml-5 del"  href="javascript:;" title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a></td> -->
+					<td>001</td>
+					<td class="text-l"><a class="maincolor" href="javascript:;" onClick="picture_edit('图库编辑','https://www.zto.com/','10001')">中通快递股份有限公司 </a></td>
+					<td class="text-c">中通快递</td>
+					<td class="td-status"><span class="label label-success radius">使用</span></td>
+					<td class="td-manage"><a style="text-decoration:none" onClick="picture_stop(this,'10001')" href="javascript:;" title="禁用"><i class="Hui-iconfont">&#xe6de;</i></a> <a style="text-decoration:none" class="ml-5" onClick="picture_edit('物流编辑','/adminlogistics/1/edit','10001')" href="javascript:;" title="编辑"><i class="Hui-iconfont">&#xe6df;</i></a> <a style="text-decoration:none" class="ml-5" onClick="picture_del(this,'10001')" href="javascript:;" title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
 				</tr>
-				@endforeach
 			</tbody>
 		</table>
 	</div>
@@ -139,7 +132,6 @@ function picture_del(obj,id){
 		});		
 	});
 }
-$('.table-sort').dataTable({})
 </script>
 </body>
 </html>
