@@ -4,7 +4,8 @@ namespace App\Http\Controllers\Admin\Advertisement;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+//导入DB类
+use DB;
 class AdController extends Controller
 {
     /**

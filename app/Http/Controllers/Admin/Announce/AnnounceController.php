@@ -4,7 +4,8 @@ namespace App\Http\Controllers\Admin\Announce;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+//导入DB类
+use DB;
 class AnnounceController extends Controller
 {
     /**
