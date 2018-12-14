@@ -11,21 +11,26 @@
 |
 */
 //登录页面
-	Route::get('/adminlogin',function(){
-		return view('Admin.Login.login');
-	});
+	Route::resource('/adminlogin','Admin\Login\LoginController');
 
-Route::group([],function(){
+Route::group(['middleware'=>'adminlogin'],function(){
 	
 	//后台首页
-	Route::get('/admin',function(){
-		return view('Admin.index');
-	});
+	Route::resource("/admin","Admin\AdminController");
 	//管理员管理(后台)
 	Route::resource('/adminuser','Admin\User\UserController');
-
-	//管理员权限
-	Route::resource('/adminrole','Admin\User\RoleController');
+	    //分配角色
+        Route::get("/adminrole/{id}","Admin\User\UserController@role");
+        //保存角色
+        Route::post("/adminsaverole","Admin\User\UserController@saverole");
+        //角色管理
+        Route::resource("/adminrolelist","Admin\User\RolelistController");
+           //删除权限
+           // Route::get("/adminlist","Admin\User\RolelistController@del");
+        //分配权限
+        Route::get("/adminauth/{id}","Admin\User\RolelistController@auth");
+        //保存权限
+        Route::post("/saveauth","Admin\User\RolelistController@saveauth");
 
 	//会员管理(前台)
 	Route::resource('/adminmember','Admin\Member\MemberController');

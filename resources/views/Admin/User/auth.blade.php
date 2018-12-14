@@ -1,4 +1,4 @@
-<!DOCTYPE HTML>
+﻿<!DOCTYPE HTML>
 <html>
 <head>
 <meta charset="utf-8">
@@ -19,67 +19,25 @@
 <script type="text/javascript" src="lib/DD_belatedPNG_0.0.8a-min.js" ></script>
 <script>DD_belatedPNG.fix('*');</script>
 <![endif]-->
-<title>添加管理员 - 管理员管理 - H-ui.admin v3.1</title>
+<title>添加权限</title>
 <meta name="keywords" content="H-ui.admin v3.1,H-ui网站后台模版,后台模版下载,后台管理系统模版,HTML后台模版下载">
 <meta name="description" content="H-ui.admin v3.1，是一款由国人开发的轻量级扁平化网站后台模板，完全免费开源的网站后台管理系统模版，适合中小型CMS后台系统。">
 </head>
 <body>
 <article class="page-container">
-	<form class="form form-horizontal" id="form-admin-add" action="/adminuser" method="post" >
-	<div class="row cl">
-		<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>管理员：</label>
-		<div class="formControls col-xs-8 col-sm-9">
-			<input type="text" class="input-text" value="" placeholder="" id="adminName" name="name">
-		</div>
+	<form class="form form-horizontal" id="form-admin-add" action="/saveauth" method="post">
 	</div>
-	<div class="row cl">
-		<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>密码：</label>
-		<div class="formControls col-xs-8 col-sm-9">
-			<input type="password" class="input-text" autocomplete="off" value="" placeholder="密码" id="password" name="password">
+	<center>
+	    <div class="row cl">
+		<!-- <label class="form-label col-xs-4 col-sm-3">角色：</label> -->
+		<h4>当前用户:{{$user->name}} 的角色信息</h4>
+		<!-- <div class="formControls col-xs-8 col-sm-9"> <span class="select-box" style="width:150px;"></span> 
+		</div> -->
+        @foreach($node as $value)
+        <input type="checkbox" name="nids[]" value="{{$value->id}}" @if(in_array($value->id,$nids)) checked @endif ><label>{{$value->name}}</label>
+        @endforeach
 		</div>
-	</div>
-<!-- 	<div class="row cl">
-		<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>确认密码：</label>
-		<div class="formControls col-xs-8 col-sm-9">
-			<input type="password" class="input-text" autocomplete="off"  placeholder="确认新密码" id="password2" name="password2">
-		</div>
-	</div> -->
-<!-- 	<div class="row cl">
-		<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>性别：</label>
-		<div class="formControls col-xs-8 col-sm-9 skin-minimal">
-			<div class="radio-box">
-				<input name="sex" type="radio" id="sex-1" checked>
-				<label for="sex-1">男</label>
-			</div>
-			<div class="radio-box">
-				<input type="radio" id="sex-2" name="sex">
-				<label for="sex-2">女</label>
-			</div>
-		</div>
-	</div> -->
-<!-- 	<div class="row cl">
-		<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>手机：</label>
-		<div class="formControls col-xs-8 col-sm-9">
-			<input type="text" class="input-text" value="" placeholder="" id="phone" name="phone">
-		</div>
-	</div> -->
-<!-- 	<div class="row cl">
-		<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>邮箱：</label>
-		<div class="formControls col-xs-8 col-sm-9">
-			<input type="text" class="input-text" placeholder="@" name="email" id="email">
-		</div>
-	</div> -->
-<!-- 	<div class="row cl">
-		<label class="form-label col-xs-4 col-sm-3">角色：</label>
-		<div class="formControls col-xs-8 col-sm-9"> <span class="select-box" style="width:150px;">
-			<select class="select" name="adminRole" size="1">
-				<option value="0">超级管理员</option>
-				<option value="1">总编</option>
-				<option value="2">栏目主辑</option>
-				<option value="3">栏目编辑</option>
-			</select>
-			</span> </div>
-	</div> -->
+
 <!-- 	<div class="row cl">
 		<label class="form-label col-xs-4 col-sm-3">备注：</label>
 		<div class="formControls col-xs-8 col-sm-9">
@@ -87,12 +45,15 @@
 			<p class="textarea-numberbar"><em class="textarea-length">0</em>/100</p>
 		</div>
 	</div> -->
-	<div class="row cl">
-		<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">	
-		{{csrf_field()}}		
-			<input class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">			
+		<div class="row cl">
+			<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
+				{{csrf_field()}}
+				<input type="hidden" name="rid" value="{{$user->id}}">
+				<input class="btn btn-primary radius" type="submit" value="分配权限">
+				
+			</div>
 		</div>
-	</div>
+	</center>
 	</form>
 </article>
 
@@ -107,7 +68,14 @@
 <script type="text/javascript" src="/static/lib/jquery.validation/1.14.0/validate-methods.js"></script> 
 <script type="text/javascript" src="/static/lib/jquery.validation/1.14.0/messages_zh.js"></script> 
 <script type="text/javascript">
-
+$(function(){
+	$('.skin-minimal input').iCheck({
+		checkboxClass: 'icheckbox-blue',
+		radioClass: 'iradio-blue',
+		increaseArea: '20%'
+	});
+	
+});
 </script> 
 <!--/请在上方写此页面业务相关的脚本-->
 </body>

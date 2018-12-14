@@ -44,11 +44,11 @@
             <ul class="cl">
                 <li>超级管理员</li>
                 <li class="dropDown dropDown_hover">
-                    <a href="#" class="dropDown_A">admin <i class="Hui-iconfont">&#xe6d5;</i></a>
+                    <a href="#" class="dropDown_A">{{session('name')}} <i class="Hui-iconfont">&#xe6d5;</i></a>
                     <ul class="dropDown-menu menu radius box-shadow">
                         <li><a href="javascript:;" onClick="myselfinfo()">个人信息</a></li>
                         <li><a href="#">切换账户</a></li>
-                        <li><a href="#">退出</a></li>
+                        <li><a href="/adminlogin">退出</a></li>
                 </ul>
             </li>
                 <li id="Hui-msg"> <a href="#" title="消息"><span class="badge badge-danger">1</span><i class="Hui-iconfont" style="font-size:18px">&#xe68a;</i></a> </li>
@@ -134,9 +134,10 @@
         <dl id="menu-admin">
             <dt><i class="Hui-iconfont">&#xe62d;</i> 管理员管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
             <dd>
-                <ul>
-                    <li><a data-href="/adminrole" data-title="权限管理" href="javascript:void(0)">权限管理</a></li>
+                <ul>                   
                     <li><a data-href="/adminuser" data-title="管理员列表" href="javascript:void(0)">管理员列表</a></li>
+                    <li><a data-href="/adminrolelist" data-title="角色列表" href="javascript:void(0)">角色列表</a></li>
+                   <!--  <li><a data-href="/adminrolelist/create" data-title="角色添加" href="javascript:void(0)">角色添加</a></li> -->
             </ul>
         </dd>
     </dl>
@@ -195,6 +196,9 @@
 </div>
     <div id="iframe_box" class="Hui-article">
         <div class="show_iframe">
+            @if(session('error'))
+              {{session('error')}}
+            @endif
             <div style="display:none" class="loading"></div>
             
             @section('right')
@@ -227,6 +231,7 @@ $(function(){
         }
     });*/
 });
+
 /*个人信息*/
 function myselfinfo(){
     layer.open({

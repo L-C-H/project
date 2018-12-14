@@ -68,7 +68,7 @@ class LinkController extends Controller
      */
     public function edit($id)
     {
-        //引入友情链接列表页
+        //引入友情链接编辑页
         // dd($id);
         $data = DB::table('link')->where('id','=',$id)->first();
         // dd($data);
