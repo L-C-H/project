@@ -44,7 +44,6 @@ class Adminloginmiddleware
                         
                         alert('对不起,你没有访问的权限,请联系超级管理员吧');
                         </script>";
-                session('error','');
                 exit;
                
                return redirect("/admin")->with("error","");

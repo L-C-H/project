@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin\Logistics;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Log;
+
 class LogController extends Controller
 {
     /**
@@ -15,9 +15,7 @@ class LogController extends Controller
     public function index()
     {
         //引入物流列表
-        $data = Log::get();
-        $count = count($data);
-        return view('Admin.Logistics.index',['data'=>$data,'count'=>$count]);
+        return view('Admin.Logistics.index');
     }
 
     /**
@@ -50,9 +48,7 @@ class LogController extends Controller
      */
     public function show($id)
     {
-        //获取订单信息
-        $data = Log::find($id)->or;
-        return view('Admin.Logistics.ord',['data'=>$data]);
+        //
     }
 
     /**
@@ -64,9 +60,7 @@ class LogController extends Controller
     public function edit($id)
     {
         //引入物流修改页
-        $data = Log::where('id','=',$id)->first();
-        // var_dump($data);exit;
-        return view('Admin.Logistics.edit',['data'=>$data]);
+        return view('Admin.Logistics.edit');
     }
 
     /**
@@ -79,11 +73,6 @@ class LogController extends Controller
     public function update(Request $request, $id)
     {
         //
-        // dd($request->all());
-        $data = $request->except(['_token','_method']);
-        if(Log::where('id','=',$id)->delete()){
-            return redirect('/adminlogistics')->with('success','修改成功');
-        }
     }
 
     /**

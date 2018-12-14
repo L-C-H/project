@@ -28,36 +28,33 @@
 </head>
 <body>
 <article class="page-container">
-	<form class="form form-horizontal" id="form-article-add" action="/adminlogistics/{{$data->id}}" method="post">
+	<form class="form form-horizontal" id="form-article-add">
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2">物流公司：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text"  placeholder="" id="author" name="name" value="{{$data->name}}">
+				<input type="text" class="input-text"  placeholder="" id="author" name="author">
 			</div>
 		</div>
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2">收件人：</label>
+			<label class="form-label col-xs-4 col-sm-2">物流名称：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text"  placeholder="" id="author" name="consignee" value="{{$data->consignee}}">
+				<input type="text" class="input-text"  placeholder="" id="author" name="author">
 			</div>
 		</div>
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2">收件地址：</label>
-			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text"  placeholder="" id="author" name="log_address" value="{{$data->log_address}}">
-			</div>
+			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>状态：</label>
+			<div class="formControls col-xs-8 col-sm-9"> <span class="select-box">
+				<select name="articlecolumn" class="select">
+					<option value="0">使用</option>
+					<option value="1">未使用</option>
+				</select>
+				</span> </div>
 		</div>
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2">收件人电话：</label>
-			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text"  placeholder="" id="author" name="phone" value="{{$data->phone}}">
-			</div>
-		</div>
-		{{csrf_field()}}
-		{{method_field('PUT')}}
 		<div class="row cl">
 			<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
-				<input class="btn btn-default radius" type="submit" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
+				<button onClick="article_save_submit();" class="btn btn-primary radius" type="submit"><i class="Hui-iconfont">&#xe632;</i> 保存并提交审核</button>
+				<button onClick="article_save();" class="btn btn-secondary radius" type="button"><i class="Hui-iconfont">&#xe632;</i> 保存草稿</button>
+				<button onClick="removeIframe();" class="btn btn-default radius" type="button">&nbsp;&nbsp;取消&nbsp;&nbsp;</button>
 			</div>
 		</div>
 	</form>

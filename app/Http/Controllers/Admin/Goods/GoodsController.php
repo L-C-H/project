@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin\Goods;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use DB;
+
 class GoodsController extends Controller
 {
     /**
@@ -14,10 +14,8 @@ class GoodsController extends Controller
      */
     public function index()
     {
-         //获取总条数
-        $total=DB::table('goods')->count();
         //导入商品列表页
-        return view('Admin.Goods.index',['total'=>$total]);
+        return view('Admin.Goods.index');
     }
 
     /**
@@ -27,21 +25,8 @@ class GoodsController extends Controller
      */
     public function create()
     {
-         //获取所有分类信息
-        $cate=DB::table("cates")->select(DB::raw("*,concat(path,',',id)as paths"))->orderBy('paths')->get();
-        //加分隔符
-        foreach($cate as $key=>$value){
-            // echo $value->path."<br>";
-            //把path字符串转换为数组
-            $arr=explode(",",$value->path);
-            // var_dump($arr);
-            //获取逗号个数
-            $len=count($arr)-1;
-            //重复字符串函数
-            $cate[$key]->name=str_repeat('--|',$len).$value->name;
-        }
         //导入商品列表页
-        return view('Admin.Goods.add',['cate'=>$cate]);
+        return view('Admin.Goods.add');
     }
 
     /**
@@ -52,7 +37,7 @@ class GoodsController extends Controller
      */
     public function store(Request $request)
     {
-        var_dump($request);exit;
+        //
     }
 
     /**
