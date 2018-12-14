@@ -25,17 +25,17 @@
 </head>
 <body>
 <article class="page-container">
-	<form class="form form-horizontal" id="form-admin-add" action="/adminuser" method="post" >
+	<form class="form form-horizontal" id="form-admin-add" action="/adminrolelist/{{$user->id}}" method="post" >
 	<div class="row cl">
 		<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>管理员：</label>
 		<div class="formControls col-xs-8 col-sm-9">
-			<input type="text" class="input-text" value="" placeholder="" id="adminName" name="name">
+			<input type="text" class="input-text" value="{{$user->name}}" placeholder="" id="adminName" name="name">
 		</div>
 	</div>
 	<div class="row cl">
-		<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>密码：</label>
+		<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>状态：</label>
 		<div class="formControls col-xs-8 col-sm-9">
-			<input type="password" class="input-text" autocomplete="off" value="" placeholder="密码" id="password" name="password">
+			<input type="text" class="input-text" autocomplete="off" value="{{$user->status}}" placeholder="状态码" id="password" name="status">
 		</div>
 	</div>
 <!-- 	<div class="row cl">
@@ -88,8 +88,9 @@
 		</div>
 	</div> -->
 	<div class="row cl">
-		<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">	
-		{{csrf_field()}}		
+		<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
+			{{csrf_field()}}
+			{{method_field("PUT")}}
 			<input class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">			
 		</div>
 	</div>
@@ -107,6 +108,7 @@
 <script type="text/javascript" src="/static/lib/jquery.validation/1.14.0/validate-methods.js"></script> 
 <script type="text/javascript" src="/static/lib/jquery.validation/1.14.0/messages_zh.js"></script> 
 <script type="text/javascript">
+
 
 </script> 
 <!--/请在上方写此页面业务相关的脚本-->

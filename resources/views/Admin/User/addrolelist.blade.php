@@ -25,17 +25,17 @@
 </head>
 <body>
 <article class="page-container">
-	<form class="form form-horizontal" id="form-admin-add" action="/adminuser" method="post" >
+	<form class="form form-horizontal" id="form-admin-add" action="/adminrolelist" method="post" >
 	<div class="row cl">
-		<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>管理员：</label>
+		<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>管理员名称：</label>
 		<div class="formControls col-xs-8 col-sm-9">
 			<input type="text" class="input-text" value="" placeholder="" id="adminName" name="name">
 		</div>
 	</div>
 	<div class="row cl">
-		<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>密码：</label>
+		<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>状态：</label>
 		<div class="formControls col-xs-8 col-sm-9">
-			<input type="password" class="input-text" autocomplete="off" value="" placeholder="密码" id="password" name="password">
+			<input type="text" class="input-text" autocomplete="off" value="" placeholder="状态码" id="password" name="status">
 		</div>
 	</div>
 <!-- 	<div class="row cl">

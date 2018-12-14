@@ -27,13 +27,13 @@
   <nav class="breadcrumb">
    <i class="Hui-iconfont"></i> 首页 
    <span class="c-gray en">&gt;</span> 管理员管理 
-   <span class="c-gray en">&gt;</span> 管理员列表 
+   <span class="c-gray en">&gt;</span> 角色列表 
    <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新"><i class="Hui-iconfont"></i></a>
   </nav> 
-    @if(session('success'))
-      <div class="Huialert Huialert-success"><i class="Hui-iconfont">&#xe6a6;</i>{{session('success')}}</div>
-    @endif
-     @if(session('error'))
+  @if(session('success'))
+    <div class="Huialert Huialert-success"><i class="Hui-iconfont">&#xe6a6;</i>{{session('success')}}</div>
+  @endif
+    @if(session('error'))
     <div class="Huialert Huialert-success"><i class="Hui-iconfont">&#xe6a6;</i>{{session('error')}}</div>
   @endif
   @if(session('successdel'))  
@@ -49,7 +49,7 @@
      <div class="Huialert Huialert-success"><i class="Hui-iconfont">&#xe6a6;</i> {{session('erroredit')}}</div>
   @endif
   <div class="page-container"> 
- <!--   <div class="text-c">
+<!--    <div class="text-c">
      日期范围： 
     <input type="text" onfocus="WdatePicker({ maxDate:'#F{$dp.$D(\'datemax\')||\'%y-%M-%d\'}' })" id="datemin" class="input-text Wdate" style="width:120px;" /> - 
     <input type="text" onfocus="WdatePicker({ minDate:'#F{$dp.$D(\'datemin\')}',maxDate:'%y-%M-%d' })" id="datemax" class="input-text Wdate" style="width:120px;" /> 
@@ -58,20 +58,20 @@
    </div>  -->
    <div class="cl pd-5 bg-1 bk-gray mt-20"> 
     <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont"></i> 批量删除</a> 
-      <a href="/adminuser/create"  class="btn btn-primary radius"><i class="Hui-iconfont"></i> 添加管理员</a>
+      <a href="/adminrolelist/create"  class="btn btn-primary radius"><i class="Hui-iconfont"></i> 添加角色</a>
     </span> 
     <span class="r">共有数据：<strong>54</strong> 条</span> 
    </div> 
    <table class="table table-border table-bordered table-bg"> 
     <thead> 
      <tr> 
-      <th scope="col" colspan="5">管理员列表</th> 
+      <th scope="col" colspan="5">角色列表</th> 
      </tr> 
      <tr class="text-c"> 
       <th width="25"><input type="checkbox" name="" value="" /></th> 
       <th width="40">ID</th> 
-      <th width="150">用户名</th> 
-      <th width="90">密码</th> 
+      <th width="150">角色名</th> 
+      <th width="90">状态</th> 
      <!--  <th width="150">状态</th>  -->
       <!-- <th>用户等级</th> --> 
       <!-- <th width="130">加入时间</th> 
@@ -80,29 +80,30 @@
      </tr> 
     </thead> 
     <tbody> 
-      @foreach($admin as $row)
+      @foreach($role as $row)
      <tr class="text-c"> 
       <td><input type="checkbox" value="2" name="" /></td> 
       <td>{{$row->id}}</td> 
       <td>{{$row->name}}</td> 
-      <td>{{$row->password}}</td> 
+      <td>{{$row->status}}</td> 
    <!--    <td>admin@mail.com</td>  -->
       <!-- <td>栏目编辑</td>  -->
       <!-- <td>2014-6-11 11:11:42</td>  -->
      <!--  <td class="td-status"><span class="label radius">已停用</span></td>  -->
       <td class="td-manage">
        <!--  <a style="text-decoration:none" onclick="admin_start(this,'10001')" href="javascript:;" title="启用"><i class="Hui-iconfont"></i></a> -->
-   <!--     <a title="编辑" href="/adminuser/{{$row->id}}/edit" onclick="admin_edit('管理员编辑','/adminuser/1/edit','2','800','500')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont"></i></a> -->
-   <a href="/adminuser/{{$row->id}}/edit" class="btn btn-warning">修改用户</a>
-        <form action="/adminuser/{{$row->id}}" method="post">
+      <!--  <a title="编辑" href="/adminrolelist/{{$row->id}}/edit" onclick="admin_edit('管理员编辑','/adminuser/1/edit','2','800','500')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont"></i></a> -->
+      <a href="/adminrolelist/{{$row->id}}/edit" class="btn btn-danger">修改权限</a>
+        <form action="/adminrolelist/{{$row->id}}" method="post">
           {{csrf_field()}}
           {{method_field("DELETE")}}
       <!--  <a title="删除" href="javascript:;" onclick="admin_del(this,'1')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont"></i></a> -->
-        <!-- <button href="javascript:;" onclick="admin_del(this,'1')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont"></i></button> -->
-        <button class="btn btn-danger">删除用户</button>
+       <!--  <button href="javascript:;" onclick="admin_del(this,'1')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont"></i></button>  -->
+       <button class="btn btn-warning">删除权限</button> 
        </form>
+     <!-- <a class="btn btn-warning del">删除权限</a> -->
       <!--  <a href=""><i class="Hui-iconfont">&#xe61f;</i></a> -->
-      <a href="/adminrole/{{$row->id}}" class="btn btn-success">分配角色</a>
+      <a href="/adminauth/{{$row->id}}" class="btn btn-success">分配权限</a>
      </td> 
      </tr> 
      @endforeach
@@ -181,5 +182,21 @@ function admin_start(obj,id){
 }
 
 </script>  
+<script>
+  // alert($);
+  // 获取删除按钮
+   // $(".del").click(function(){
+   //      id = $(this).parents("tr").find('td').eq(1).html();
+   //        // alert(id);
+   //      s = $(this).parents("tr");
+   //      // ss = confirm("你确定要删除吗?");
+   //      // if (ss) {
+   //        $.get("/adminlist",{'id':id},function(data){
+   //            console.log(data);
+   //            alert(data);
+   //        });
+   //      // }
+   // });
+</script>
  </body>
 </html>
