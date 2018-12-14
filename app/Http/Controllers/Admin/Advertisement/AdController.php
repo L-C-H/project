@@ -13,7 +13,7 @@ class AdController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //获取总条数
         $total=DB::table('advertisement')->count();
