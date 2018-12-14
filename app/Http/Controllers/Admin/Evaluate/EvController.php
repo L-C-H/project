@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin\Evaluate;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use DB;
 class EvController extends Controller
 {
     /**
@@ -12,12 +12,11 @@ class EvController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //引入评价列表
-
-        $kw = $request->input('keywords');
-        $data = DB::table('evaluate')->where('goods_name','like','%'.$kw.'%')->get();
+        $k = $request->input('keywords');
+        $data = DB::table('evaluate')->where('goods_name','like','%'.$k.'%')->get();
         $count = count($data);
         return view('Admin.Evaluate.index',['data'=>$data,'count'=>$count]);
     }
@@ -86,5 +85,15 @@ class EvController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function del(Request $request){
+        $id = $request->input('id');
+        // echo $id;
+        // dd($request->all());
+        if(DB::table('evaluate')->where('id','=',$id)->delete()){
+            echo 1;
+        }
+        // dd($request->all());
     }
 }

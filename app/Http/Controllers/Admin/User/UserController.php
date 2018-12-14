@@ -132,10 +132,10 @@ class UserController extends Controller
         $user = DB::table("admin_users")->where("id","=",$id)->first();
         //获取角色表的信息
         $role = DB::table("role")->get();
-        //获取当前用户已用的角色
+        //或许当前用户已用的角色
         $data = DB::table("user_role")->where("uid","=",$id)->get();
         // echo "<pre>";
-        // var_dump($data);exit;
+        // var_dump($data);
         if (count($data)) {
             //获取当前有角色的信息
             //遍历
