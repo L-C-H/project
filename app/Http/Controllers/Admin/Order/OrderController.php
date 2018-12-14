@@ -4,8 +4,7 @@ namespace App\Http\Controllers\Admin\Order;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use DB;
-use App\Models\Order;
+
 class OrderController extends Controller
 {
     /**
@@ -13,24 +12,10 @@ class OrderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
         //引入订单列表
-        $order_id = $request->input('order_id');
-        if(empty($order_id)){
-            $data = Order::get();
-        }else{
-            $data = Order::where('order_id','=',$order_id)->get();
-        }
-
-        $name = $request->input('name');
-        if(empty($name)){
-            $data = Order::get();
-        }else{
-            $data = Order::where('name','like',$name)->get();
-        }
-        $count = count($data);
-        return view('Admin.Order.index',['data'=>$data,'count'=>$count]);
+        return view('Admin.Order.index');
     }
 
     /**
@@ -63,9 +48,6 @@ class OrderController extends Controller
     public function show($id)
     {
         //
-        $log = Order::find($id)->log;
-        return view('Admin.Order.log',['log'=>$log]);
-        // var_dump($log);
     }
 
     /**
@@ -77,9 +59,7 @@ class OrderController extends Controller
     public function edit($id)
     {
         //引入修改订单页
-        $data = DB::table('logistics')->where('id','=',$id)->first();
-        // var_dump($data);
-        return view('Admin.Order.edit',['data'=>$data]);
+        return view('Admin.Order.edit');
     }
 
     /**
@@ -92,12 +72,6 @@ class OrderController extends Controller
     public function update(Request $request, $id)
     {
         //
-        // dd($request->all());
-        $data = $request->except(['_token','_method']);
-        // var_dump($data);
-        if(DB::table('logistics')->where('id','=',$id)->update($data)){
-            return redirect('Admin.Order.index')->with('success','修改成功');
-        }
     }
 
     /**
