@@ -21,9 +21,9 @@ class MemberController extends Controller
     public function index(Request $request)
     {
         //获取搜索关键词
-        $k=$request->input('keywords');
+        $kw=$request->input('keywords');
         //获取所有数据
-        $data=DB::table('member')->where('username','like','%'.$k.'%')->paginate(5);
+        $data=DB::table('member')->where('username','like','%'.$kw.'%')->paginate(5);
         //修改用户状态和用户性别以文字显示
         $arr=array('已启用','已禁用');
         $arr1=array('男','女','保密');

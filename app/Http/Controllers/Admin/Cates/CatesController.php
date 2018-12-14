@@ -20,9 +20,9 @@ class CatesController extends Controller
         //获取总条数
         $total=DB::table('cates')->count();
         //获取搜索条件
-        $k=$request->input('keywords');
+        $kw=$request->input('keywords');
         //获取类别数据
-        $cate=DB::table('cates')->select(DB::raw("*,concat(path,',',id)as paths"))->orderBy('paths')->where('name','like','%'.$k.'%')->paginate(10);
+        $cate=DB::table('cates')->select(DB::raw("*,concat(path,',',id)as paths"))->orderBy('paths')->where('name','like','%'.$kw.'%')->paginate(10);
         //加分隔符
         foreach($cate as $key=>$value){
             // echo $value->path."<br>";

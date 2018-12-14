@@ -15,8 +15,8 @@ class LinkController extends Controller
     public function index(Request $request)
     {
         //引入友情链接列表页
-        $k = $request->input('keywords');
-        $data = DB::table('link')->where('name','like','%'.$k.'%')->paginate(2);
+        $kw = $request->input('keywords');
+        $data = DB::table('link')->where('name','like','%'.$kw.'%')->paginate(2);
         $count = count($data);
         return view('Admin.Link.index',['data'=>$data,'count'=>$count,'request'=>$request]);
     }

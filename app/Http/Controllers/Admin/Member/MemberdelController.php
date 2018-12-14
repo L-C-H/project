@@ -16,10 +16,10 @@ class MemberdelController extends Controller
     public function index(Request $request)
     {
         //获取搜索关键词
-        $k=$request->input('keywords');
+        $kw=$request->input('keywords');
         // var_dump($k);
         //获取数据
-        $data=DB::table('del_member')->where('username','like','%'.$k.'%')->paginate(10);
+        $data=DB::table('del_member')->where('username','like','%'.$kw.'%')->paginate(10);
         //用户状态,性别以文字显示
         $arr=array('已删除','已还原');
         $arr1=array('男','女','保密');

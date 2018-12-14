@@ -20,7 +20,7 @@ class AdController extends Controller
         // var_dump($request);exit;
         $k = $request->input('keywords');
         // var_dump($k);exit;
-        //获取数据库中的数据
+        //获取数据库的数据
         $data = DB::table('advertisement')->where('name','like','%'.$k.'%')->paginate(2);
         // var_dump($data);exit;
         $arr = array('发布','下架');

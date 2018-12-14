@@ -44,11 +44,18 @@ class LoginController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->all());
+        // dd($request->all());exit;
         // 获取管理员名字和密码
         $name = $request->input('name');
         $pass = $request->input('password');
         $user = DB::table("admin_users")->where("name","=",$name)->first();
+        // 通过admin_userse表中的uid查询user_role的rid
+        $a=DB::table('user_role')->where('uid','=',$user->id)->first();
+        //通过user_role中的rid查询role表中的name
+        $b=DB::table('role')->where('id','=',$a->rid)->first();
+        //把name存入session中
+        session(['rname'=>$b->name]);
+        // var_dump($user);exit;
         //检测用户名
         if ($user) {
 

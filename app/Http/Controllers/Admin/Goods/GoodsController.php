@@ -52,7 +52,7 @@ class GoodsController extends Controller
      */
     public function store(Request $request)
     {
-        var_dump($request);exit;
+        // var_dump($request);exit;
     }
 
     /**

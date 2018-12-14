@@ -18,10 +18,10 @@ class BrandController extends Controller
         $total=DB::table('brand')->count();
         //获取关键字
         // var_dump($request);exit;
-        $k = $request->input('keywords');
+        $kw = $request->input('keywords');
         // var_dump($k);exit;
         //获取数据库中的数据
-        $data = DB::table('brand')->where('brand_name','like','%'.$k.'%')->paginate(10);
+        $data = DB::table('brand')->where('brand_name','like','%'.$kw.'%')->paginate(10);
         // var_dump($data);exit;
         $arr = array('发布','下架');
         // var_dump($data);exit;

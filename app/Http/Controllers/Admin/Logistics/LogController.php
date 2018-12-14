@@ -78,8 +78,7 @@ class LogController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
-        // dd($request->all());
+        
         $data = $request->except(['_token','_method']);
         if(Log::where('id','=',$id)->delete()){
             return redirect('/adminlogistics')->with('success','修改成功');

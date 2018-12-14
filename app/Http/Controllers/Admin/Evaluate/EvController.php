@@ -15,8 +15,8 @@ class EvController extends Controller
     public function index(Request $request)
     {
         //引入评价列表
-        $k = $request->input('keywords');
-        $data = DB::table('evaluate')->where('goods_name','like','%'.$k.'%')->get();
+        $kw = $request->input('keywords');
+        $data = DB::table('evaluate')->where('goods_name','like','%'.$kw.'%')->get();
         $count = count($data);
         return view('Admin.Evaluate.index',['data'=>$data,'count'=>$count]);
     }
