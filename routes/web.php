@@ -90,6 +90,10 @@ Route::group(['middleware'=>'adminlogin'],function(){
 		Route::get('/adminbrandsta','Admin\Brand\BrandController@sta');
 	//商品管理
 	Route::resource('/admingoods','Admin\Goods\GoodsController');
+		//商品删除
+		Route::get('/admingoodsdel','Admin\Goods\GoodsController@del');
+		//下架商品
+		Route::get('/admingoodssta','Admin\Goods\GoodsController@sta');
 	//商品无限分类
 	Route::resource('/admincates','Admin\Cates\CatesController');
 		//商品分类ajax删除
