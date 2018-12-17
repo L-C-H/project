@@ -109,7 +109,7 @@ class AdController extends Controller
     public function edit($id)
     {
          //引入广告修改页
-         $data = DB::table('advertisement')->where('id','=',$id)->first();
+         $data = DB::table('advertisement')->where('id','=',$id)->orderBy('id','des')->first();
          // var_dump($data);exit;
         return view('Admin.Advertisement.edit',['data'=>$data]);
     }
@@ -123,6 +123,8 @@ class AdController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $result = DB::table('advertisement')->where('id','=',$id)->first();
+        $m = ".".$result->pic;
         $name = $request->name;
         $content = $request->content;
         if ($name==null || $content==null) {
@@ -144,6 +146,7 @@ class AdController extends Controller
             $data['status'] = 0;
             // var_dump($data);exit;
             if (DB::table('advertisement')->where('id','=',$id)->update($data)) {
+                unlink($m);
               return redirect('/adminadvertisement')->with('success','修改成功');
             }else{
               return redirect('/adminadvertisement')->with('error','修改失败');
@@ -152,6 +155,7 @@ class AdController extends Controller
         $data = $request->except('_token','_method');
          $data['status'] = 0;
         if (DB::table('advertisement')->where('id','=',$id)->update($data)) {
+            unlink($m);
           return redirect('/adminadvertisement')->with('success','修改成功');
         }else{
           return redirect('/adminadvertisement')->with('error','修改失败');
@@ -173,8 +177,11 @@ class AdController extends Controller
     public function del(Request $request){
         // echo 1;exit;
        $id = $request->input('id');
+       $result = DB::table('advertisement')->where('id','=',$id)->first();
+       $m = ".".$result->pic;
        // echo $id; exit;
        if (DB::table('advertisement')->where('id','=',$id)->delete()) {
+            unlink($m);
             return 1;
        }else{
             return 0;

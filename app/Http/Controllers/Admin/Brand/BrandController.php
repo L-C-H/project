@@ -21,7 +21,7 @@ class BrandController extends Controller
         $k = $request->input('keywords');
         // var_dump($k);exit;
         //获取数据库中的数据
-        $data = DB::table('brand')->where('brand_name','like','%'.$k.'%')->paginate(10);
+        $data = DB::table('brand')->where('brand_name','like','%'.$k.'%')->orderBy('id','des')->paginate(10);
         // var_dump($data);exit;
         $arr = array('发布','下架');
         // var_dump($data);exit;
@@ -170,6 +170,8 @@ class BrandController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $result = DB::table('brand')->where('id','=',$id)->first();
+        $m = ".".$result->pic;
         $data = $request->except('_token','_method');
         // var_dump($request);exit;
         $brand_name = $request->brand_name;
@@ -193,6 +195,7 @@ class BrandController extends Controller
             $data['status'] = 0;
             // var_dump($data);exit;
             if (DB::table('brand')->where('id','=',$id)->update($data)) {
+                unlink($m);
               return redirect('/adminbrand')->with('success','修改成功');
             }else{
               return redirect('/adminbrand')->with('error','修改失败');
@@ -201,6 +204,7 @@ class BrandController extends Controller
         
          $data['status'] = 0;
         if (DB::table('brand')->where('id','=',$id)->update($data)) {
+            unlink($m);
           return redirect('/adminbrand')->with('success','修改成功');
         }else{
           return redirect('/adminbrand')->with('error','修改失败');
@@ -221,8 +225,11 @@ class BrandController extends Controller
      public function del(Request $request){
         // echo 1;exit;
        $id = $request->input('id');
+      $result = DB::table('brand')->where('id','=',$id)->first();
+      $m = ".".$result->pic;
        // echo $id; exit;
        if (DB::table('brand')->where('id','=',$id)->delete()) {
+            unlink($m);
             return 1;
        }else{
             return 0;

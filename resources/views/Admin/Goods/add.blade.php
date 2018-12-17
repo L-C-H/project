@@ -38,9 +38,9 @@
 <article class="page-container">
 	<form class="form form-horizontal" id="form-article-add" action="/admingoods" method="post" enctype="multipart/form-data">
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2">品牌名称：</label>
+			<label class="form-label col-xs-4 col-sm-2">商品类型：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<select class="input-text" name="pid">
+				<select class="input-text" name="c_id">
 				<option value="0">--请选择--</option>
 				@foreach($cate as $row)
 				<option value="{{$row->id}}">{{$row->name}}</option>
@@ -61,9 +61,45 @@
 			</div>
 		</div>
 		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2">商品原价格：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value="{{old('original_price')}}" placeholder="" id="articletitle" name="original_price">
+			</div>
+		</div>
+		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2">商品库存：</label>
 			<div class="formControls col-xs-8 col-sm-9">
 				<input type="text" class="input-text" value="{{old('stock')}}" placeholder="" id="articletitle" name="stock">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2">商品颜色：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value="{{old('color')}}" placeholder="" id="articletitle" name="color">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2">商品材质：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value="{{old('material')}}" placeholder="" id="articletitle" name="material">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2">性别：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value="{{old('sex')}}" placeholder="" id="articletitle" name="sex">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2">商品款式：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value="{{old('pattern')}}" placeholder="" id="articletitle" name="pattern">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2">商品风格：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value="{{old('style')}}" placeholder="" id="articletitle" name="style">
 			</div>
 		</div>
 		<div class="row cl">
@@ -85,7 +121,7 @@
 			<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
 			{{csrf_field()}}
 				<button class="btn btn-primary radius" type="submit"><i class="Hui-iconfont">&#xe632;</i> 保存并提交审核</button>
-				<a class="btn btn-default radius" type="button" href="/adminbrand">&nbsp;&nbsp;取消&nbsp;&nbsp;</a>
+				<a class="btn btn-default radius" type="button" href="/admingoods">&nbsp;&nbsp;取消&nbsp;&nbsp;</a>
 			</div>
 		</div>
 	</form>

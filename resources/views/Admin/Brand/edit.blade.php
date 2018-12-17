@@ -41,7 +41,7 @@
 			<label class="form-label col-xs-4 col-sm-2">类型名称：</label>
 			<div class="formControls col-xs-8 col-sm-9">
 				<select class="input-text" name="pid">
-				<option value="{{$p->id}}" selected disabled>{{$pp->name}}</option>
+				<option value="{{$p->id}}" selected>{{$pp->name}}</option>
 				<option value="{{$data[0]->id}}">{{$data[6]->name}}</option>
 				<option value="{{$data[1]->id}}">{{$data[7]->name}}</option>
 				<option value="{{$data[2]->id}}">{{$data[8]->name}}</option>
