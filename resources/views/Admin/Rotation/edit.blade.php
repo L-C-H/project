@@ -24,121 +24,41 @@
 </head>
 <body>
 <div class="page-container">
-	<form class="form form-horizontal" id="form-article-add">
+	<form class="form form-horizontal" id="form-article-add" method="post" action="/adminrotation/{{$data->id}}" enctype="multipart/form-data">
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>图片标题：</label>
+			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>轮播图名称</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="" placeholder="" id="" name="">
+				<input type="text" class="input-text" value="{{$data->picname}}" placeholder="" id="" name="picname">
 			</div>
 		</div>
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2">简略标题：</label>
+			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>状态</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="" placeholder="" id="" name="">
+				<input type="text" class="input-text" value="{{$data->status}}" placeholder="" id="" name="status">
 			</div>
 		</div>
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>分类栏目：</label>
+			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>描述</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<span class="select-box">
-				<select name="" class="select">
-					<option value="0">全部栏目</option>
-					<option value="1">新闻资讯</option>
-					<option value="11">├行业动态</option>
-					<option value="12">├行业资讯</option>
-					<option value="13">├行业新闻</option>
-				</select>
-				</span>
+				<!-- <input type="text" class="input-text" value="{{old('description')}}" placeholder="" id="" name="description"> -->
+				<textarea name="description" id="" cols="60" rows="10">{{$data->description}}</textarea>
 			</div>
 		</div>
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2">排序值：</label>
-			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="0" placeholder="" id="" name="">
-			</div>
-		</div>
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2">允许评论：</label>
-			<div class="formControls col-xs-8 col-sm-9 skin-minimal">
-				<div class="check-box">
-					<input type="checkbox" id="checkbox-1">
-					<label for="checkbox-1">&nbsp;</label>
-				</div>
-			</div>
-		</div>
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>发布日期：</label>
-			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" onfocus="WdatePicker({ dateFmt:'yyyy-MM-dd HH:mm:ss',maxDate:'#F{$dp.$D(\'datemax\')||\'%y-%M-%d\'}' })" id="datemin" class="input-text Wdate">
-			</div>
-		</div>
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>结束日期：</label>
-			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" onfocus="WdatePicker({ dateFmt:'yyyy-MM-dd HH:mm:ss',minDate:'#F{$dp.$D(\'datemin\')}' })" id="datemax" class="input-text Wdate">
-			</div>
-		</div>
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2">图片作者：</label>
-			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="0" placeholder="" id="" name="">
-			</div>
-		</div>
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2">图片来源：</label>
-			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="0" placeholder="" id="" name="">
-			</div>
-		</div>
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2">关键词：</label>
-			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="0" placeholder="" id="" name="">
-			</div>
-		</div>
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2">图片摘要：</label>
-			<div class="formControls col-xs-8 col-sm-9">
-				<textarea name="" cols="" rows="" class="textarea"  placeholder="说点什么...最少输入10个字符" datatype="*10-100" dragonfly="true" nullmsg="备注不能为空！" onKeyUp="$.Huitextarealength(this,200)"></textarea>
-				<p class="textarea-numberbar"><em class="textarea-length">0</em>/200</p>
-			</div>
-		</div>
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2">缩略图：</label>
-			<div class="formControls col-xs-8 col-sm-9">
-				<div class="uploader-thum-container">
-					<div id="fileList" class="uploader-list"></div>
-					<div id="filePicker">选择图片</div>
-					<button id="btn-star" class="btn btn-default btn-uploadstar radius ml-10">开始上传</button>
-				</div>
-			</div>
-		</div>
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2">图片上传：</label>
-			<div class="formControls col-xs-8 col-sm-9">
-				<div class="uploader-list-container"> 
-					<div class="queueList">
-						<div id="dndArea" class="placeholder">
-							<div id="filePicker-2"></div>
-							<p>或将照片拖到这里，单次最多可选300张</p>
-						</div>
-					</div>
-					<div class="statusBar" style="display:none;">
-						<div class="progress"> <span class="text">0%</span> <span class="percentage"></span> </div>
-						<div class="info"></div>
-						<div class="btns">
-							<div id="filePicker2"></div>
-							<div class="uploadBtn">开始上传</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-2">图片上传：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+            <span class="btn-upload form-group">
+  				<input class="input-text upload-url radius" type="text" name="pic" id="uploadfile-1" readonly value="{{$data->pic}}"><a href="javascript:void();" class="btn btn-primary radius"><i class="iconfont">&#xf0020;</i> 选择文件</a>
+  				<input type="file" multiple name="pic" class="input-file"></span>
+            </div>
+        </div>
+         
 		<div class="row cl">
 			<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
-				<button onClick="article_save_submit();" class="btn btn-primary radius" type="button"><i class="Hui-iconfont">&#xe632;</i> 保存并提交审核</button>
-				<button onClick="article_save();" class="btn btn-secondary radius" type="button"><i class="Hui-iconfont">&#xe632;</i> 保存草稿</button>
-				<button onClick="layer_close();" class="btn btn-default radius" type="button">&nbsp;&nbsp;取消&nbsp;&nbsp;</button>
+                  {{csrf_field()}}
+                  {{method_field('PUT')}}
+				<button class="btn btn-primary radius" type="submit"><i class="Hui-iconfont">&#xe632;</i>提交审核</button>
+				<a  class="btn btn-default radius" type="button" href="/adminrotation">&nbsp;&nbsp;取消&nbsp;&nbsp;</a>
 			</div>
 		</div>
 	</form>

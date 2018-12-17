@@ -253,6 +253,5 @@ class MemberController extends Controller
         $res=DB::table('member')->where('id','=',$id)->update(['status'=>$status]);
         $result=DB::table('member')->where('id','=',$id)->first();
         return $result->status;
-        
     }
 }

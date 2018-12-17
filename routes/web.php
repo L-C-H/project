@@ -53,7 +53,10 @@ Route::group(['middleware'=>'adminlogin'],function(){
 
 	//轮播图管理
 	Route::resource('/adminrotation','Admin\Rotation\RotationController');
-
+		//轮播图是否显示
+		Route::get('/adminrotationdis','Admin\Rotation\RotationController@display');
+		//轮播图ajax删除
+		Route::get('/adminrotationdel','Admin\Rotation\RotationController@del');
 	//公告管理
 	Route::resource('/adminannounce','Admin\Announce\AnnounceController');
 
