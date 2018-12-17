@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin\Advertisement;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+//导入DB类
 use DB;
 class AdController extends Controller
 {
@@ -20,7 +21,7 @@ class AdController extends Controller
         // var_dump($request);exit;
         $k = $request->input('keywords');
         // var_dump($k);exit;
-        //获取数据库中的数据
+        //获取数据库的数据
         $data = DB::table('advertisement')->where('name','like','%'.$k.'%')->paginate(2);
         // var_dump($data);exit;
         $arr = array('发布','下架');
@@ -32,6 +33,7 @@ class AdController extends Controller
 
         }
         // var_dump($data);exit;
+
         //引入广告列表页
         return view('Admin.Advertisement.index',['data'=>$data,'total'=>$total,'request'=>$request->all()]);
     }

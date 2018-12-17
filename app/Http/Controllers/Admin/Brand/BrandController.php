@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin\Brand;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+//导入DB类
 use DB;
 class BrandController extends Controller
 {

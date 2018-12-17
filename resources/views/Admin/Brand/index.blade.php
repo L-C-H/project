@@ -23,52 +23,43 @@
 </head>
 <body>
 <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 商品管理 <span class="c-gray en">&gt;</span> 品牌列表 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
-@if(session('success'))
-<div class="Huialert Huialert-success"><i class="Hui-iconfont">&#xe6a6;</i>{{session('success')}}</div>
-@endif
-@if(session('error'))
-<div class="Huialert Huialert-danger"><i class="Hui-iconfont">&#xe6a6;</i>{{session('error')}}</div>
-@endif
 <div class="page-container">
 	<div class="text-c">
-		<form action="/adminbrand" method="get">
-		<div class="text-c">
-			<input type="text" name="keywords" id="" placeholder=" 广告名称" style="width:250px" class="input-text" value="{{$request['keywords'] or ''}}">
-			<button id="example" class="btn btn-success" type="submit"><i class="Hui-iconfont">&#xe665;</i> 搜图片</button>
-		</div>
-	</form>
+	日期范围：
+		<input type="text" onfocus="WdatePicker({ maxDate:'#F{$dp.$D(\'logmax\')||\'%y-%M-%d\'}' })" id="logmin" class="input-text Wdate" style="width:120px;">
+		-
+		<input type="text" onfocus="WdatePicker({ minDate:'#F{$dp.$D(\'logmin\')}',maxDate:'%y-%M-%d' })" id="logmax" class="input-text Wdate" style="width:120px;">
+		<input type="text" name="" id="" placeholder=" 品牌名称" style="width:250px" class="input-text">
+		<button name="" id="" class="btn btn-success" type="submit"><i class="Hui-iconfont">&#xe665;</i> 搜品牌</button>
 	</div>
-	<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> <a class="btn btn-primary radius" data-title="添加品牌" data-href="/adminbrand/create" onclick="Hui_admin_tab(this)" href="javascript:;"><i class="Hui-iconfont">&#xe600;</i> 添加品牌</a></span> <span class="r">共有数据：<strong>{{$total}}</strong> 条</span> </div>
+	<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> <a class="btn btn-primary radius" data-title="添加品牌" data-href="/adminbrand/create" onclick="Hui_admin_tab(this)" href="javascript:;"><i class="Hui-iconfont">&#xe600;</i> 添加品牌</a></span> <span class="r">共有数据：<strong>54</strong> 条</span> </div>
 	<div class="mt-20">
 		<table class="table table-border table-bordered table-bg table-sort">
 			<thead>
 				<tr class="text-c">
 					<th width="25"><input type="checkbox" name="" value=""></th>
-					<th>ID</th>
-					<th width="70px">品牌英文名</th>
-					<th width="70px">LOGO</th>
-					<th width="70px">品牌名称</th>
-					<th width="450px">具体描述</th>
-					<th>状态</th>
+					<th width="70">ID</th>
+					<th width="80">品牌英文名</th>
+					<th width="200">LOGO</th>
+					<th width="120">品牌名称</th>
+					<th>具体描述</th>
 					<th>操作</th>
+					<th width="100">操作</th>
 				</tr>
 			</thead>
 			<tbody>
-			@foreach($data as $row)
 				<tr class="text-c">
 					<td><input name="" type="checkbox" value=""></td>
-					<td>{{$row->id}}</td>
-					<td>{{$row->brand_engname}}</td>
-					<td><img src="{{$row->pic}}" width="120px" height="70px"></td>
-					<td class="text-l"><img title="国内品牌" src="/static/static/h-ui.admin/images/cn.gif"> {{$row->brand_name}}</td>
-					<td class="text-l">{{$row->brand_des}}</td>
-					<td class="td-status"><span class="label label-success radius">{{$row->status}}</span></td>
-					<td class="f-14 td-manage"><a style="text-decoration:none" href="javascript:;" title="下架" class="status"><i class="Hui-iconfont">{{$row->status=='下架'?'&#xe631;':'&#xe6e1;'}}</i></a> <a style="text-decoration:none" class="ml-5" href="/adminbrand/{{$row->id}}/edit" title="编辑"><i class="Hui-iconfont">&#xe6df;</i></a> <a style="text-decoration:none" class="ml-5 del"  href="javascript:;" title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
+					<td>1</td>
+					<td>tata</td>
+					<td><img src="/static/temp/brand/dongpeng.jpeg"></td>
+					<td class="text-l"><img title="国内品牌" src="/static/static/h-ui.admin/images/cn.gif"> 东鹏</td>
+					<td class="text-l">东鹏陶瓷被评为“中国名牌”、“国家免检产品”、“中国驰名商标”、http://www.dongpeng.net/</td>
+					<td class="td-status"><span class="label label-success radius">已发布</span></td>
+					<td class="f-14 td-manage"><a style="text-decoration:none" onClick="article_stop(this,'10001')" href="javascript:;" title="下架"><i class="Hui-iconfont">&#xe6de;</i></a> <a style="text-decoration:none" class="ml-5" onClick="article_edit('品牌编辑','/adminbrand/1/edit','10001')" href="javascript:;" title="编辑"><i class="Hui-iconfont">&#xe6df;</i></a> <a style="text-decoration:none" class="ml-5" onClick="article_del(this,'10001')" href="javascript:;" title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
 				</tr>
-				@endforeach
 			</tbody>
 		</table>
-		{{$data->appends($request)->render()}}
 	</div>
 </div>
 <!--_footer 作为公共模版分离出去-->
@@ -83,56 +74,88 @@
 <script type="text/javascript" src="/static/lib/datatables/1.10.0/jquery.dataTables.min.js"></script> 
 <script type="text/javascript" src="/static/lib/laypage/1.2/laypage.js"></script>
 <script type="text/javascript">
-//删除操作
-$('.del').click(function(){
-	id = $(this).parents('tr').find('td').eq(1).html();
-	s = $(this).parents('tr');
-	ss = confirm('确定要删除吗?');
-		$.get('/adminbrandel',{'id':id},function($data){
-			// console.log($data);
-		if (ss==true) {
-			if ($data==1) {
-				s.remove();
-				alert('删除成功');
-				$('nav').after('<div class="Huialert Huialert-success"><i class="Hui-iconfont">&#xe6a6;</i>删除成功</div>');
-				$('.Huialert').click(function(){
-					$(this).css('display','none');
-				});
-			}else{
-				alert('删除失败');
-			}
-		}else{
-			location.href = location.href;
-		}
+
+/*资讯-添加*/
+function article_add(title,url,w,h){
+	var index = layer.open({
+		type: 2,
+		title: title,
+		content: url
 	});
-	
-});
-//修改状态
-$('.status').click(function(){
-	id = $(this).parents('tr').find('td').eq(1).html();
-	// alert(id);
-	status = $(this).parents('tr').find('td').eq(6).find('span').first().html();
-	// alert(status);
-	s = $(this);
-		$.get('/adminbrandsta',{'id':id},function($data){
-			// alert($data);
-			if ($data==1) {
-				s.parents('td').prev().find('span').html('下架');
-				s.find('i').html('&#xe631;');
-				layer.msg('已下架!',{icon: 5,time:1000});
-				
-			}else if($data==0){
-				s.parents('td').prev().find('span').html('发布');
-				s.find('i').html('&#xe6e1;')
-				layer.msg('已发布!',{icon: 6,time:1000});
-			}
-			
-		});
-	
+	layer.full(index);
+}
+/*资讯-编辑*/
+function article_edit(title,url,id,w,h){
+	var index = layer.open({
+		type: 2,
+		title: title,
+		content: url
+	});
+	layer.full(index);
+}
+/*资讯-删除*/
+function article_del(obj,id){
+	layer.confirm('确认要删除吗？',function(index){
+		$.ajax({
+			type: 'POST',
+			url: '',
+			dataType: 'json',
+			success: function(data){
+				$(obj).parents("tr").remove();
+				layer.msg('已删除!',{icon:1,time:1000});
+			},
+			error:function(data) {
+				console.log(data.msg);
+			},
+		});		
+	});
+}
 
-		
-});
+/*资讯-审核*/
+function article_shenhe(obj,id){
+	layer.confirm('审核文章？', {
+		btn: ['通过','不通过','取消'], 
+		shade: false,
+		closeBtn: 0
+	},
+	function(){
+		$(obj).parents("tr").find(".td-manage").prepend('<a class="c-primary" onClick="article_start(this,id)" href="javascript:;" title="申请上线">申请上线</a>');
+		$(obj).parents("tr").find(".td-status").html('<span class="label label-success radius">已发布</span>');
+		$(obj).remove();
+		layer.msg('已发布', {icon:6,time:1000});
+	},
+	function(){
+		$(obj).parents("tr").find(".td-manage").prepend('<a class="c-primary" onClick="article_shenqing(this,id)" href="javascript:;" title="申请上线">申请上线</a>');
+		$(obj).parents("tr").find(".td-status").html('<span class="label label-danger radius">未通过</span>');
+		$(obj).remove();
+    	layer.msg('未通过', {icon:5,time:1000});
+	});	
+}
+/*资讯-下架*/
+function article_stop(obj,id){
+	layer.confirm('确认要下架吗？',function(index){
+		$(obj).parents("tr").find(".td-manage").prepend('<a style="text-decoration:none" onClick="article_start(this,id)" href="javascript:;" title="发布"><i class="Hui-iconfont">&#xe603;</i></a>');
+		$(obj).parents("tr").find(".td-status").html('<span class="label label-defaunt radius">已下架</span>');
+		$(obj).remove();
+		layer.msg('已下架!',{icon: 5,time:1000});
+	});
+}
 
+/*资讯-发布*/
+function article_start(obj,id){
+	layer.confirm('确认要发布吗？',function(index){
+		$(obj).parents("tr").find(".td-manage").prepend('<a style="text-decoration:none" onClick="article_stop(this,id)" href="javascript:;" title="下架"><i class="Hui-iconfont">&#xe6de;</i></a>');
+		$(obj).parents("tr").find(".td-status").html('<span class="label label-success radius">已发布</span>');
+		$(obj).remove();
+		layer.msg('已发布!',{icon: 6,time:1000});
+	});
+}
+/*资讯-申请上线*/
+function article_shenqing(obj,id){
+	$(obj).parents("tr").find(".td-status").html('<span class="label label-default radius">待审核</span>');
+	$(obj).parents("tr").find(".td-manage").html("");
+	layer.msg('已提交申请，耐心等待审核!', {icon: 1,time:2000});
+}
 
 </script> 
 </body>

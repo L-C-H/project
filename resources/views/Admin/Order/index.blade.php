@@ -24,57 +24,53 @@
 <body>
 <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 订单管理 <span class="c-gray en">&gt;</span> 订单列表 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
 <div class="page-container">
-	<div class="text-c">
-		<form action="adminorder" method="get">
-			<input type="text" name="order_id" id="" placeholder="" style="width:250px" class="input-text">
-			<button name="" id="" class="btn btn-success" type="submit"><i class="Hui-iconfont">&#xe665;</i> 搜订单号</button>
-		</form>
-		<form action="adminorder" method="get">
-			<input type="text" name="name" id="" placeholder="" style="width:250px" class="input-text">
-			<button name="" id="" class="btn btn-success" type="submit"><i class="Hui-iconfont">&#xe665;</i> 搜用户名</button>
-		</form>
+	<div class="text-c"> 日期范围：
+		<input type="text" onfocus="WdatePicker({ maxDate:'#F{$dp.$D(\'logmax\')||\'%y-%M-%d\'}' })" id="logmin" class="input-text Wdate" style="width:120px;">
+		-
+		<input type="text" onfocus="WdatePicker({ minDate:'#F{$dp.$D(\'logmin\')}',maxDate:'%y-%M-%d' })" id="logmax" class="input-text Wdate" style="width:120px;">
+		<input type="text" name="" id="" placeholder=" 图片名称" style="width:250px" class="input-text">
+		<button name="" id="" class="btn btn-success" type="submit"><i class="Hui-iconfont">&#xe665;</i> 搜订单号</button>
 	</div>
-
-	<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a>&nbsp;&nbsp;&nbsp; <span class="r">共有数据：<strong>{{$count}}</strong> 条</span> </div>
+	<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a>&nbsp;&nbsp;&nbsp; <span class="r">共有数据：<strong>54</strong> 条</span> </div>
 	<div class="mt-20">
 		<table class="table table-border table-bordered table-bg table-hover table-sort">
 			<thead>
 				<tr class="text-c">
 					<th width="40"><input name="" type="checkbox" value=""></th>
 					<th width="80">ID</th>
-					<th width="80">订单编号</th>
-					<th width="100">用户名</th>
-					<th width="100">商品名</th>
+					<th width="100">收货人</th>
+					<th width="100">收货地址</th>
+					<th width="100">手机号</th>
 					<th width="100">商品图片</th>
-					<th width="100">商品数量</th>
-					<th width="100">商品单价</th>
-					<th width="100">商品总价格</th>
-					<th width="100">订单创建时间</th>
-					<th width="100">订单更新时间</th>
-					<th width="100">商品状态</th>
+					<th width="100">商品名</th>
+					<th width="100">数量</th>
+					<th width="100">总格</th>
+					<th width="150">物流名称</th>
+					<th width="150">订单号</th>
+					<th width="150">出库时间</th>
+					<th width="150">物流单号</th>
+					<th width="60">发布状态</th>
 					<th width="100">操作</th>
 				</tr>
 			</thead>
 			<tbody>
-				@foreach($data as $v)
 				<tr class="text-c">
 					<td><input name="" type="checkbox" value=""></td>
-					<td>{{$v->id}}</td>
-					<td>{{$v->order_id}}</td>
-					<td>{{$v->name}}</td>
-					<td>{{$v->goods_name}}</td>
-					<td><a href="javascript:;" onClick="picture_edit('图库编辑',/adminadvertisement/1/edit','10001')"><img width="20" class="picture-thumb" src="{{$v->goods_pic}}"></a></td>
-					<td class="text-l">{{$v->order_num}}</td>
-					<td>{{$v->goods_price}}</td>
-					<td class="text-c">{{$v->price}}</td>
-					<td class="text-c">{{$v->created_at}}</td>
-					<td class="text-c">{{$v->updated_at}}</td>
-					<td class="text-c">{{$v->status}}</td>
-					<td class="td-manage">
-						<a style="text-decoration:none" href="/adminorder/{{$v->id}}" title="物流"><i class="Hui-iconfont">&#xe634;</i></a> 
-						<!-- <a style="text-decoration:none" class="ml-5" onClick="picture_del(this,'10001')" href="javascript:;" title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a></td> -->
+					<td>001</td>
+					<td>张三</td>
+					<td>广州市天河区</td>
+					<td>14784658412</td>
+					<td><a href="javascript:;" onClick="picture_edit('图库编辑',/adminadvertisement/1/edit','10001')"><img width="210" class="picture-thumb" src="/static/temp/200x150.jpg"></a></td>
+					<td class="text-l"><a class="maincolor" href="javascript:;" onClick="picture_edit('图库编辑','/adminadvertisement/1/edit','10001')">靴子</a></td>
+					<td>2</td>
+					<td class="text-c">500元</td>
+					<td class="text-c">中通快递</td>
+					<td class="text-c">123456789</td>
+					<td>2014-6-11</td>
+					<td class="text-c">aaa122458</td>
+					<td class="td-status"><span class="label label-success radius">未发货</span></td>
+					<td class="td-manage"><a style="text-decoration:none" onClick="picture_stop(this,'10001')" href="javascript:;" title="发货"><i class="Hui-iconfont">&#xe634;</i></a> <a style="text-decoration:none" class="ml-5" onClick="picture_edit('图库编辑','/adminorder/1/edit','10001')" href="javascript:;" title="编辑"><i class="Hui-iconfont">&#xe6df;</i></a> <a style="text-decoration:none" class="ml-5" onClick="picture_del(this,'10001')" href="javascript:;" title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
 				</tr>
-				@endforeach
 			</tbody>
 		</table>
 	</div>
@@ -183,7 +179,6 @@ function picture_del(obj,id){
 		});		
 	});
 }
-$('.table-sort').dataTable({})
 </script>
 </body>
 </html>
