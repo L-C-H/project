@@ -4,7 +4,8 @@ namespace App\Http\Controllers\Admin\Announce;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use DB;
+use App\Models\Announce;
 class AnnounceController extends Controller
 {
     /**
@@ -15,7 +16,9 @@ class AnnounceController extends Controller
     public function index()
     {
         //公告列表
-        return view('Admin.Announce.index');
+        $data = Announce::paginate(2); 
+        // dd($data);
+        return view('Admin.Announce.index',['data'=>$data]);
     }
 
     /**
@@ -38,6 +41,13 @@ class AnnounceController extends Controller
     public function store(Request $request)
     {
         //
+        // dd($request->all());
+        $data = $request->except('_token');
+        if(Announce::insert($data)){
+            return view('/adminannounce')->with('success','添加成功');
+        }else{
+            return view('/adminannounce')->with('error','添加失败');
+        }
     }
 
     /**
