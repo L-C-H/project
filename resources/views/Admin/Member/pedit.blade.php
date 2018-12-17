@@ -30,29 +30,41 @@
 </head>
 <body>
 <article class="page-container">
-	<form action="/adminmemberpupdate/1" method="post" class="form form-horizontal" id="form-change-password">
+	<form action="/adminmemberpupdate/{{$data->id}}" method="get" class="form form-horizontal" id="form-change-password">
+		@if (count($errors) > 0)
+		<div class="alert alert-danger">
+		<ul>
+		@foreach ($errors->all() as $error)
+		<div class="Huialert Huialert-danger"><i class="Hui-iconfont">&#xe6a6;</i>{{ $error }}</div>
+		@endforeach
+		</ul>
+		</div>
+		@endif
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>账户：</label>
-			<div class="formControls col-xs-8 col-sm-9"> 张三 </div>
+			<div class="formControls col-xs-8 col-sm-9">{{$data->username}}</div>
 		</div>
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>新密码：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="password" class="input-text" autocomplete="off" placeholder="不修改请留空" name="newpassword" id="newpassword">
+				<input type="password" class="input-text" autocomplete="off" placeholder="请输入新的密码" name="password" id="newpassword">
 			</div>
 		</div>
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>确认密码：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="password" class="input-text" autocomplete="off" placeholder="不修改请留空" name="newpassword2" id="new-password2">
+				<input type="password" class="input-text" autocomplete="off" placeholder="请输入重复密码" name="repassword" id="new-password2" >
 			</div>
 		</div>
 		<div class="row cl">
 			<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
 				<input class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;保存&nbsp;&nbsp;">
+				<a class="btn btn-primary radius" href="/adminmember" style="background-color: #c0c0c0;border-color: white">取消</a>
 			</div>
 		</div>
+
 	</form>
+
 </article>
 
 <!--_footer 作为公共模版分离出去-->
@@ -65,34 +77,6 @@
 <script type="text/javascript" src="/static/lib/jquery.validation/1.14.0/jquery.validate.js"></script> 
 <script type="text/javascript" src="/static/lib/jquery.validation/1.14.0/validate-methods.js"></script> 
 <script type="text/javascript" src="/static/lib/jquery.validation/1.14.0/messages_zh.js"></script> 
-<script type="text/javascript">
-$(function(){
-	$("#form-change-password").validate({
-		rules:{
-			newpassword:{
-				required:true,
-				minlength:6,
-				maxlength:16
-			},
-			newpassword2:{
-				required:true,
-				minlength:6,
-				maxlength:16,
-				equalTo: "#newpassword"
-			},
-		},
-		onkeyup:false,
-		focusCleanup:true,
-		success:"valid",
-		submitHandler:function(form){
-			$(form).ajaxSubmit();
-			var index = parent.layer.getFrameIndex(window.name);
-			parent.$('.btn-refresh').click();
-			parent.layer.close(index);
-		}
-	});
-});
-</script>
 <!--/请在上方写此页面业务相关的脚本-->
 </body>
 </html>
