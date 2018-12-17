@@ -1,5 +1,5 @@
 @if ($paginator->hasPages())
-<script src="/css/bootstrap.min.js"></script>
+<link rel="stylesheet" href="/css/bootstrap.min.css">
     <ul class="pagination">
         {{-- Previous Page Link --}}
         @if ($paginator->onFirstPage())
