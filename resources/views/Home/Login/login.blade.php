@@ -12,6 +12,7 @@
   //禁止iframe嵌入
   if(window.top !== window.self){ window.top.location = window.location;}
 </script> 
+<link href="/static/lib/Hui-iconfont/1.0.8/iconfont.css" rel="stylesheet" type="text/css" />
   <link href="/static/Home/css/base-2.css" type="text/css" rel="stylesheet" /> 
   <link href="/static/Home/css/validator.css" type="text/css" rel="stylesheet" /> 
   <link href="/static/Home/css/new_log_reg.v2.0.css" type="text/css" rel="stylesheet" /> 
@@ -24,6 +25,15 @@
 .tab_sig a,.tab_reg a{display:inline-block;width:174px;}
 .tab_sig_reg li a{color:#333;}
 </style> 
+  <style>
+.Huialert{ position:relative;padding:8px 35px 8px 14px;margin-bottom: 20px;text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);background-color: #fcf8e3;border: 1px solid #fbeed5;border-radius: 4px}
+.Huialert, .Huialert h4{color: #c09853}
+.Huialert h4{margin: 0}
+.Huialert .Hui-iconfont{position:absolute;top:9px;right:10px;line-height: 20px;cursor:pointer; color:#000; opacity:0.2;_color:#666}
+.Huialert .Hui-iconfont.hover{ color:#000;opacity:0.8}
+.Huialert-danger, .Huialert-error{color: #b94a48;background-color: #f2dede;border-color: #eed3d7}
+.Huialert-danger h4, .Huialert-error h4{color: #b94a48}
+  </style>
  </head> 
  <body> 
   <input id="redirectURL_1" type="hidden" name="redirectURL" value="http://www.yougou.com/order.jhtml" /> 
@@ -53,7 +63,7 @@
      </div> </li> 
    </ul> 
    <ul class="right-content" id="top_nav"> 
-    <li class="item-frist about_user"> <a rel="nofollow" href="javascript:login();">登录</a> / <a rel="nofollow" href="javascript:register();">注册</a> </li> 
+    <li class="item-frist about_user"> <a rel="nofollow" href="/Homelogin/create">登录</a> / <a rel="nofollow" href="/Homeregister/create">注册</a> </li> 
     <li class="item"> <a href="http://www.yougou.com/my/favorites.jhtml" class="top-collect"> <i class="icon bg-top_collect"></i> <span class="title">收藏</span> </a> </li> 
     <li class="item-cart"> <a href="http://www.yougou.com/order.jhtml"><i class="icon"></i>购物袋</a> </li> 
     <li class="item"> 
@@ -72,7 +82,7 @@
   <script type="text/javascript" src="/static/Home/js/index.js"></script> 
   <div class="uc_hd"> 
    <div class="cen clearfix rel"> 
-    <h2 class="cen_logo"><a href="http://www.yougou.com"><img src="/static/Home/picture/signin-register-logo.png" alt="" /></a></h2> 
+    <h2 class="cen_logo"><a href="/Home"><img src="/static/Home/picture/signin-register-logo.png" alt="" /></a></h2> 
     <p class="cen_font fl"> 用户登录 </p> 
    </div> 
   </div> 
@@ -101,16 +111,18 @@ function a() {
     <div class="nreg_left fr"> 
      <ul class="tab_sig_reg clearfix"> 
       <li class="tab_sig tab_cur"><a href="#">帐户密码登录</a></li> 
-      <li class="tab_reg"><a href="/Homephonelogin">手机号快捷登录</a></li> 
+      <li class="tab_reg"><a href="/Homephonelogin/create">手机号快捷登录</a></li> 
      </ul> 
      <div class="nreg_form"> 
-      <form onsubmit="return false;" id="loginform" method="post"> 
-       <input type="hidden" name="3x2A0e9V1U" value="2c7r2P" id="loginNonceId" /> 
+      <form action="/Homelogin" method="post"> 
+       @if(session('error'))
+        <div class="Huialert Huialert-danger"><i class="Hui-iconfont">&#xe6a6;</i>{{session('error')}}</div>
+        @endif
        <dl class="nreg_item clearfix"> 
         <dd> 
          <div class="nreg_input_bg"> 
           <i class="reg_user_name"></i> 
-          <input type="text" name="email" placeholder="手机号/会员名称/邮箱" id="email_" class="nreg_input" maxlength="50" value="" /> 
+          <input type="text" name="username" placeholder="手机号/会员名称/邮箱" id="email_" class="nreg_input" maxlength="50" value="{{old('username')}}" /> 
          </div> 
         </dd> 
         <dt>
@@ -128,37 +140,39 @@ function a() {
          <div id="login_password_tip" class="errortips"></div>
         </dt> 
        </dl> 
-       <div id="code_container" style="display:none;"> 
-        <dl class="nreg_item clearfix"> 
-         <dd> 
-          <div class="nreg_input_bg fl" style="width:202px"> 
-           <label class="lab1 ver_code" for="code2_">验证码</label> 
-           <input type="text" id="code2_" class="nreg_sinput" maxlength="4" style="width: 130px" /> 
-          </div> 
-          <div class="fl" style=" padding:0"> 
-           <img id="imageValidate2" onclick="changeValidateImage2();return false;" /> 
-          </div> 
-         </dd> 
-         <dt>
-          <div id="code2_tip"></div>
-         </dt> 
-        </dl> 
+       <div id="code_container"> 
+        <dl id="dlCode" class="nreg_item email_regitem mobile_regitem clearfix rel"> 
+        <dd> 
+         <div class="nreg_input_bg fl" style="width:200px"> 
+          <label class="lab1" for="reg_checkcode">验证码</label> 
+          <input type="text" name="code" id="code2_" class="nreg_sinput" maxlength="4" valid="IdentifyCode" style="width: 128px"/> 
+         </div> 
+         <div class="fr" style="margin-right: 17px;"> 
+          <!-- <img id="imageValidate2" class="changeImg" /> --> 
+          <img src="/code" alt=""  onclick="this.src=this.src+'?a=1'"/>
+         </div> 
+        </dd> 
+       <dt> 
+         <div id="code2_tip" class="errortips"></div> 
+        </dt> 
+       </dl> 
        </div> 
-       <p style="display: block;text-align: right;margin-right: 17px;"> <a href="http://www.yougou.com/forgotpassword.jhtml" style="line-height: 26px; text-decoration:underline">忘记密码？</a> </p> 
-       <p style="text-align: center"> <input type="submit" class="nlog_submit" value="点击登录" title="登录" /> </p> 
+       <p style="display: block;text-align: right;margin-right: 17px;"> <a href="/forget1/create" style="line-height: 26px; text-decoration:underline">忘记密码？</a> </p> 
+       {{csrf_field()}}
+       <p style="text-align: center"> <button type="submit" class="nlog_submit" title="登录" />点击登录</button> </p> 
        <p class="f_black" style="color: #999;margin-top: 10px;text-align: center;">使用合作网站账号登录优购：</p> 
        <p class="cop_link"> <a class="we_chat f_blue" href="/member/toThirdPartLogin.jhtml?type=quick-weixin&amp;redirectURL=http://www.yougou.com/order.jhtml">&nbsp;</a> | <a href="/api/alipay/sendToFastLogin.sc?redirectURL=http://www.yougou.com/order.jhtml" class="nreg_zpay f_blue">&nbsp;</a> | <a href="/api/qq/toLogin.sc?redirectURL=http://www.yougou.com/order.jhtml" class="nreg_qq f_blue">&nbsp;</a> | <a href="/api/sina/toLogin.sc?redirectURL=http://www.yougou.com/order.jhtml" class="nreg_sina f_blue">&nbsp;</a> | <a href="/api/renren/toRenren.sc?redirectURL=http://www.yougou.com/order.jhtml" class="nreg_people f_blue">&nbsp;</a> </p> 
-       <input type="hidden" name="8h9Z9t9y1F" value="7Y9R4u" id="loginNonceId" /> 
       </form> 
      </div> 
     </div> 
    </div> 
   </div> 
   <div class="blank20"></div> 
-  <div class="footer Gray"> 
-   <p class="tright">Copyright &copy; 2011-2014 Yougou Technology Co., Ltd. <a href="http://www.miibeian.gov.cn" target="_blank">粤ICP备09070608号-4</a> 增值电信业务经营许可证：<a href="http://www.miibeian.gov.cn" target="_blank" style="padding-left:0">粤 B2-20090203</a></p> 
-  </div> 
+
   <script type="text/javascript">
+  $('.Hui-iconfont').click(function(){
+  $(this).parent('div').css('display','none');
+});
   //google
   var _gaq = _gaq || [];
   _gaq.push(['_setAccount', 'UA-23566531-1']);
@@ -192,10 +206,6 @@ function a() {
   /* ]]> */
 </script> 
   <script type="text/javascript" src="/static/Home/js/conversion.js"></script> 
-  <noscript> 
-   <div style="display:inline;"> 
-    <img height="1" width="1" style="border-style:none;" alt="" src="/static/Home/picture/ea3f3ab917694a18bd27913e4c0809e4.gif" /> 
-   </div> 
-  </noscript>  
+  
  </body>
 </html>

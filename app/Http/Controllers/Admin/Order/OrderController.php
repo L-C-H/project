@@ -16,6 +16,7 @@ class OrderController extends Controller
     public function index(Request $request)
     {
         //引入订单列表
+        // dd($request->all());
         $order_id = $request->input('order_id');
         if(empty($order_id)){
             $data = Order::get();
@@ -109,5 +110,19 @@ class OrderController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function add($id){
+        // dd($id);
+        // $id = DB::select('select status from order where order_id ='."$id");
+        $data = DB::table('order')->where('order_id','=',$id)->get();
+        $status = [];
+        foreach($data as $v){
+            $status['status'] = $v->status+1;
+             DB::table('order')->where('order_id','=',$id)->update($status);
+        }
+        // dd($status);
+        // var_dump($data);exit;
+        return redirect('/adminorder')->with('success','发货成功');
+       
     }
 }

@@ -47,12 +47,14 @@
     <li class="item-cart"> <a href="http://www.yougou.com/order.jhtml"><i class="icon"></i>购物袋</a> </li> 
     <li class="item"> 
      <div class="notice"> 
-      <a href="javascript:;">公告</a> 
+      <a href="">公告</a> 
       <div class="notice-content"> 
-       <ul class="notice-list"> 
-        <li class="item Red"> <a target="_blank" href="http://www.yougou.com/article/201805/3adfa2a3ca664e86ba4a6a8a33988940.shtml#ref=index&amp;po=notice_notice1">优购客服电话变更</a> </li> 
-        <li class="item item1 "> <a target="_blank" href="http://www.yougou.com/article/201712/e4de56a20dcf458d88626858531fb8b6.shtml#ref=index&amp;po=notice_notice2">关闭分享购频道</a> </li> 
-        <li class="item item1 "> <a target="_blank" href="http://www.yougou.com/article/201607/182fbbbcc43940259e172d1da13cacce.shtml#ref=index&amp;po=notice_notice3">提醒会员谨防诈骗电话</a> </li> 
+       <ul class="notice-list">
+        @foreach($data as $v)
+        <li class="item Black"> 
+          <a target="_blank" href="/Homenotice/{{$v->id}}">{{$v->title}}</a>
+        </li>
+        @endforeach
        </ul> 
       </div> 
      </div> </li> 
@@ -62,12 +64,12 @@
   <!-- nav created time: 2018-12-03T14:42:02+08:00 --> 
   <div id="logo" class="logo-container"> 
    <div class="header-logo"> 
-    <a href="http://www.yougou.com/"> <img src="/static/Home/images/logo.png" width="98" height="58" /> </a> 
+    <a href="/Home"> <img src="/static/Home/images/logo.png" width="98" height="58" /> </a> 
    </div> 
    <div class="nav-container" style="padding-top: 0;"> 
     <div class="nav"> 
      <ul> 
-      <li id="nav_logo" style="display: none" class="item-first"> <a href="http://www.yougou.com/"> <img src="/static/Home/images/logo.png" width="60" height="38" /> </a> </li> 
+      <li id="nav_logo" style="display: none" class="item-first"> <a href="http://www.yougou.com/"> <img src="/Home" width="60" height="38" /> </a> </li> 
       <li class="item"> <a href="http://www.yougou.com/" target="_blank"> 首页 </a> </li> 
       <li class="item"> <a href="http://www.yougou.com/f-0-MXZ-0-1.html" _yg_nav="5b2ba28f59bcda74c9000050" target="_blank"> 女鞋 </a> </li> 
       <li class="item"> <a href="http://www.yougou.com/f-basto_bata_belle_crocs_hushpuppies_senda_tata_teenmix-Y0A-04Y004-1.html" _yg_nav="53d0e925c7da508b0c000195" target="_blank"> 男鞋 </a> </li> 
@@ -641,12 +643,12 @@
   <div class="cen"> 
    <div class="notice_open_content"> 
     <div class="title"> 
-     <h1 class="Red">关闭分享购频道</h1> 
-     <span class="Gray">发布日期： 2017-12-11 </span> 
+     <h1 class="Red">{{$info->title}}</h1> 
+     <span class="Gray">发布日期： {{date('Y-m-d',$info->time)}}</span> 
     </div> 
     <div class="content tleft"> 
      <div style="color: rgb(0, 0, 0); font-family: 微软雅黑; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 21px; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
-      <span style="background-color: rgb(247, 247, 247);">亲爱的分享购会员，因网站版块进行调整，分享购频道将在2018年1月15日起关闭，如您的账户还有未兑换的红利，提示您尽快兑换。感谢您对分享购的支持。</span>
+      <span style="background-color: rgb(247, 247, 247);">{!!$info->editorValue!!}</span>
      </div>
      <br class="Apple-interchange-newline" /> 
     </div> 
@@ -822,7 +824,7 @@
       <li> <a href="http://www.yougou.com/help/zhaopin.shtml" class="title">招贤纳士</a>| </li> 
       <li> <a href="http://www.yougou.com/topics/mobile.shtml" class="title">手机优购</a>| </li> 
       <li> <a href="http://www.yougou.com/help/contactus.shtml" class="title">联系我们</a>| </li> 
-      <li> <a href="http://www.yougou.com/friendlink.shtml" class="title">友情链接</a> </li> 
+      <li> <a href="/Homelink" class="title">友情链接</a> </li> 
      </ul> 
     </div> 
     <div class="copyright"> 

@@ -75,7 +75,7 @@
 					<td class="text-c">{{$v->price}}</td>
 					<td class="text-c">{{$v->created_at}}</td>
 					<td class="text-c">{{$v->updated_at}}</td>
-					<td class="text-c">{{$v->status}}</td>
+					<td class="text-c"><a href="/adminorderadd/{{$v->order_id}}">{{$v->status}}</a></td>
 					<td class="td-manage">
 						<a style="text-decoration:none" href="/adminorder/{{$v->id}}" title="物流"><i class="Hui-iconfont">&#xe634;</i></a> 
 						<!-- <a style="text-decoration:none" class="ml-5" onClick="picture_del(this,'10001')" href="javascript:;" title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a></td> -->

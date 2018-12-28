@@ -1,5 +1,3 @@
-2018-12-17 16:41:14
-
 <!--_meta 作为公共模版分离出去-->
 <!DOCTYPE HTML>
 <html>
@@ -109,5 +107,44 @@
 		<div class="row cl">
             <label class="form-label col-xs-4 col-sm-2">商品图片：</label>
             <div class="formControls col-xs-8 col-sm-9">
-            <span class="btn-upload form-group">
-  				<input class="input-text upload-url radius" type="text" name="pic" id="uploadfile-1" readonly value="{{old('pic')}}"><a href="jav
+             <span class="btn-upload form-group">
+  				<input class="input-text upload-url radius" type="text" name="pic" id="uploadfile-1" value="{{old('pic')}}"><a href="javascript:void();" class="btn btn-primary radius"><i class="iconfont">&#xf0020;</i> 选择文件</a>
+  				<input type="file" multiple name="pic" class="input-file"></span>
+            </div>
+        </div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2">商品描述：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<textarea name="goods_des" cols="" rows="" class="textarea"  placeholder="说点什么...最少输入10个字符" datatype="*10-100" dragonfly="true" nullmsg="备注不能为空！" value="">{{old('goods_des')}}</textarea>
+				<p class="textarea-numberbar"><em class="textarea-length">0</em>/500</p>
+			</div>
+		</div>
+		<div class="row cl">
+			<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
+			{{csrf_field()}}
+				<button class="btn btn-primary radius" type="submit"><i class="Hui-iconfont">&#xe632;</i> 保存并提交审核</button>
+				<a class="btn btn-default radius" type="button" href="/admingoods">&nbsp;&nbsp;取消&nbsp;&nbsp;</a>
+			</div>
+		</div>
+	</form>
+</article>
+
+<!--_footer 作为公共模版分离出去-->
+<script type="text/javascript" src="/static/lib/jquery/1.9.1/jquery.min.js"></script> 
+<script type="text/javascript" src="/static/lib/layer/2.4/layer.js"></script>
+<script type="text/javascript" src="/static/static/h-ui/js/H-ui.min.js"></script> 
+<script type="text/javascript" src="/static/static/h-ui.admin/js/H-ui.admin.js"></script> <!--/_footer /作为公共模版分离出去-->
+
+<!--请在下方写此页面业务相关的脚本-->
+<script type="text/javascript" src="/static/lib/My97DatePicker/4.8/WdatePicker.js"></script>
+<script type="text/javascript" src="/static/lib/jquery.validation/1.14.0/jquery.validate.js"></script> 
+<script type="text/javascript" src="/static/lib/jquery.validation/1.14.0/validate-methods.js"></script> 
+<script type="text/javascript" src="/static/lib/jquery.validation/1.14.0/messages_zh.js"></script>
+<script type="text/javascript" src="/static/lib/webuploader/0.1.5/webuploader.min.js"></script> 
+<script type="text/javascript" src="/static/lib/ueditor/1.4.3/ueditor.config.js"></script> 
+<script type="text/javascript" src="/static/lib/ueditor/1.4.3/ueditor.all.min.js"> </script> 
+<script type="text/javascript" src="/static/lib/ueditor/1.4.3/lang/zh-cn/zh-cn.js"></script>
+
+<!--/请在上方写此页面业务相关的脚本-->
+</body>
+</html>

@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Home;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use DB;
 class NoticeController extends Controller
 {
     /**
@@ -15,7 +15,8 @@ class NoticeController extends Controller
     public function index()
     {
         //加载公告页面
-        return view('Home.Notice.notice');
+         
+        
     }
 
     /**
@@ -48,6 +49,13 @@ class NoticeController extends Controller
     public function show($id)
     {
         //
+
+        $data = DB::table('announce')->where('status','=',0)->get();
+
+        $info = DB::table('announce')->where('id','=',$id)->first();
+        // dd($data);
+
+        return view('Home.Notice.notice',['data'=>$data,'info'=>$info]);
     }
 
     /**

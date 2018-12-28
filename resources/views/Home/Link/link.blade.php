@@ -98,19 +98,11 @@
         <a href="javascript:;">公告</a>
         <div class="notice-content">
           <ul class="notice-list">
-            
-              <li class="item Red">
-                <a target="_blank" href="/article/201805/3adfa2a3ca664e86ba4a6a8a33988940.shtml#ref=index&po=notice_notice1">优购客服电话变更</a>
-              </li>
-            
-              <li class="item item1 ">
-                <a target="_blank" href="/article/201712/e4de56a20dcf458d88626858531fb8b6.shtml#ref=index&po=notice_notice2">关闭分享购频道</a>
-              </li>
-            
-              <li class="item item1 ">
-                <a target="_blank" href="/article/201607/182fbbbcc43940259e172d1da13cacce.shtml#ref=index&po=notice_notice3">提醒会员谨防诈骗电话</a>
-              </li>
-            
+        @foreach($data as $res)
+        <li class="item Black"> 
+          <a target="_blank" href="/Homenotice/{{$res->id}}">{{$res->title}}</a>
+        </li>
+        @endforeach
           </ul>
         </div>
       </div>
@@ -121,7 +113,7 @@
 <!-- nav created time: 2018-12-05T14:02:10+08:00 -->
 <div id="logo" class="logo-container">
   <div class="header-logo">
-    <a href="http://www.yougou.com">
+    <a href="/Home">
       <img src="/static/Home/picture/logo.png" width="98" height="58" />
     </a>
   </div>
@@ -129,16 +121,15 @@
     <div class="nav">
       <ul>
         <li id="nav_logo" style="display: none" class="item-first">
-          <a href="http://www.yougou.com">
+          <a href="/Home">
             <img src="/static/Home/picture/logo.png" width="60" height="38" />
           </a>
         </li>
         
           <li class="item">
-            <a href="http://www.yougou.com/"
+            <a href="/Home"
                
               target="_blank"
-               
                >
               首页
             </a>
@@ -1810,10 +1801,10 @@
   </div>
     <!-- <h1 class="tleft Size16"><strong>友情链接</strong></h1> -->
     
-    <h2 class="tleft Size14"><span>文字链接</span></h2>
+    <h2 class="tleft Size14"><span style="font-size: 15px">文字链接</span></h2>
     <ul class="fl linklist">
-      @foreach($data as $v)
-        <li><a href="{{$v->web}}" target="_blank" title="{{$v->name}}">{{$v->name}}</a></li>
+      @foreach($link as $v)
+        <li><a style="font-size:22px" href="{{$v->web}}" target="_blank" title="{{$v->name}}">{{$v->name}}</a></li>
       @endforeach
       
     </ul>
@@ -1825,7 +1816,7 @@
 <div class="ygwrap friendlinkcontact">
   <h2>友情链接联系方式:</h2>
   <p>邮箱：seo#yougou.com （发邮件时请把#替换成@）</p>
-  <p>Q Q： 2540714875</p>
+  <p>Q Q： 1045815562</p>
 </div>
 <!-- 优购导航 start -->
 
@@ -2021,7 +2012,7 @@
           <a href="http://www.yougou.com/help/contactus.shtml" class="title">联系我们</a>|
         </li>
         <li>
-          <a href="http://www.yougou.com/friendlink.shtml" class="title">友情链接</a>
+          <a href="/Homelink" class="title">友情链接</a>
         </li>
       </ul>
     </div>

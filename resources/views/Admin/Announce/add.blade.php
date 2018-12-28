@@ -43,6 +43,7 @@
 				<script id="editor" type="text/plain" style="width:100%;height:400px;"></script> 
 			</div>
 		</div>
+		<input type="hidden" name="time" value="{{time()}}">
 		{{csrf_field()}}
 		<div class="row cl">
 			<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">

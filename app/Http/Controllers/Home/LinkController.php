@@ -15,8 +15,10 @@ class LinkController extends Controller
     public function index()
     {
         //加载友情链接界面
-        $data = DB::table('link')->get();
-        return view('Home.Link.link',['data'=>$data]);
+        $link = DB::table('link')->get();
+        $data = DB::table('announce')->where('status','=',0)->get();
+        // dd($data);
+        return view('Home.Link.link',['link'=>$link,'data'=>$data]);
     }
 
     /**

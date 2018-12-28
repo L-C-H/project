@@ -15,6 +15,7 @@
   <iframe src="./【思加图staccatoR9201DZ8黑色】STACCATO_思加图2018年冬季专柜同款黑色羊绒皮革女皮靴R9201DZ8_files/analyze.html" scrolling="no" width="1" height="1" style="display: none;"></iframe>
   <script type="text/javascript" async="" src="./【思加图staccatoR9201DZ8黑色】STACCATO_思加图2018年冬季专柜同款黑色羊绒皮革女皮靴R9201DZ8_files/pixel.php"></script>
   <script type="text/javascript" async="" src="./【思加图staccatoR9201DZ8黑色】STACCATO_思加图2018年冬季专柜同款黑色羊绒皮革女皮靴R9201DZ8_files/ga.js"></script>
+  <script src="/js/jquery.min.js"></script>
   <script charset="gbk">
 	try {
 		function jump_mobile() {
@@ -139,19 +140,16 @@
   <!-- nav created time: 2018-12-05T14:02:10+08:00 --> 
   <div id="logo" class="logo-container"> 
    <div class="header-logo" style="display: block;"> 
-    <a href="http://www.yougou.com/"> <img src="/static/Home/images/logo.png" width="98" height="58" /> </a> 
+    <a href="/Home"> <img src="/static/Home/images/logo.png" width="98" height="58" /> </a> 
    </div> 
    <div class="nav-container" style="padding-top: 0;"> 
     <div class="nav"> 
      <ul> 
-      <li id="nav_logo" style="display: none;" class="item-first"> <a href="http://www.yougou.com/"> <img src="/static/Home/images/logo.png" width="60" height="38" /> </a> </li> 
+      <li id="nav_logo" style="display: none;" class="item-first"> <a href="/Home"> <img src="/static/Home/images/logo.png" width="60" height="38" /> </a> </li> 
       <li class="item" style="padding: 15px;"> <a href="http://www.yougou.com/" target="_blank"> 首页 </a> </li> 
-      <li class="item" style="padding: 15px;"> <a href="http://www.yougou.com/f-0-MXZ-0-1.html" _yg_nav="5b2ba28f59bcda74c9000050" target="_blank"> 女鞋 </a> </li> 
-      <li class="item" style="padding: 15px;"> <a href="http://www.yougou.com/f-basto_bata_belle_crocs_hushpuppies_senda_tata_teenmix-Y0A-04Y004-1.html" _yg_nav="53d0e925c7da508b0c000195" target="_blank"> 男鞋 </a> </li> 
-      <li class="item" style="padding: 15px;"> <a href="http://www.yougou.com/f-0-PTK-0-1.html" _yg_nav="5b2badd459bcda74c900007a" target="_blank"> 运动 </a> </li> 
-      <li class="item" style="padding: 15px;"> <a href="http://www.yougou.com/f-0-KDT-0-1.html" _yg_nav="53d0e924c7da508b0c00011e" target="_blank"> 户外 </a> </li> 
-      <li class="item" style="padding: 15px;"> <a href="http://www.yougou.com/f-0-9XB_HX4-0-1.html" _yg_nav="5b2bb95259bcdae402000009" target="_blank"> 儿童 </a> </li> 
-      <li class="item" style="padding: 15px;"> <a href="http://www.yougou.com/f-0-6LJ-0-1.html" _yg_nav="53d0e924c7da508b0c000155" target="_blank"> 箱包 </a> </li> 
+      @foreach($cate as $cates)
+      <li class="item" style="padding: 15px;"> <a href="http://www.yougou.com/f-0-MXZ-0-1.html" _yg_nav="5b2ba28f59bcda74c9000050{{$cates->id}}" target="_blank"> {{$cates->name}} </a> </li> 
+      @endforeach
      </ul> 
      <div class="search-wrapper"> 
       <form action="" class="input_box" onsubmit="if(keyword.value==''){return false;}" id="J_TopSearchForm" method="get"> 
@@ -165,548 +163,24 @@
     </div> 
    </div> 
    <div class="nav-container-down" style="top: 53px;"> 
-    <div id="5b2ba28f59bcda74c9000050" class="nav-down-menu" style="display: none;" _yg_nav="5b2ba28f59bcda74c9000050"> 
-     <div class="sub-container"> 
+    @foreach($cate as $cates)
+    <div id="5b2ba28f59bcda74c9000050{{$cates->id}}" class="nav-down-menu" style="display: none;" _yg_nav="5b2ba28f59bcda74c9000050{{$cates->id}}">       
+     <div class="sub-container">
+     @foreach($cates->suv as $catess) 
       <dl class="header-nav-dl" style="width: 130px;"> 
-       <dt> 
-        <a href="http://www.yougou.com/c-staccato/sku-r9201dz8-101007040.shtml#" target="_blank"> 品牌 </a> 
-       </dt> 
-       <dd style="display: inline-block; width: 60px;"> 
-        <a href="http://www.yougou.com/f-belle-MXZ-0-1.html" target="_blank"> 百丽 </a> 
-       </dd> 
-       <dd style="display: inline-block; width: 60px;"> 
-        <a href="http://www.yougou.com/f-tata-MXZ-0-1.html" target="_blank"> 他她 </a> 
-       </dd> 
-       <dd style="display: inline-block; width: 60px;"> 
-        <a href="http://www.yougou.com/f-teenmix-0-0-1.html" target="_blank"> 天美意 </a> 
-       </dd> 
-       <dd style="display: inline-block; width: 60px;"> 
-        <a href="http://www.yougou.com/f-millies-0-0-1.html" target="_blank"> 妙丽 </a> 
-       </dd> 
-       <dd style="display: inline-block; width: 60px;"> 
-        <a href="http://www.yougou.com/f-senda-0-0-1.html" target="_blank"> 森达 </a> 
-       </dd> 
-       <dd style="display: inline-block; width: 60px;"> 
-        <a href="http://www.yougou.com/f-joypeace-0-0-1.html" target="_blank"> 真美诗 </a> 
-       </dd> 
-       <dd style="display: inline-block; width: 60px;"> 
-        <a href="http://www.yougou.com/f-staccato-0-0-1.html" target="_blank"> 思加图 </a> 
-       </dd> 
-       <dd style="display: inline-block; width: 60px;"> 
-        <a href="http://www.yougou.com/f-bata-MXZ-0-1.html" target="_blank"> 拔佳 </a> 
-       </dd> 
-       <dd style="display: inline-block; width: 60px;"> 
-        <a href="http://www.yougou.com/f-hushpuppies-0-0-1.html" target="_blank"> 暇步士 </a> 
-       </dd> 
-       <dd style="display: inline-block; width: 60px;"> 
-        <a href="http://www.yougou.com/f-basto-0-0-1.html" target="_blank"> 百思图 </a> 
-       </dd> 
-       <dd style="display: inline-block; width: 60px;"> 
-        <a href="http://www.yougou.com/f-jipijapa-MXZ-0-1.html" target="_blank"> Jipi Japa </a> 
-       </dd> 
-       <dd style="display: inline-block; width: 60px;"> 
-        <a href="http://www.yougou.com/skap-brand.html" target="_blank"> 圣伽步 </a> 
-       </dd> 
+         <dt> 
+          <a href="http://www.yougou.com/c-staccato/sku-r9201dz8-101007040.shtml#" target="_blank"> {{$catess->name}} </a> 
+         </dt> 
+          @foreach($catess->suv as $value)
+         <dd style="display: inline-block; width: 60px;"> 
+          <a href="http://www.yougou.com/f-belle-MXZ-0-1.html" target="_blank"> {{$value->name}} </a> 
+         </dd> 
+         @endforeach
       </dl> 
-      <dl class="item header-nav-dl" style="width: 130px;"> 
-       <dt> 
-        <a href="http://www.yougou.com/f-0-MXZ_F5R-0-1.html" target="_blank"> 女士单鞋 </a> 
-       </dt> 
-       <dd style="display: inline-block; width: 60px;"> 
-        <a href="http://www.yougou.com/f-0-MXZ_F5R_0YN-0-1.html" target="_blank"> 浅口鞋 </a> 
-       </dd> 
-       <dd style="display: inline-block; width: 60px;"> 
-        <a href="http://www.yougou.com/f-0-MXZ_F5R_MML-0-1.html" target="_blank"> 尖头鞋 </a> 
-       </dd> 
-       <dd style="display: inline-block; width: 60px;"> 
-        <a href="http://www.yougou.com/sr/searchKey.sc?keyword=%E5%B0%8F%E7%99%BD%E9%9E%8B&amp;orderBy=1&amp;catgNo=MXZ_F5R"> 小白鞋 </a> 
-       </dd> 
-       <dd style="display: inline-block; width: 60px;"> 
-        <a href="http://www.yougou.com/f-0-MXZ_F5R_Q2T-0-1.html" target="_blank"> 乐福鞋 </a> 
-       </dd> 
-       <dd style="display: inline-block; width: 60px;"> 
-        <a href="http://www.yougou.com/f-0-MXZ_F5R_UWO-05B000-1.html" target="_blank"> 满帮鞋 </a> 
-       </dd> 
-       <dd style="display: inline-block; width: 60px;"> 
-        <a href="http://www.yougou.com/f-0-MXZ_F5R_18N-05B000-1.html" target="_blank"> 高跟鞋 </a> 
-       </dd> 
-       <dd style="display: inline-block; width: 60px;"> 
-        <a href="http://www.yougou.com/f-0-MXZ_F5R_8YR-05B000-1.html"> 松糕鞋 </a> 
-       </dd> 
-       <dd style="display: inline-block; width: 60px;"> 
-        <a href="http://www.yougou.com/f-0-MXZ_F5R_N3I-05B000-1.html" target="_blank"> 平底鞋 </a> 
-       </dd> 
-       <dd style="display: inline-block; width: 60px;"> 
-        <a href="http://www.yougou.com/f-0-MXZ_F5R_N1R-0-1.html" target="_blank"> 休闲鞋 </a> 
-       </dd> 
-      </dl> 
-      <dl class="item header-nav-dl"> 
-       <dt> 
-        <a href="http://www.yougou.com/f-0-MXZ_UI0-05B000-1.html"> 女士靴子 </a> 
-       </dt> 
-       <dd> 
-        <a href="http://www.yougou.com/f-0-MXZ_UI0_3CN-0-1.html" target="_blank"> 短靴 </a> 
-       </dd> 
-       <dd> 
-        <a href="http://www.yougou.com/f-0-MXZ_UI0_78V-0-1.html"> 中靴 </a> 
-       </dd> 
-       <dd> 
-        <a href="http://www.yougou.com/f-0-MXZ_UI0_K8M-0-1.html"> 长靴 </a> 
-       </dd> 
-       <dd> 
-        <a href="http://www.yougou.com/f-0-MXZ_UI0_0VD-0-1.html"> 绒里靴 </a> 
-       </dd> 
-       <dd> 
-        <a href="http://www.yougou.com/f-0-MXZ_UI0_11U-0-1.html" target="_blank"> 马丁靴 </a> 
-       </dd> 
-       <dd> 
-        <a href="http://www.yougou.com/f-0-MXZ_UI0_WKL-0-1.html" target="_blank"> 雪地靴 </a> 
-       </dd> 
-      </dl> 
-      <dl class="item header-nav-dl"> 
-       <dt> 
-        <a href="http://www.yougou.com/f-0-MXZ_FQM-0-1.html" target="_blank"> 女士凉鞋 </a> 
-       </dt> 
-       <dd> 
-        <a href="http://www.yougou.com/f-0-MXZ_FQM_LWB-0-1.html" target="_blank"> 凉拖 </a> 
-       </dd> 
-       <dd> 
-        <a href="http://www.yougou.com/f-0-MXZ_FQM_9M4-0-1.html" target="_blank"> 纯凉鞋 </a> 
-       </dd> 
-       <dd> 
-        <a href="http://www.yougou.com/f-0-MXZ_FQM_NX1-0-1.html" target="_blank"> 坡跟凉鞋 </a> 
-       </dd> 
-       <dd> 
-        <a href="http://www.yougou.com/f-0-MXZ_FQM_NX1-0-1.html" target="_blank"> 后空凉鞋 </a> 
-       </dd> 
-       <dd> 
-        <a href="http://www.yougou.com/f-0-MXZ_FQM_KBN-0-1.html" target="_blank"> 中空凉鞋 </a> 
-       </dd> 
-       <dd> 
-        <a href="http://www.yougou.com/f-0-MXZ_FQM-01H0NY-1.html"> 穆勒凉鞋 </a> 
-       </dd> 
-      </dl> 
-      <dl class="item header-nav-dl"> 
-       <dt> 
-        <a href="http://www.yougou.com/c-staccato/sku-r9201dz8-101007040.shtml#" target="_blank"> 关键词 </a> 
-       </dt> 
-       <dd> 
-        <a href="http://www.yougou.com/f-0-MXZ-050002-1.html" target="_blank"> 秋季新品 </a> 
-       </dd> 
-       <dd> 
-        <a href="http://www.yougou.com/sr/searchKey.sc?keyword=%E4%B8%93%E6%9F%9C%E5%90%8C%E6%AC%BE%20%E5%A5%B3%E9%9E%8B&amp;orderBy=1" target="_blank"> 专柜同款 </a> 
-       </dd> 
-       <dd> 
-        <a href="http://www.yougou.com/sr/searchKey.sc?keyword=%E7%94%9C%E7%BE%8E&amp;orderBy=1&amp;catgNo=MXZ" target="_blank"> 甜美风 </a> 
-       </dd> 
-       <dd> 
-        <a href="http://www.yougou.com/sr/searchKey.sc?keyword=%E8%9D%B4%E8%9D%B6%E7%BB%93&amp;orderBy=1&amp;catgNo=MXZ" target="_blank"> 蝴蝶结 </a> 
-       </dd> 
-       <dd> 
-        <a href="http://www.yougou.com/sr/searchKey.sc?keyword=%E4%B8%80%E5%AD%97%E5%B8%A6&amp;orderBy=1&amp;attrStr=050001&amp;catgNo=MXZ" target="_blank"> 一字带 </a> 
-       </dd> 
-       <dd> 
-        <a href="http://www.yougou.com/f-0-MXZ-0-1.html" target="_blank"> 热销TOP </a> 
-       </dd> 
-      </dl> 
+       @endforeach
      </div> 
     </div> 
-    <div id="53d0e925c7da508b0c000195" class="nav-down-menu" style="display: none;" _yg_nav="53d0e925c7da508b0c000195"> 
-     <div class="sub-container" style="margin-left: 459.5px;"> 
-      <dl class="header-nav-dl" style="width: 130px;"> 
-       <dt> 
-        <a href="http://www.yougou.com/c-staccato/sku-r9201dz8-101007040.shtml#" target="_blank"> 品牌 </a> 
-       </dt> 
-       <dd style="display: inline-block; width: 60px;"> 
-        <a href="http://www.yougou.com/f-belle-Y0A-0-1.html"> 百丽 </a> 
-       </dd> 
-       <dd style="display: inline-block; width: 60px;"> 
-        <a href="http://www.yougou.com/f-senda-Y0A-0-1.html"> 森达 </a> 
-       </dd> 
-       <dd style="display: inline-block; width: 60px;"> 
-        <a href="http://www.yougou.com/f-hushpuppies-Y0A-0-1.html" target="_blank"> 暇步士 </a> 
-       </dd> 
-       <dd style="display: inline-block; width: 60px;"> 
-        <a href="http://www.yougou.com/f-bata-Y0A-0-1.html"> 拔佳 </a> 
-       </dd> 
-       <dd style="display: inline-block; width: 60px;"> 
-        <a href="http://www.yougou.com/f-teenmix-Y0A-0-1.html"> 天美意 </a> 
-       </dd> 
-       <dd style="display: inline-block; width: 60px;"> 
-        <a href="http://www.yougou.com/f-tata-Y0A-0-1.html"> 他她 </a> 
-       </dd> 
-       <dd style="display: inline-block; width: 60px;"> 
-        <a href="http://www.yougou.com/f-basto-Y0A-0-1.html"> 百思图 </a> 
-       </dd> 
-       <dd style="display: inline-block; width: 60px;"> 
-        <a href="http://www.yougou.com/f-crocs-Y0A-0-1.html"> 卡骆驰 </a> 
-       </dd> 
-       <dd style="display: inline-block; width: 60px;"> 
-        <a href="http://www.yougou.com/f-fato-Y0A-0-1.html"> 伐拓 </a> 
-       </dd> 
-      </dl> 
-      <dl class="item header-nav-dl" style="width: 130px;"> 
-       <dt> 
-        <a href="http://www.yougou.com/c-staccato/sku-r9201dz8-101007040.shtml#" target="_blank"> 分类 </a> 
-       </dt> 
-       <dd style="display: inline-block; width: 60px;"> 
-        <a href="http://www.yougou.com/f-0-Y0A-04T020_052001-1.html" target="_blank"> 休闲鞋 </a> 
-       </dd> 
-       <dd style="display: inline-block; width: 60px;"> 
-        <a href="http://www.yougou.com/f-0-Y0A_XE1_R5O-0-1.html" target="_blank"> 乐福鞋 </a> 
-       </dd> 
-       <dd style="display: inline-block; width: 60px;"> 
-        <a href="http://www.yougou.com/f-0-Y0A_XE1_Q28-052001-1.html" target="_blank"> 懒人鞋 </a> 
-       </dd> 
-       <dd style="display: inline-block; width: 60px;"> 
-        <a href="http://www.yougou.com/sr/searchKey.sc?keyword=%E7%B3%BB%E5%B8%A6%E9%9E%8B&amp;orderBy=0&amp;catgNo=Y0A" target="_blank"> 系带鞋 </a> 
-       </dd> 
-       <dd style="display: inline-block; width: 60px;"> 
-        <a href="http://www.yougou.com/f-0-Y0A_XE1_O2S-052001-1.html"> 满帮鞋 </a> 
-       </dd> 
-       <dd style="display: inline-block; width: 60px;"> 
-        <a href="http://www.yougou.com/f-0-Y0A-04T024_052001-1.html" target="_blank"> 正装鞋 </a> 
-       </dd> 
-       <dd style="display: inline-block; width: 60px;"> 
-        <a href="http://www.yougou.com/f-basto_bata_belle_crocs_hushpuppies_senda_tata_teenmix-Y0A_XE1_RVN-04Y004-1.html" target="_blank"> 打孔鞋 </a> 
-       </dd> 
-       <dd style="display: inline-block; width: 60px;"> 
-        <a href="http://www.yougou.com/f-basto_bata_belle_crocs_hushpuppies_senda_tata_teenmix-Y0A_XE1_8OT-04Y004-1.html"> 豆豆鞋 </a> 
-       </dd> 
-       <dd style="display: inline-block; width: 60px;"> 
-        <a href="http://www.yougou.com/f-0-Y0A_KJG_8M7-0-1.html" target="_blank"> 纯凉鞋 </a> 
-       </dd> 
-      </dl> 
-      <dl class="item header-nav-dl"> 
-       <dt> 
-        <a href="http://www.yougou.com/c-staccato/sku-r9201dz8-101007040.shtml#" target="_blank"> 关键词 </a> 
-       </dt> 
-       <dd> 
-        <a href="http://www.yougou.com/f-0-Y0A-04Y004_050001_05B001_052001-1.html" target="_blank"> 专柜同款 </a> 
-       </dd> 
-       <dd> 
-        <a href="http://www.yougou.com/f-0-Y0A-00T009_052001-1.html"> 小白鞋 </a> 
-       </dd> 
-       <dd> 
-        <a href="http://www.yougou.com/sr/searchKey.sc?keyword=2018&amp;orderBy=1&amp;catgNo=Y0A" target="_blank"> 2018新品 </a> 
-       </dd> 
-       <dd> 
-        <a href="http://www.yougou.com/f-0-Y0A-0-1.html" target="_blank"> 热销TOP </a> 
-       </dd> 
-      </dl> 
-     </div> 
-    </div> 
-    <div id="5b2badd459bcda74c900007a" class="nav-down-menu" style="display: none;" _yg_nav="5b2badd459bcda74c900007a"> 
-     <div class="sub-container"> 
-      <dl class="header-nav-dl" style="width: 130px;"> 
-       <dt> 
-        <a href="http://www.yougou.com/f-0-PTK-0-1.html"> 品牌 </a> 
-       </dt> 
-       <dd style="display: inline-block; width: 60px;"> 
-        <a href="http://www.yougou.com/f-adidas-PTK-0-1.html" target="_blank"> 阿迪达斯 </a> 
-       </dd> 
-       <dd style="display: inline-block; width: 60px;"> 
-        <a href="http://www.yougou.com/f-nike-PTK-0-1.html" target="_blank"> 耐克 </a> 
-       </dd> 
-       <dd style="display: inline-block; width: 60px;"> 
-        <a href="http://www.yougou.com/f-adidasoriginals-PTK-0-1.html" target="_blank"> 三叶草 </a> 
-       </dd> 
-       <dd style="display: inline-block; width: 60px;"> 
-        <a href="http://www.yougou.com/f-adidasneo-PTK-0-1.html" target="_blank"> 阿迪休闲 </a> 
-       </dd> 
-       <dd style="display: inline-block; width: 60px;"> 
-        <a href="http://www.yougou.com/f-puma-PTK-0-1.html" target="_blank"> 彪马 </a> 
-       </dd> 
-       <dd style="display: inline-block; width: 60px;"> 
-        <a href="http://www.yougou.com/f-converse-PTK-0-1.html" target="_blank"> 匡威 </a> 
-       </dd> 
-       <dd style="display: inline-block; width: 60px;"> 
-        <a href="http://www.yougou.com/f-onitsukatiger-PTK-0-1.html" target="_blank"> 鬼冢虎 </a> 
-       </dd> 
-       <dd style="display: inline-block; width: 60px;"> 
-        <a href="http://www.yougou.com/f-skechers-PTK-0-1.html" target="_blank"> 斯凯奇 </a> 
-       </dd> 
-       <dd style="display: inline-block; width: 60px;"> 
-        <a href="http://www.yougou.com/f-asics-PTK-0-1.html" target="_blank"> 亚瑟士 </a> 
-       </dd> 
-       <dd style="display: inline-block; width: 60px;"> 
-        <a href="http://www.yougou.com/f-reebok-PTK-0-1.html" target="_blank"> 锐步 </a> 
-       </dd> 
-       <dd style="display: inline-block; width: 60px;"> 
-        <a href="http://www.yougou.com/f-vans-PTK-0-1.html" target="_blank"> 万斯 </a> 
-       </dd> 
-      </dl> 
-      <dl class="item header-nav-dl" style="width: 130px;"> 
-       <dt> 
-        <a href="http://www.yougou.com/f-0-PTK_J7F-0-1.html" target="_blank"> 运动鞋 </a> 
-       </dt> 
-       <dd style="display: inline-block; width: 60px;"> 
-        <a href="http://www.yougou.com/f-0-PTK_J7F_LMT-0-1.html" target="_blank"> 跑步鞋 </a> 
-       </dd> 
-       <dd style="display: inline-block; width: 60px;"> 
-        <a href="http://www.yougou.com/f-0-PTK_J7F_2GZ-0-1.html" target="_blank"> 休闲鞋 </a> 
-       </dd> 
-       <dd style="display: inline-block; width: 60px;"> 
-        <a href="http://www.yougou.com/f-0-PTK_J7F_CQ2-0-1.html" target="_blank"> 复刻鞋 </a> 
-       </dd> 
-       <dd style="display: inline-block; width: 60px;"> 
-        <a href="http://www.yougou.com/f-0-PTK_J7F_CQL-0-1.html" target="_blank"> 篮球鞋 </a> 
-       </dd> 
-       <dd style="display: inline-block; width: 60px;"> 
-        <a href="http://www.yougou.com/f-0-PTK_J7F_KDP-0-1.html" target="_blank"> 户外鞋 </a> 
-       </dd> 
-       <dd style="display: inline-block; width: 60px;"> 
-        <a href="http://www.yougou.com/f-0-PTK_J7F_5YS-0-1.html" target="_blank"> 帆布鞋 </a> 
-       </dd> 
-       <dd style="display: inline-block; width: 60px;"> 
-        <a href="http://www.yougou.com/f-0-PTK_J7F_XKG-0-1.html" target="_blank"> 网球鞋 </a> 
-       </dd> 
-       <dd style="display: inline-block; width: 60px;"> 
-        <a href="http://www.yougou.com/f-0-PTK_J7F_BSP-0-1.html" target="_blank"> 综训鞋 </a> 
-       </dd> 
-       <dd style="display: inline-block; width: 60px;"> 
-        <a href="http://www.yougou.com/f-0-PTK_J7F_2GI-0-1.html" target="_blank"> 健步鞋 </a> 
-       </dd> 
-       <dd style="display: inline-block; width: 60px;"> 
-        <a href="http://www.yougou.com/f-0-PTK_J7F_CMO-0-1.html" target="_blank"> 足球鞋 </a> 
-       </dd> 
-       <dd style="display: inline-block; width: 60px;"> 
-        <a href="http://www.yougou.com/f-0-PTK_J7F_8Y5-0-1.html" target="_blank"> 凉鞋/拖鞋 </a> 
-       </dd> 
-       <dd style="display: inline-block; width: 60px;"> 
-        <a href="http://www.yougou.com/f-0-PTK_I0E-0-1.html" target="_blank"> 包配 </a> 
-       </dd> 
-      </dl> 
-      <dl class="item header-nav-dl"> 
-       <dt> 
-        <a href="http://www.yougou.com/f-0-PTK_9NZ-0-1.html" target="_blank"> 运动服 </a> 
-       </dt> 
-       <dd> 
-        <a href="http://www.yougou.com/f-0-PTK_9NZ_K02-0-1.html" target="_blank"> T恤 </a> 
-       </dd> 
-       <dd> 
-        <a href="http://www.yougou.com/f-0-PTK_9NZ_VK5-0-1.html" target="_blank"> POLO衫 </a> 
-       </dd> 
-       <dd> 
-        <a href="http://www.yougou.com/f-0-PTK_9NZ_FTS-0-1.html" target="_blank"> 短裤 </a> 
-       </dd> 
-       <dd> 
-        <a href="http://www.yougou.com/f-0-PTK_9NZ_CJW-0-1.html" target="_blank"> 紧身服/胸衣 </a> 
-       </dd> 
-       <dd> 
-        <a href="http://www.yougou.com/f-0-PTK_9NZ_G4R-0-1.html"> 长裤 </a> 
-       </dd> 
-       <dd> 
-        <a href="http://www.yougou.com/f-0-PTK_9NZ_UR8-0-1.html" target="_blank"> 夹克 </a> 
-       </dd> 
-       <dd> 
-        <a href="http://www.yougou.com/f-0-PTK_9NZ_691-0-1.html" target="_blank"> 卫衣/套头衫 </a> 
-       </dd> 
-      </dl> 
-      <dl class="item header-nav-dl"> 
-       <dt> 
-        <a href="http://www.yougou.com/f-0-PTK-0-1.html" target="_blank"> 关键词 </a> 
-       </dt> 
-       <dd> 
-        <a href="http://www.yougou.com/f-0-PTK-052001_05B001-1.html" target="_blank"> 专柜同款 </a> 
-       </dd> 
-       <dd> 
-        <a href="http://www.yougou.com/f-0-PTK-052001-1.html" target="_blank"> 夏季新品 </a> 
-       </dd> 
-       <dd> 
-        <a href="http://www.yougou.com/sr/searchKey.sc?keyword=%E8%B4%9D%E5%A3%B3%E5%A4%B4%E4%BC%91%E9%97%B2%E9%9E%8B&amp;orderBy=0&amp;catgNo=PTK" target="_blank"> 贝壳头鞋 </a> 
-       </dd> 
-       <dd> 
-        <a href="http://www.yougou.com/f-0-PTK-0-5.html"> SALE </a> 
-       </dd> 
-      </dl> 
-     </div> 
-    </div> 
-    <div id="53d0e924c7da508b0c00011e" class="nav-down-menu" style="display: none;" _yg_nav="53d0e924c7da508b0c00011e"> 
-     <div class="sub-container" style="margin-left: 459.5px;"> 
-      <dl class="header-nav-dl"> 
-       <dt> 
-        <a href="http://www.yougou.com/c-staccato/sku-r9201dz8-101007040.shtml#" target="_blank"> 品牌 </a> 
-       </dt> 
-       <dd> 
-        <a href="http://www.yougou.com/f-thenorthface-IHY_SYG-0-6.html" target="_blank" style="color: #1c1919;"> 乐斯菲斯 </a> 
-       </dd> 
-       <dd> 
-        <a href="http://www.yougou.com/f-timberland-KDT-0-0.html" target="_blank"> 添柏岚 </a> 
-       </dd> 
-       <dd> 
-        <a href="http://www.yougou.com/f-columbia-IHY_SYG-0-6.html" target="_blank" style="color: #1c1818;"> 哥伦比亚 </a> 
-       </dd> 
-       <dd> 
-        <a href="http://www.yougou.com/f-cat-KDT-0-6.html" target="_blank"> CAT </a> 
-       </dd> 
-      </dl> 
-      <dl class="item header-nav-dl"> 
-       <dt> 
-        <a href="http://www.yougou.com/f-0-KDT_O02-0-1.html" target="_blank"> 户外鞋 </a> 
-       </dt> 
-       <dd> 
-        <a href="http://www.yougou.com/f-cat_columbia_thenorthface_timberland-KDT_O02_FXW-0-0.html"> 休闲鞋 </a> 
-       </dd> 
-       <dd> 
-        <a href="http://www.yougou.com/f-cat_columbia_thenorthface_timberland-KDT_O02_T7S-0-0.html"> 工装鞋 </a> 
-       </dd> 
-       <dd> 
-        <a href="http://www.yougou.com/f-cat_columbia_thenorthface_timberland-KDT_O02_CSM-0-0.html" target="_blank"> 越野鞋 </a> 
-       </dd> 
-      </dl> 
-      <dl class="item header-nav-dl"> 
-       <dt> 
-        <a href="http://www.yougou.com/sr/searchKey.sc?keyword=%E6%88%B7%E5%A4%96%E6%9C%8D&amp;orderBy=1" target="_blank"> 户外服 </a> 
-       </dt> 
-       <dd> 
-        <a href="http://www.yougou.com/f-0-KDT_LEI_IKL-0-1.html" target="_blank"> T恤 </a> 
-       </dd> 
-       <dd> 
-        <a href="http://www.yougou.com/sr/searchKey.sc?keyword=%E5%86%B2%E9%94%8B%E8%A1%A3&amp;orderBy=1&amp;brandEnName=columbia_thenorthface" target="_blank"> 冲锋衣 </a> 
-       </dd> 
-       <dd> 
-        <a href="http://www.yougou.com/f-0-KDT_LEI_8MP-0-1.html" target="_blank"> 皮肤衣 </a> 
-       </dd> 
-       <dd> 
-        <a href="http://www.yougou.com/f-0-KDT_LEI_SF7-0-0.html" target="_blank"> 抓绒衣裤 </a> 
-       </dd> 
-       <dd> 
-        <a href="http://www.yougou.com/f-0-KDT_LEI_QK6-0-0.html" target="_blank"> 软壳衣裤 </a> 
-       </dd> 
-       <dd> 
-        <a href="http://www.yougou.com/f-0-IHY_SYG_X3G_YOC_D20-0-0.html" target="_blank"> 休闲裤 </a> 
-       </dd> 
-      </dl> 
-      <dl class="item header-nav-dl"> 
-       <dt> 
-        <a href="http://www.yougou.com/c-staccato/sku-r9201dz8-101007040.shtml#" target="_blank"> 关键词 </a> 
-       </dt> 
-       <dd> 
-        <a href="http://www.yougou.com/f-thenorthface-IHY_SYG_X3G-01H03R04404V06206R07A-1.html" target="_blank"> 速干 </a> 
-       </dd> 
-       <dd> 
-        <a href="http://www.yougou.com/f-cat-KDT_O02_T7S-00T00G-0.html" target="_blank"> 大黄靴 </a> 
-       </dd> 
-       <dd> 
-        <a href="http://www.yougou.com/f-0-KDT-05B001-1.html" target="_blank"> 热销TOP </a> 
-       </dd> 
-      </dl> 
-     </div> 
-    </div> 
-    <div id="5b2bb95259bcdae402000009" class="nav-down-menu" style="display: none;" _yg_nav="5b2bb95259bcdae402000009"> 
-     <div class="sub-container" style="margin-left: 459.5px;"> 
-      <dl class="header-nav-dl"> 
-       <dt> 
-        <a href="http://www.yougou.com/f-0-9XB-0-0.html" target="_blank" style="color:  阿;"> 热门品牌 </a> 
-       </dt> 
-       <dd> 
-        <a href="http://www.yougou.com/f-adidas_adidasoriginals-9XB-0-0.html" target="_blank"> 阿迪 </a> 
-       </dd> 
-       <dd> 
-        <a href="http://www.yougou.com/f-nike-9XB-0-0.html" target="_blank"> 耐克 </a> 
-       </dd> 
-       <dd> 
-        <a href="http://www.yougou.com/f-adidasoriginals-9XB-0-6.html" target="_blank"> 三叶草 </a> 
-       </dd> 
-      </dl> 
-      <dl class="item header-nav-dl"> 
-       <dt> 
-        <a href="http://www.yougou.com/f-0-9XB_HX4-0-0.html" target="_blank"> 童鞋 </a> 
-       </dt> 
-       <dd> 
-        <a href="http://www.yougou.com/f-0-9XB_HX4_N2F-0-1.html" target="_blank"> 跑步鞋 </a> 
-       </dd> 
-       <dd> 
-        <a href="http://www.yougou.com/f-0-9XB_HX4_2BI-0-1.html" target="_blank"> 户外鞋 </a> 
-       </dd> 
-       <dd> 
-        <a href="http://www.yougou.com/f-0-9XB_HX4_4VU-0-1.html" target="_blank"> 复刻鞋 </a> 
-       </dd> 
-      </dl> 
-      <dl class="item header-nav-dl"> 
-       <dt> 
-        <a href="http://www.yougou.com/f-0-9XB_A0E-0-0.html" target="_blank"> 童装 </a> 
-       </dt> 
-       <dd> 
-        <a href="http://www.yougou.com/f-0-9XB_A0E_1LG-0-1.html" target="_blank"> T恤 </a> 
-       </dd> 
-       <dd> 
-        <a href="http://www.yougou.com/f-0-9XB_A0E_UBH-0-1.html" target="_blank"> 儿童套装 </a> 
-       </dd> 
-       <dd> 
-        <a href="http://www.yougou.com/f-0-9XB_A0E_J6C-0-1.html" target="_blank"> 裤装 </a> 
-       </dd> 
-       <dd> 
-        <a href="http://www.yougou.com/f-0-9XB_A0E_00X-0-1.html" target="_blank"> 外套/风衣 </a> 
-       </dd> 
-       <dd> 
-        <a href="http://www.yougou.com/f-0-9XB_A0E_DDD-0-1.html" target="_blank"> 卫衣 </a> 
-       </dd> 
-       <dd> 
-        <a href="http://www.yougou.com/f-0-9XB_A0E_ORE-0-1.html" target="_blank"> 棉羽 </a> 
-       </dd> 
-      </dl> 
-     </div> 
-    </div> 
-    <div id="53d0e924c7da508b0c000155" class="nav-down-menu" style="display: none;" _yg_nav="53d0e924c7da508b0c000155"> 
-     <div class="sub-container" style="margin-left: 459.5px;"> 
-      <dl class="header-nav-dl"> 
-       <dt> 
-        <a href="http://www.yougou.com/c-staccato/sku-r9201dz8-101007040.shtml#"> 品牌 </a> 
-       </dt> 
-       <dd> 
-        <a href="http://www.yougou.com/f-istbelle-6LJ-0-1.html"> 百丽箱包 </a> 
-       </dd> 
-       <dd> 
-        <a href="http://www.yougou.com/f-basto-6LJ-0-1.html" target="_blank"> 百思图 </a> 
-       </dd> 
-       <dd> 
-        <a href="http://www.yougou.com/f-teenmix-6LJ-0-1.html" target="_blank"> 天美意 </a> 
-       </dd> 
-       <dd> 
-        <a href="http://www.yougou.com/f-tata-6LJ-0-1.html" target="_blank"> 他她 </a> 
-       </dd> 
-       <dd> 
-        <a href="http://www.yougou.com/f-bata-6LJ-0-1.html" target="_blank"> 拔佳 </a> 
-       </dd> 
-       <dd> 
-        <a href="http://www.yougou.com/f-staccato-6LJ-0-1.html" target="_blank"> 思加图 </a> 
-       </dd> 
-       <dd> 
-        <a href="http://www.yougou.com/f-millies-6LJ-0-1.html" target="_blank"> 妙丽&nbsp; </a> 
-       </dd> 
-      </dl> 
-      <dl class="item header-nav-dl"> 
-       <dt> 
-        <a href="http://www.yougou.com/sr/searchKey.sc?keyword=%E5%8C%85&amp;orderBy=1&amp;attrStr=04Y001&amp;catgNo=6LJ_345" target="_blank"> 魅力女包 </a> 
-       </dt> 
-       <dd> 
-        <a href="http://www.yougou.com/f-0-6LJ_345_CEE-0-1.html" target="_blank"> 手提/手包 </a> 
-       </dd> 
-       <dd> 
-        <a href="http://www.yougou.com/f-0-6LJ_345_I47-0-1.html" target="_blank"> 单肩/斜挎 </a> 
-       </dd> 
-       <dd> 
-        <a href="http://www.yougou.com/f-0-6LJ_345_8HJ-0-1.html" target="_blank"> 双肩包 </a> 
-       </dd> 
-      </dl> 
-      <dl class="item header-nav-dl"> 
-       <dt> 
-        <a href="http://www.yougou.com/f-0-6LJ_Q5K-0-1.html" target="_blank"> 经典男包 </a> 
-       </dt> 
-       <dd> 
-        <a href="http://www.yougou.com/f-0-6LJ_Q5K_LPU-0-1.html" target="_blank"> 单肩/斜挎 </a> 
-       </dd> 
-       <dd> 
-        <a href="http://www.yougou.com/f-0-6LJ_Q5K_51J-0-1.html" target="_blank"> 手提/手包 </a> 
-       </dd> 
-       <dd> 
-        <a href="http://www.yougou.com/f-0-6LJ_Q5K_66S-0-1.html" target="_blank"> 双肩包 </a> 
-       </dd> 
-      </dl> 
-     </div> 
-    </div> 
+     @endforeach
    </div> 
    <div class="line"></div> 
   </div> 
@@ -728,7 +202,19 @@
     </div> 
     <div class="tcar_outc art_size_select"> 
      <!--尺码遍历--> 
-     <p data-property="尺码" class="prosize"> <span class="fl prodSpec size" style="width: 75%; margin-left: 10px;"> <a data-value="size_s340" data-name="34"> 34<i></i> </a> <a data-value="size_s350" data-name="35"> 35<i></i> </a> <a data-value="size_s360" data-name="36"> 36<i></i> </a> <a data-value="size_s370" data-name="37"> 37<i></i> </a> <a data-value="size_s380" data-name="38"> 38<i></i> </a> <a data-value="size_s390" data-name="39"> 39<i></i> </a> <a data-value="size_s400" data-name="40"> 40<i></i> </a> </span> <span id="size_select_btn" class="fl" style="display:block;visibility: hidden;width: 20%;"> <a href="javascript:void(0);" class="btn-confirm">确&nbsp;&nbsp;定</a> </span> </p> 
+     <p data-property="尺码" class="prosize">
+        <span class="fl prodSpec size" style="width: 75%; margin-left: 10px;"> 
+             <a data-value="size_s340" data-name="34"> 34<i></i> </a>
+             <a data-value="size_s350" data-name="35"> 35<i></i> </a>
+             <a data-value="size_s360" data-name="36"> 36<i></i> </a>
+             <a data-value="size_s370" data-name="37"> 37<i></i> </a>
+             <a data-value="size_s380" data-name="38"> 38<i></i> </a> 
+             <a data-value="size_s390" data-name="39"> 39<i></i> </a>
+             <a data-value="size_s400" data-name="40"> 40<i></i> </a> 
+        </span> 
+        <span id="size_select_btn" class="fl" style="display:block;visibility: hidden;width: 20%;"> <a href="javascript:void(0);" class="btn-confirm">确&nbsp;&nbsp;定</a> 
+        </span> 
+      </p> 
      <p class="clear"></p> 
     </div> 
    </div> 
@@ -772,7 +258,10 @@
       <div class="jqzoom" id="spec-n1" onclick="void(0)"> 
        <!-- 第一张大图 start --> 
        <sup no="101007040" class="mark_big_101007040 salepic2"></sup> 
-       <img id="pD-bimg" width="480px" height="480px" jqimg="http://i1.ygimg.cn/pics/staccato/2018/101007040/101007040_07_l.jpg?6" src="/static/Home/images/101007040_07_m.jpg" alt="STACCATO/思加图2018年冬季专柜同款黑色羊绒皮革女皮靴R9201DZ8" /> 
+       <img id="img" width="480px" height="480px" class="samll" jqimg="http://i1.ygimg.cn/pics/staccato/2018/101007040/101007040_07_l.jpg?6" src="{{$info->pic}}" alt="STACCATO/思加图2018年冬季专柜同款黑色羊绒皮革女皮靴R9201DZ8" />
+         <div id="big" style="width:800px;height:800px;position:absolute;left:600px;top:20px; overflow:hidden;display:none;">
+           <img src="{{$info->pic}}" alt="" width="800px" height="800px" />
+         </div>
        <!-- 第一张大图 end --> 
       </div> 
       <div class="ZoomLoading" style="display: none;"> 
@@ -784,33 +273,34 @@
        <a href="http://www.yougou.com/c-staccato/sku-r9201dz8-101007040-viewpic.shtml" target="_blank"></a> 
       </div> 
      </div> 
-     <div id="spec-list" class="myspeclist"> 
-      <ul class="list-h"> 
+<!--      <div id="spec-list" class="myspeclist"> 
+      <ul class="list-h">  -->
        <!-- 图片列表 start --> 
-       <li class=""> <img width="60" height="60" picbigurl="http://i1.ygimg.cn/pics/staccato/2018/101007040/101007040_01_m.jpg?6" piclargeurl="http://i1.ygimg.cn/pics/staccato/2018/101007040/101007040_01_l.jpg?6" src="/static/Home/images/101007040_01_t.jpg" loadflag="1" class="picSmallClass0" alt="STACCATO/思加图2018年冬季专柜同款黑色羊绒皮革女皮靴R9201DZ8" /> <i class="icon"></i> </li> 
+<!--        <li class=""> <img width="60" height="60" picbigurl="http://i1.ygimg.cn/pics/staccato/2018/101007040/101007040_01_m.jpg?6" piclargeurl="http://i1.ygimg.cn/pics/staccato/2018/101007040/101007040_01_l.jpg?6" src="/static/Home/images/101007040_01_t.jpg" loadflag="1" class="picSmallClass0" alt="STACCATO/思加图2018年冬季专柜同款黑色羊绒皮革女皮靴R9201DZ8" /> <i class="icon"></i> </li> 
        <li> <img width="60" height="60" picbigurl="http://i1.ygimg.cn/pics/staccato/2018/101007040/101007040_02_m.jpg?6" piclargeurl="http://i1.ygimg.cn/pics/staccato/2018/101007040/101007040_02_l.jpg?6" src="/static/Home/images/101007040_02_t.jpg" loadflag="1" class="picSmallClass2" alt="STACCATO/思加图2018年冬季专柜同款黑色羊绒皮革女皮靴R9201DZ8" /> <i class="icon"></i> </li> 
        <li> <img width="60" height="60" picbigurl="http://i1.ygimg.cn/pics/staccato/2018/101007040/101007040_03_m.jpg?6" piclargeurl="http://i1.ygimg.cn/pics/staccato/2018/101007040/101007040_03_l.jpg?6" src="/static/Home/images/101007040_03_t.jpg" loadflag="1" class="picSmallClass3" alt="STACCATO/思加图2018年冬季专柜同款黑色羊绒皮革女皮靴R9201DZ8" /> <i class="icon"></i> </li> 
        <li> <img width="60" height="60" picbigurl="http://i1.ygimg.cn/pics/staccato/2018/101007040/101007040_04_m.jpg?6" piclargeurl="http://i1.ygimg.cn/pics/staccato/2018/101007040/101007040_04_l.jpg?6" src="/static/Home/images/101007040_04_t.jpg" loadflag="1" class="picSmallClass4" alt="STACCATO/思加图2018年冬季专柜同款黑色羊绒皮革女皮靴R9201DZ8" /> <i class="icon"></i> </li> 
        <li> <img width="60" height="60" picbigurl="http://i1.ygimg.cn/pics/staccato/2018/101007040/101007040_05_m.jpg?6" piclargeurl="http://i1.ygimg.cn/pics/staccato/2018/101007040/101007040_05_l.jpg?6" src="/static/Home/images/101007040_05_t.jpg" loadflag="1" class="picSmallClass5" alt="STACCATO/思加图2018年冬季专柜同款黑色羊绒皮革女皮靴R9201DZ8" /> <i class="icon"></i> </li> 
        <li> <img width="60" height="60" picbigurl="http://i1.ygimg.cn/pics/staccato/2018/101007040/101007040_06_m.jpg?6" piclargeurl="http://i1.ygimg.cn/pics/staccato/2018/101007040/101007040_06_l.jpg?6" src="/static/Home/images/101007040_06_t.jpg" loadflag="1" class="picSmallClass6" alt="STACCATO/思加图2018年冬季专柜同款黑色羊绒皮革女皮靴R9201DZ8" /> <i class="icon"></i> </li> 
-       <li class="hover"> <img width="60" height="60" picbigurl="http://i1.ygimg.cn/pics/staccato/2018/101007040/101007040_07_m.jpg?6" piclargeurl="http://i1.ygimg.cn/pics/staccato/2018/101007040/101007040_07_l.jpg?6" src="/static/Home/images/101007040_07_t.jpg" loadflag="1" class="picSmallClass7" alt="STACCATO/思加图2018年冬季专柜同款黑色羊绒皮革女皮靴R9201DZ8" /> <i class="icon"></i> </li> 
+       <li class="hover"> <img width="60" height="60" picbigurl="http://i1.ygimg.cn/pics/staccato/2018/101007040/101007040_07_m.jpg?6" piclargeurl="http://i1.ygimg.cn/pics/staccato/2018/101007040/101007040_07_l.jpg?6" src="/static/Home/images/101007040_07_t.jpg" loadflag="1" class="picSmallClass7" alt="STACCATO/ --><!-- 思加图2018年冬季专柜同款黑色羊绒皮革女皮靴R9201DZ8" /> <i class="icon"></i> </li>  -->
        <!-- 图片列表 end --> 
-      </ul> 
-     </div> 
+    <!--   </ul> 
+     </div>  -->
     </div> 
     <!--商品图片 end--> 
     <span id="pordNoSpan" class="fl Gray" style="display:none">商品编号：101007040</span> 
     <!--左侧 start--> 
+    <form action="/Homeshopcar" method="post">
     <div class="shopping-container"> 
      <div class="brand-logo"> 
       <a href="http://www.yougou.com/f-staccato-0-0-6.html"> <img src="/static/Home/images/blackS-staccato.png" width="112" height="52" /> </a> 
      </div> 
-     <h1>STACCATO/思加图2018年冬季专柜同款黑色羊绒皮革女皮靴R9201DZ8</h1> 
+     <h1>{{$info->goods_des}}</h1> 
      <!-- 活动标识 start 价格--> 
      <div class="good_ygprcarea clearfix"> 
-      <p class="price single_price" id="ygprice_area"> <span id="yitianPrice" class="now symbol">&yen;<i>1198</i></span> 
+      <p class="price single_price" id="ygprice_area"> <span id="yitianPrice" class="now symbol">&yen;<i>{{$info->goods_price}}</i></span> 
        <del>
-        &yen; 1,890 
+        &yen; {{$info->original_price}}
        </del> <span id="jies" class="ico_discount"><i>6.3</i>折</span> </p> 
      </div>
      <div class="mltpl_actv">
@@ -841,20 +331,36 @@
      <div class="buy"> 
       <!-- 颜色 start --> 
       <div class="color"> 
-       <p data-property="颜色" class="attrib" id="imgBtn_0"> <span class="fl" style="display: inline;">颜色：</span> <span class="fl prodSpec" style="display: inline; width: 400px; margin-left: 2px;"> <a href="javascript:location.href='//www.yougou.com/c-staccato/sku-r9201dz8-101007039.shtml'+location.hash" data-name="杏色"> <img width="40" height="40" src="/static/Home/images/101007039_01_c.jpg" alt="杏色" midpic="//i2.ygimg.cn/pics/staccato/2018/101007039/101007039_01_s.jpg?7" /> <i class="picon"></i> </a> <a class="select" href="javascript:void(0)" data-name="黑色"> <img width="40" height="40" src="/static/Home/images/101007040_01_c.jpg" alt="黑色" midpic="//i1.ygimg.cn/pics/staccato/2018/101007040/101007040_01_s.jpg?6" /> <i class="picon"></i> </a> </span> </p> 
+       <p data-property="颜色" class="attrib" id="imgBtn_0"> <span class="fl" style="display: inline;">颜色：</span> <span class="fl prodSpec" style="display: inline; width: 400px; margin-left: 2px;"> <a href="javascript:location.href='http://www.laravel.com:88/Homeinfo/{{$info->gfid}}" data-name="{{$info->color}}"> <img width="40" height="40" src="{{$info->pic}}" alt="杏色" midpic="//i2.ygimg.cn/pics/staccato/2018/101007039/101007039_01_s.jpg?7" /> <i class="picon"></i> </a> <!-- <a class="select" href="javascript:void(0)" data-name="黑色"> <img width="40" height="40" src="/static/Home/images/101007040_01_c.jpg" alt="黑色" midpic="//i1.ygimg.cn/pics/staccato/2018/101007040/101007040_01_s.jpg?6" /> <i class="picon"></i> </a> --> </span> </p> 
       </div> 
       <!-- 颜色 end --> 
       <!-- 尺码 start --> 
       <div class="size"> 
-       <p data-property="尺码" class="prosize"> <span class="title">尺码：</span> <span class="fl prodSpec size"> <a data-value="size_s340" data-name="34">34<i></i></a> <a data-value="size_s350" data-name="35">35<i></i></a> <a data-value="size_s360" data-name="36">36<i></i></a> <a data-value="size_s370" data-name="37">37<i></i></a> <a data-value="size_s380" data-name="38">38<i></i></a> <a data-value="size_s390" data-name="39">39<i></i></a> <a data-value="size_s400" data-name="40">40<i></i></a> </span> <span class="size_contrast view-table"><a href="javascript:;" id="compare_size_link"><i class="icon"></i>查看尺码表&gt;&gt;</a></span> </p> 
+       <p data-property="尺码" class="prosize"> 
+        <span class="title">尺码：</span> 
+        <span class="fl prodSpec size"> 
+        @foreach($datas as $d)
+             <!-- <a class="dianji" type="checkbox" data-value="size_s340" data-name="{{$d->size}}" >{{$d->size}}<i></i></a> -->
+            <label><a data-value="size_s340" data-name="{{$d->size}}" ><input type="radio" name="size" value="{{$d->size}}" />{{$d->size}}</a></label>         
+     <!--         <a data-value="size_s350" data-name="35">35<i></i></a>
+             <a data-value="size_s360" data-name="36">36<i></i></a> 
+             <a data-value="size_s370" data-name="37">37<i></i></a>
+             <a data-value="size_s380" data-name="38">38<i></i></a> 
+             <a data-value="size_s390" data-name="39">39<i></i></a> 
+             <a data-value="size_s400" data-name="40">40<i></i></a>  -->
+        @endforeach
+        </span> 
+           <span class="size_contrast view-table"><a href="javascript:;" id="compare_size_link"><i class="icon"></i>查看尺码表&gt;&gt;</a></span> 
+
+         </p> 
       </div> 
       <!-- 尺码 end --> 
       <!-- 数量 start --> 
       <div class="count clearfixed"> 
        <span class="title">数量：</span> 
        <div class="input-content"> 
-        <input type="hidden" name="oldNum" class="oldNum" /> 
-        <input type="text" value="1" id="number" maxlength="1" onbeforepaste="clipboardData.setData('text ',clipboardData.getData('text ').replace(/[^\d]/g, ' '))" class="mycartxt newNum" /> 
+        
+        <input type="text" value="1" id="number" maxlength="1" name="num" class="mycartxt newNum" /> 
        </div> 
        <div class="buttons"> 
         <a href="javascript:;" id="bot_plus" class="plus"> 
@@ -865,8 +371,12 @@
       </div> 
       <div class="qbuy add-cart"> 
        <ul class="list"> 
-        <li> <a id="addShoppingCart" href="javascript:void(0)" class="ks2 addShoppingCart yg-button yg-button-default yg-button-buy yg-button-active">加入购物袋</a> </li> 
-        <li class="btn-immediate-buy"> <a id="buyNow" href="/Homepay/1" class="lj2 yg-button yg-button-default yg-button-buy">立即购买</a>
+       <!--  <li> <a id="addShoppingCart" href="" class="ks2 addShoppingCart yg-button yg-button-default yg-button-buy yg-button-active">加入购物袋</a> </li> --> 
+      <input type="submit" class="ks2 addShoppingCart yg-button yg-button-default yg-button-buy yg-button-active" name="" value="加入购物车">
+      <input type="hidden" name="id" value="{{$info->g_id}}">
+      {{csrf_field()}}
+      <input type="submit" class="lj2 yg-button yg-button-default yg-button-buy" value="立即购买">
+        <!-- <li class="btn-immediate-buy"> <a id="buyNow" href="/Homepay/1" class="lj2 yg-button yg-button-default yg-button-buy">立即购买</a> -->
          <div class="qr-code"> 
           </li> 
        </ul> 
@@ -875,6 +385,7 @@
       <p class="mt5 soldoutdiv">猜您喜欢：</p> 
       <p class="blank8 soldoutdiv"></p> 
      </div> 
+     </form>
      <!-- 猜你喜欢--> 
      <div id="guessUlike" class="soldoutdiv guess_like">
       <ul style="list-style: none;"></ul>
@@ -905,7 +416,7 @@
      <table class="spec-table"> 
       <tbody>
        <tr align="left"> 
-        <td width="20%" title="鞋底材质：橡胶底">鞋底材质：橡胶底</td> 
+        <td width="20%" title="鞋底材质：橡胶底">鞋底材质：{{$info->material}}</td> 
         <td width="20%" title="靴筒内里材质：无内里">靴筒内里材质：无内里</td> 
         <td width="20%" title="内增高：无">内增高：无</td> 
         <td width="20%" title="鞋面材质：羊皮革">鞋面材质：羊皮革</td> 
@@ -928,8 +439,8 @@
        <tr align="left"> 
         <td width="20%" title="风格：简约">风格：简约</td> 
         <td width="20%" title="鞋跟：6CM">鞋跟：6CM</td> 
-        <td width="20%" title="色系：黑色">色系：黑色</td> 
-        <td width="20%" title="性别：女子">性别：女子</td> 
+        <td width="20%" title="色系：黑色">色系：{{$info->color}}</td> 
+        <td width="20%" title="性别：女子">性别：{{$info->sex}}</td> 
         <td width="20%" title="筒高数值：11CM">筒高数值：11CM</td> 
        </tr> 
        <tr align="left"> 
@@ -1345,5 +856,26 @@
 
   <iframe style="display:none;width: 1px; border: 0px none; position: absolute; left: -100px; top: -100px; height: 1px;" src="/static/Home/code_iframe.html"></iframe>
   <script src="/static/Home/js/ygdialog.js" type="text/javascript"></script>
+ <!--  <script>
+ 
+ 
+ //获取大图对象
+ var big = document.getElementById('big');
+ //获取小图对象
+ var img = document.getElementById('img');
+ img.onmousemove = function(e){
+   var e = e || event;
+   // document.title = 'X:'+e.clientX+'Y:'+e.clientY;
+   //获取相应大图的内容
+   //1.将大图的滚动条的位置调整大小图的坐标的2倍的位置
+   big.scrollLeft = e.clientX*-100;
+   big.scrollTop = e.clientY*4-100;
+   //让对应的大图显示 
+   big.style.display = "block";
+ }
+ img.onmouseout = function(){
+   big.style.display = "none";
+ }
+ </script> -->
  </body>
 </html>

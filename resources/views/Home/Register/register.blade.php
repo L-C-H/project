@@ -1,19 +1,25 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+﻿<!DOCTYPE html>
+<html lang="en">
  <head> 
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
   <meta http-equiv="pragma" content="no-cache" /> 
   <meta http-equiv="cache-control" content="no-cache,no-store, must-revalidate" /> 
   <meta http-equiv="expires" content="0" /> 
   <title>优购时尚商城_用户注册</title> 
+  <style>
+.Huialert{ position:relative;padding:8px 35px 8px 14px;margin-bottom: 20px;text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);background-color: #fcf8e3;border: 1px solid #fbeed5;border-radius: 4px}
+.Huialert, .Huialert h4{color: #c09853}
+.Huialert h4{margin: 0}
+.Huialert .Hui-iconfont{position:absolute;top:9px;right:10px;line-height: 20px;cursor:pointer; color:#000; opacity:0.2;_color:#666}
+.Huialert .Hui-iconfont.hover{ color:#000;opacity:0.8}
+.Huialert-danger, .Huialert-error{color: #b94a48;background-color: #f2dede;border-color: #eed3d7}
+.Huialert-danger h4, .Huialert-error h4{color: #b94a48}
+  </style>
   <meta name="description" content="优购时尚商城" /> 
   <meta name="keywords" content="优购时尚商城" /> 
   <script>
-  //禁止iframe嵌入
-  if(window.top !== window.self){ window.top.location = window.location;}
-  var basePath = "";
-  var shoppingProcess=true;
 </script> 
+<link href="/static/lib/Hui-iconfont/1.0.8/iconfont.css" rel="stylesheet" type="text/css" />
   <link href="/static/Home/css/base-2.css" type="text/css" rel="stylesheet" /> 
   <link href="/static/Home/css/validator.css" type="text/css" rel="stylesheet" /> 
   <link href="/static/Home/css/new_log_reg.v2.0.css" type="text/css" rel="stylesheet" /> 
@@ -48,7 +54,7 @@
      </div> </li> 
    </ul> 
    <ul class="right-content" id="top_nav"> 
-    <li class="item-frist about_user"> <a rel="nofollow" href="javascript:login();">登录</a> / <a rel="nofollow" href="javascript:register();">注册</a> </li> 
+    <li class="item-frist about_user"> <a rel="nofollow" href="/Homelogin/create">登录</a> / <a rel="nofollow" href="/Homeregister/create">注册</a> </li> 
     <li class="item"> <a href="http://www.yougou.com/my/favorites.jhtml" class="top-collect"> <i class="icon bg-top_collect"></i> <span class="title">收藏</span> </a> </li> 
     <li class="item-cart"> <a href="http://www.yougou.com/order.jhtml"><i class="icon"></i>购物袋</a> </li> 
     <li class="item"> 
@@ -78,26 +84,19 @@
    <a class="Blue" href="javascript:void(0);" id="email_bind_modify">[立即绑定]</a>
    <i class="close"></i> 
   </div> 
-  <!--更换雅虎邮箱提示 end--> 
-  <script type="text/javascript">
-function login() {
-    location.href = "http://www.yougou.com/signin.jhtml" + location.search;
-    return false;
-}
-function register() {
-    location.href = "http://www.yougou.com/register.jhtml" + location.search;
-    return false;
-}
+ 
 </script> 
-  <form action="/registerValidate.jhtml" method="post"> 
-   <input id="redirectURL_1" type="hidden" name="redirectURL" value="http://www.yougou.com/c-teenmix/sku-cc221am8-100727412.shtml?" /> 
+  <form action="/Homeregister" method="post" id="ff"> 
    <div class="cen-new rel"> 
     <a href="http://www.yougou.com" target="_blank" class="cen-new" style="background: url('/static/Home/images/ba839750211e4c6485fe16dea496b709.jpg') no-repeat top center;position: absolute;top: 0;left: 0;z-index: 0"></a> 
     <div class="nreg_box clearfix" style="left: 50%;margin-left: 115px;position: absolute;top: 0;width: 378px;z-index: 1;"> 
      <div id="emailDiv" class="nreg_left fr" style="height: 530px;margin-top: 12px"> 
+      @if(session('error'))
+		<div class="Huialert Huialert-danger"><i class="Hui-iconfont">&#xe6a6;</i>{{session('error')}}</div>
+		@endif
       <ul class="tab_sig_reg clearfix"> 
-       <li class="tab_sig"><a href="javascript:login();">登录</a></li> 
-       <li class="tab_reg tab_cur"><a href="#">注册</a></li> 
+       <li class="tab_sig"><a href="/Homelogin/create">登录</a></li> 
+       <li class="tab_reg tab_cur"><a href="/Homeregister/create">注册</a></li> 
       </ul> 
       <div class="nreg_form"> 
        <dl class="nreg_item mobile_regitem clearfix rel" id="mobile_nreg_item"> 
@@ -105,15 +104,15 @@ function register() {
          <div class="nreg_input_bg rel"> 
           <label class="lab1 nreg_mob_ema"><span class="fl">手机号</span><i class="tab_nreg"></i></label> 
           <div class="tab_user_name"> 
-           <a id="mobileLink" class="reg_Tab reg_TabCurr" href="javascript:;" regtype="mobile"><span>手机号</span><i class="tab_nreg"></i></a> 
+           <a id="mobileLink" class="reg_Tab reg_TabCurr" href="javascript:;" regtype="phone"><span>手机号</span><i class="tab_nreg"></i></a> 
            <a id="emailLink" class="reg_Tab " href="javascript:;" regtype="email"><span>邮箱</span></a> 
            <input type="hidden" name="option" id="option" value="mobile" /> 
           </div> 
-          <input type="text" name="mobile" id="reg_mobile_" class="nreg_input" valid="Mobile" placeholder="请输入您的手机号码" /> 
+          <input type="text" name="phone" id="reg_mobile_ phone" class="nreg_input" valid="Mobile" placeholder="请输入您的手机号" reminder="请输入正确的手机号"/>
          </div> 
-        </dd> 
+        </dd>
         <dt> 
-         <div id="reg_mobile_tip" class="errortips"></div> 
+         <div class="errortips"></div> 
         </dt> 
        </dl> 
        <dl class="nreg_item email_regitem clearfix rel" id="email_nreg_item" style="display:none;"> 
@@ -121,46 +120,46 @@ function register() {
          <div class="nreg_input_bg"> 
           <label class="lab1 nreg_mob_ema"><span class="fl">邮箱</span><i class="tab_nreg"></i></label> 
           <div class="tab_user_name"> 
-           <a id="mobileLink" class="reg_Tab " href="javascript:;" regtype="mobile"><span>手机号</span><i class="tab_nreg"></i></a> 
-           <a id="emailLink" class="reg_Tab reg_TabCurr" href="javascript:;" regtype="email"><span>邮箱</span></a> 
+           <a id="emailLink" class="reg_Tab reg_TabCurr" href="javascript:;" regtype="email"><span>邮箱</span></a>
+           <a id="mobileLink" class="reg_Tab " href="javascript:;" regtype="phonr"><span>手机号</span><i class="tab_nreg"></i></a>  
           </div> 
           <input type="text" name="email" id="reg_email_" class="nreg_input" valid="Email" placeholder="不建议填写gmail、hotmail、qq邮箱" /> 
          </div> 
         </dd> 
         <dt> 
-         <div id="reg_email_tip" class="errortips"></div> 
+         <div class="errortips"></div> 
         </dt> 
        </dl> 
        <dl id="dlCode" class="nreg_item email_regitem mobile_regitem clearfix rel"> 
         <dd> 
          <div class="nreg_input_bg fl" style="width:200px"> 
           <label class="lab1" for="reg_checkcode">验证码</label> 
-          <input type="text" name="reg_checkcode" id="code2_" class="nreg_sinput" maxlength="4" valid="IdentifyCode" style="width: 128px" /> 
+          <input type="text" name="code" id="code2_" class="nreg_sinput" maxlength="4" valid="IdentifyCode" style="width: 128px" /> 
          </div> 
          <div class="fr" style="margin-right: 17px;"> 
-          <img id="imageValidate2" class="changeImg" /> 
+          <!-- <img id="imageValidate2" class="changeImg" /> --> 
+          <img src="/code" alt=""  onclick="this.src=this.src+'?a=1'"/>
          </div> 
         </dd> 
-        <dt> 
+       <dt> 
          <div id="code2_tip" class="errortips"></div> 
         </dt> 
        </dl> 
-       <input type="hidden" name="7P3G6h2b7B" value="2h8x7v" id="reg_nonce_id" /> 
        <dl id="dlMobileCode" class="nreg_item mobile_regitem clearfix rel"> 
         <dd> 
          <div class="nreg_input_bg fl" style="width:235px;"> 
           <label class="lab1" for="reg_mobile_code_">短信验证码</label> 
-          <input type="text" name="mobilecode" id="reg_mobile_code_" class="nreg_sinput" valid="MsgIdentifyCode" style="width: 155px;" /> 
+          <input type="text" name="phonecode" id="reg_mobile_code_" class="nreg_sinput" valid="MsgIdentifyCode" style="width: 155px;" /> 
          </div> 
          <div class="fr"> 
-          <a id="sendMsgBtn" href="javascript:;" class="regAutoBtn_1"> <span style="margin-left:0;" id="getMsgSpan">获取验证码</span> </a> 
+          <button id="sendMsgBtn" class="regAutoBtn_1" style="border:none">获取验证码</button> 
          </div> 
         </dd> 
-        <dt> 
-         <div id="sendMsgTips" data-msg="sendmsgtips"></div> 
-        </dt> 
-       </dl> 
-       <dl class="nreg_item clearfix rel"> 
+         <dt> 
+         <div data-msg="sendmsgtips"></div> 
+        </dt>
+       </dl>
+      <dl class="nreg_item clearfix rel"> 
         <div style="position:absolute;top:38px;right: 17px;"> 
          <div id="pwdStrength" class="pwdStrength none"> 
           <em>低</em>
@@ -171,7 +170,7 @@ function register() {
         <dd> 
          <div class="nreg_input_bg"> 
           <label class="lab1" for="reg_password_">密码</label> 
-          <input type="password" name="password1" id="reg_password_" class="nreg_input" maxlength="25" valid="Password" placeholder="字母、数字、符号均可，6-25个字符以内" /> 
+          <input type="password" name="password" id="reg_password_" class="nreg_input" maxlength="25" valid="Password" placeholder="字母、数字、符号均可，6-25个字符以内" /> 
          </div> 
         </dd> 
         <dt> 
@@ -182,19 +181,21 @@ function register() {
         <dd> 
          <div class="nreg_input_bg"> 
           <label class="lab1" for="reg_password2">确认密码</label> 
-          <input type="password" id="reg_password2" class="nreg_input" maxlength="25" valid="RePassword" /> 
+          <input type="password" id="reg_password2" class="nreg_input" maxlength="25" valid="RePassword" name="repassword"/> 
          </div> 
-        </dd> 
-        <dt> 
+        </dd>
+         <dt> 
          <div id="reg_password_tip2" class="errortips"></div> 
         </dt> 
+         <input type="hidden" name="addtime" value="{{time()}}" /> 
        </dl> 
-       <p style="text-align: center"> <span> <input type="checkbox" id="rules" name="rules" style="margin-top:0" checked="checked" /> </span> <label style="padding-left:3px" for="rules">我已阅读并同意<a href="http://www.yougou.com/help/registrationagreement.html" class="Red undline" target="_blank">《优购会员注册协议》</a></label> <span id="ruleTips"></span> </p> 
-       <p class="blank5"></p> 
-       <p style="text-align: center"> <a href="javascript:void();" class="nreg_submit"><input type="submit" title="立即注册" value="确认并注册" id="reg_buton" /></a> </p> 
+        <br>
+  		<p style="text-align: center"> <span> <input type="checkbox" id="rules" name="rules" style="margin-top:0" checked="checked" /> </span> <label style="padding-left:3px" for="rules">我已阅读并同意<a href="http://www.yougou.com/help/registrationagreement.html" class="Red undline" target="_blank">《优购会员注册协议》</a></label> <span id="ruleTips"></span> </p>
+       {{csrf_field()}}
+
+       <p style="text-align: center"><button type="submit" title="立即注册" style="width: 312px;height: 40px;background: black;color:white;border:none">确认并注册</button></p> 
       </div> 
      </div> 
-     <input type="hidden" name="8q2y8B9W7D" value="1W2q7b" id="reg_nonce_id" /> 
     </div> 
    </div> 
   </form> 
@@ -203,56 +204,159 @@ function register() {
    <p class="tright">Copyright &copy; 2011-2014 Yougou Technology Co., Ltd. <a href="http://www.miibeian.gov.cn" target="_blank">粤ICP备09070608号-4</a> 增值电信业务经营许可证：<a href="http://www.miibeian.gov.cn" target="_blank" style="padding-left:0">粤 B2-20090203</a></p> 
   </div> 
   <!--底部end--> 
-  <script type="text/javascript">
-//google
- var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-23566531-1']);
-  _gaq.push(['_setDomainName', '.yougou.com']);
-  _gaq.push(['_addOrganic', 'baidu', 'word']);
-  _gaq.push(['_addOrganic', 'soso', 'w']);
-  _gaq.push(['_addOrganic', '3721', 'name']);
-  _gaq.push(['_addOrganic', 'yodao', 'q']);
-  _gaq.push(['_addOrganic', 'vnet', 'kw']);
-  _gaq.push(['_addOrganic', 'sogou', 'query']);
-  _gaq.push(['_addOrganic', '360', 'q']);
-  _gaq.push(['_addOrganic', 'so', 'q']);
-  _gaq.push(['_trackPageview']);
-  _gaq.push(['_trackPageLoadTime']);
+<script>
+var EMAIL=false;
+var PHONE=false;
+var CODE=false;
+$("input[name='email']").blur(function(){
+	$(this).parent('div').css('border','1px solid black');
+	// console.log(555);exit;
+	//获取邮箱
+	m = $(this).val();
+	// alert(p);
+	if (m=='') {
+		$(this).parents('dd').next('dt').find('div').css('color','black').html('邮箱不能为空');
+		return false;
+	}else if(m.match(/^[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*\.[a-zA-Z0-9]{2,6}$/)==null){
+		$(this).parents('dd').next('dt').find('div').css('color','black').html('格式不对');
+		EMAIL=false;
+	}else{
+		$(this).parents('dd').next('dt').find('div').html('');
+		$(this).parent('div').css('border','1px solid #e3e2e2');
+		o=$(this);
+		// 判断手机号是否重复注册
+		$.get('/checkemail',{m:m},function(data){
+			// alert(data);
+			if (data==1) {
+				o.parents('dd').next('dt').find('div').css('color','black').html('该账户已存在');
+				EMAIL=false;
+			}else{
+				EMAIL=false;
+			}
+		});
+	}
+	
+});
 
 
-(function() {
-  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-  ga.src = ('https:' == document.location.protocol ? 'https://analytic' : 'http://analytic') + '.yougou.com/ga.js?4.3.4';
-  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-})();
-</script> 
-  <!--<script src="/static/Home/js/mv.js" type="text/javascript"></script>--> 
-  <!-- Google Code for &#27880;&#20876; Conversion Page --> 
-  <script type="text/javascript">
-  /* <![CDATA[ */
-  var google_conversion_id = 1016027598;
-  var google_conversion_language = "ar";
-  var google_conversion_format = "3";
-  var google_conversion_color = "ffffff";
-  var google_conversion_label = "EFaYCJrxqgIQzrO95AM";
-  var google_conversion_value = 0;
-  /* ]]> */
-</script> 
-  <script type="text/javascript" src="/static/Home/js/conversion.js"></script> 
-  <noscript> 
-   <div style="display:inline;"> 
-    <img height="1" width="1" style="border-style:none;" alt="" src="/static/Home/picture/1a79eeabce644ac9ac4c2eb5e94b932c.gif" /> 
-   </div> 
-  </noscript> 
-  <!-- baidu marketing --> 
-  <script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "//hm.baidu.com/hm.js?e19e291c1f33e089634e4d9034afde33";
-  var s = document.getElementsByTagName("script")[0]; 
-  s.parentNode.insertBefore(hm, s);
-})();
-</script>  
+
+$('.Hui-iconfont').click(function(){
+	$(this).parent('div').css('display','none');
+});
+$("input[name='phone']").focus(function(){
+	$(this).parents('dd').next('dt').find('div').html('');
+});
+//当鼠标移入时,变色
+$('#sendMsgBtn').mouseover(function(){
+	$(this).css('background','gray');
+});
+//当鼠标移出时,变色
+$('#sendMsgBtn').mouseout(function(){
+	$(this).css('background','black');
+});
+//获取手机号
+$("input[name='phone']").blur(function(){
+	$(this).parent('div').css('border','1px solid black');
+	// console.log(555);exit;
+	//获取手机号
+	p = $(this).val();
+	// alert(p);
+	if (p=='') {
+		$(this).parents('dd').next('dt').find('div').css('color','black').html('手机号不能为空');
+		return false;
+	}else if(p.match(/^[1][3,4,5,7,8][0-9]{9}$/)==null){
+		$(this).parents('dd').next('dt').find('div').css('color','black').html('格式不对');
+		PHONE=false;
+	}else{
+		$(this).parents('dd').next('dt').find('div').html('');
+		$(this).parent('div').css('border','1px solid #e3e2e2');
+		o=$(this);
+		// 判断手机号是否重复注册
+		$.get('/checkphone',{p:p},function(data){
+			// alert(data);
+			if (data==1) {
+				o.parents('dd').next('dt').find('div').css('color','black').html('该账户已存在');
+				$('#sendMsgBtn').attr('disabled',true);
+				PHONE=false;
+			}else{
+				//把获取校验码按钮 设置激活
+				$('#sendMsgBtn').attr('disabled',false);
+				PHONE=true;
+			}
+		});
+	}
+	
+});
+//获取短信发送校验码按钮
+$('#sendMsgBtn').one('click',function(){
+	//获取注册的手机号
+	pp = $("input[name='phone']").val();
+	o = $(this);
+	//ajax
+	$.get("/sendphone",{pp:pp},function(data){
+		if (data.code==00000) {
+			//按钮倒计时
+			m=60;
+			//定时器
+			mytime=setInterval(function(){
+				m--;
+				//赋值给按钮
+				o.html(m+'秒后重新发送');
+				//按钮禁用
+				o.attr('disabled',true);
+				if (m==0) {
+					//清除定时器
+					clearInterval(mytime);
+					//重新给按钮赋值
+					o.html('重新发送');
+					//激活按钮
+					o.attr('disabled',false);
+				}
+			},1000);
+		}
+	},'json');
+
+});
+$("input[name='phonecode']").focus(function(){
+	$(this).parents('dd').next('dt').find('div').html('');
+});
+//输入手机校验码
+$("input[name='phonecode']").blur(function(){
+	$(this).parent('div').css('border','1px solid black');
+	oo = $(this);
+	//获取输入的校验码
+	pcode = $(this).val();
+	$.get("/checkcode",{pcode:pcode},function(data){
+		if (data==1) {
+			oo.parents('dd').next('dt').find('div').html('');
+			oo.parent('div').css('border','1px solid #e3e2e2');
+			CODE=true;
+		}else if (data==2) {
+			oo.parents('dd').next('dt').find('div').css('color','black').html('校验码不一致');
+			CODE=false;
+		}else if (data==3) {
+			oo.parents('dd').next('dt').find('div').css('color','black').html('校验码不能为空');
+			CODE=false;
+		}else if (data==4) {
+			oo.parents('dd').next('dt').find('div').css('color','black').html('校验码已过期');
+			CODE=false;
+		}
+	});
+});
+
+// //表单提交
+$('#ff').submit(function(){
+	//trigger 某个元素触发某个事件
+	$("input").trigger("blur");
+	if (PHONE && CODE && EMAIL) {
+		return true;//成功提交
+	}else{
+		return false;//阻止提交
+	}
+	
+});
+
+
+</script>
  </body>
 </html>

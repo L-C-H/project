@@ -84,7 +84,7 @@ Route::group(['middleware'=>'adminlogin'],function(){
 
 	//订单管理
 	Route::resource('/adminorder','Admin\Order\OrderController');
-
+		Route::get('/adminorderadd/{id}','Admin\Order\OrderController@add');
 	//品牌管理
 	Route::resource('/adminbrand','Admin\Brand\BrandController');
 		//品牌删除
@@ -103,15 +103,16 @@ Route::group(['middleware'=>'adminlogin'],function(){
 		Route::get('/admincatessss','Admin\Cates\CatesController@del');
 		//ajax发布
 		Route::get('/admincatesdis','Admin\Cates\CatesController@display');
+	//商品打折管理
+	Route::resource('/adminsale','Admin\Goods\SaleController');
 });
 
+//前台模块
 
+Route::resource("/Home","Home\IndexController");
 
-//前台页面
-Route::get('/', function () {
-    return view('index');
-});
-
+//搜索页
+Route::resource('/Homesearch','Home\SearchController');
 //商品列表控制器
 Route::resource('/Homelist','Home\ListController');
 
@@ -120,12 +121,43 @@ Route::resource('/Homesale','Home\SaleController');
 
 //登录控制器
 Route::resource('/Homelogin','Home\LoginController');
-
+	//使用手机号找回密码
+	//1.
+	Route::resource('/forget1','Home\Forget\Forget1Controller');
+		//手机号登录
+		Route::get('/checkphone','Home\Forget\Forget1Controller@checkphone');
+		//获取短信验证码
+		Route::get('/sendphone','Home\Forget\Forget1Controller@send');
+		// 手机验证码
+		Route::get('/checkcode','Home\Forget\Forget1Controller@pcode');
+	//2.
+	Route::resource('/forget2','Home\Forget\Forget2Controller');
+	//3.
+	Route::resource('/forget3','Home\Forget\Forget3Controller');
 //手机登录控制器
 Route::resource('/Homephonelogin','Home\PhoneloginController');
-
+	//调用短信接口
+	Route::get('/checkphone','Home\PhoneloginController@checkphone');
+	//获取短信验证码
+	Route::get('/sendphones','Home\PhoneloginController@send');
+	// 手机验证码
+	Route::get('/checkcode','Home\PhoneloginController@pcode');
 //注册控制器
 Route::resource('/Homeregister','Home\RegisterController');
+	//激活
+	Route::get("/jihuo",'Home\RegisterController@jihuo');
+	//验证码测试
+	Route::get('/code','Home\RegisterController@code');
+	//邮箱
+	Route::get('/checkemail','Home\RegisterController@checkemail');
+	//调用短信接口
+	Route::get('/checkphone','Home\RegisterController@checkphone');
+	//获取短信验证码
+	Route::get('/sendphone','Home\RegisterController@send');
+
+	// Route::get('/sendphonesss','Home\RegisterController@sendMail');
+	// 手机验证码
+	Route::get('/checkcode','Home\RegisterController@pcode');
 
 //公告控制器
 Route::resource('/Homenotice','Home\NoticeController');
@@ -141,17 +173,42 @@ Route::resource('/Homebrand','Home\BrandController');
 
 //个人主页控制器
 Route::resource('/Homepersonal','Home\PersonalController');
-
+	Route::get('/Homepersonaladd/{id}','Home\PersonalController@add');
 //购物车控制器
 Route::resource('/Homeshopcar','Home\ShopcarController');
+	//购物车数据写入到数据库
+	Route::get('/Homeshopinsert','Home\ShopcarController@shopinsert');
+	//购物车数量减
+	Route::get('/Homeshopless','Home\ShopcarController@less');
+	//购物车数量减
+	Route::get('/Homeshopadd','Home\ShopcarController@add');
+	//商品删除
+	Route::get('/Homeshopdel','Home\ShopcarController@del');
+	//清空购物车
+	Route::get('/Homeshopclean','Home\ShopcarController@clean');
+	
+//订单页面
+Route::resource('/Homeorder','Home\OrderController');
 
 //订单提交控制器
 Route::resource('/Homesuccess','Home\SuccessController');
+	//支付宝接口调用
+	Route::get("/pays/{id}","Home\SuccessController@pays");
+	//通知给客户端的界面
+	Route::get("/returnurl","Home\SuccessController@returnurl");
 //结算控制器
 Route::resource('/Homepay','Home\PayController');
-
+	Route::post("/Homepayaddressadd","Home\PayController@addressadd");
 //地址页面控制器
 Route::resource('/Homeaddress','Home\AddressController');
-
+	Route::get("/Homeaddressdel","Home\AddressController@del");
+//地址添加
+Route::resource('/addressadd','Home\AddController');
+	//添加页面
+	Route::get('/addr','Home\PayController@addr');
 //友情链接页面控制器
 Route::resource('/Homelink','Home\LinkController');
+//注册成功
+Route::get('/zc',function(){
+	return view('Home.Register.resuccess');
+});

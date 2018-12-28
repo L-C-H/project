@@ -59,7 +59,7 @@
 					<td><input name="" type="checkbox" value=""></td>
 					<td>{{$row->id}}</td>
 					<td>{{$row->brand_engname}}</td>
-					<td><img src="{{$row->pic}}" width="120px" height="70px"></td>
+					<td><img src="{{$row->b_pic}}" width="120px" height="70px"></td>
 					<td class="text-l"><img title="国内品牌" src="/static/static/h-ui.admin/images/cn.gif"> {{$row->brand_name}}</td>
 					<td class="text-l">{{$row->brand_des}}</td>
 					<td class="td-status"><span class="label label-success radius">{{$row->status}}</span></td>

@@ -18,7 +18,8 @@ class AnnounceController extends Controller
         //公告列表
         $data = Announce::paginate(2); 
         // dd($data);
-        return view('Admin.Announce.index',['data'=>$data]);
+        $count = count($data);
+        return view('Admin.Announce.index',['data'=>$data,'count'=>$count]); 
     }
 
     /**
@@ -44,9 +45,9 @@ class AnnounceController extends Controller
         // dd($request->all());
         $data = $request->except('_token');
         if(Announce::insert($data)){
-            return view('/adminannounce')->with('success','添加成功');
+            return redirect('./adminannounce')->with('success','添加成功');
         }else{
-            return view('/adminannounce')->with('error','添加失败');
+            return redirect('./adminannounce')->with('error','添加失败');
         }
     }
 
@@ -70,7 +71,8 @@ class AnnounceController extends Controller
     public function edit($id)
     {
         //公告修改
-        return view('Admin.Announce.edit');
+        $data = Announce::where('id','=',$id)->first();
+        return view('Admin.Announce.edit',['data'=>$data]);
     }
 
     /**
@@ -83,6 +85,14 @@ class AnnounceController extends Controller
     public function update(Request $request, $id)
     {
         //
+        // dd($request->all());
+       $data = $request->except(['_token','_method']);
+        // dd($data);
+       if(Announce::where('id','=',$id)->update($data)){
+            return redirect('/adminannounce')->with('success','修改成功');
+       }else{
+             return redirect('/adminannounce')->with('error','修改失败');
+       }
     }
 
     /**
@@ -94,5 +104,15 @@ class AnnounceController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function del(Request $request){
+         $id = $request->input('id');
+        // echo $id;
+        // dd($request->all());
+        if(DB::table('announce')->where('id','=',$id)->delete()){
+            echo 1;
+        }
+        // dd($request->all());
     }
 }

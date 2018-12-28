@@ -109,6 +109,7 @@
                     <li><a data-href="/adminbrand" data-title="品牌管理" href="javascript:void(0)">品牌管理</a></li>
                     <li><a data-href="/admincates" data-title="分类管理" href="javascript:void(0)">分类管理</a></li>
                     <li><a data-href="/admingoods" data-title="商品管理" href="javascript:void(0)">商品列表</a></li>
+                    <li><a data-href="/adminsale" data-title="商品打折管理" href="javascript:void(0)">商品打折列表</a></li>
             </ul>
         </dd>
     </dl>

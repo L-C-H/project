@@ -24,6 +24,12 @@
 <body>
 <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 公告管理 <span class="c-gray en">&gt;</span> 公告列表 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
 <div class="page-container">
+	@if(session('success'))
+		<div class="Huialert Huialert-success"><i class="Hui-iconfont">&#xe6a6;</i>{{session('success')}}</div>
+	@endif
+	@if(session('error'))
+		<div class="Huialert Huialert-danger"><i class="Hui-iconfont">&#xe6a6;</i>{{session('error')}}</div>
+	@endif
 	<div class="text-c">
 		<button onclick="removeIframe()" class="btn btn-primary radius">关闭选项卡</button>
 	 <span class="select-box inline">
@@ -39,7 +45,7 @@
 		<input type="text" name="" id="" placeholder=" 资讯名称" style="width:250px" class="input-text">
 		<button name="" id="" class="btn btn-success" type="submit"><i class="Hui-iconfont">&#xe665;</i> 搜资讯</button>
 	</div>
-	<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> <a class="btn btn-primary radius" data-title="添加公告" data-href="/adminannounce/create" onclick="Hui_admin_tab(this)" href="javascript:;"><i class="Hui-iconfont">&#xe600;</i> 添加公告</a></span> <span class="r">共有数据：<strong>54</strong> 条</span> </div>
+	<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> <a class="btn btn-primary radius" data-title="添加公告" data-href="/adminannounce/create" onclick="Hui_admin_tab(this)" href="javascript:;"><i class="Hui-iconfont">&#xe600;</i> 添加公告</a></span> <span class="r">共有数据：<strong>{{$count}}</strong> 条</span> </div>
 	<div class="mt-20">
 		<table class="table table-border table-bordered table-bg table-hover table-sort table-responsive">
 			<thead>
@@ -49,7 +55,6 @@
 					<th>标题</th>
 					<th width="80">内容</th>
 					<th width="120">发布时间</th>
-					<th width="75">更新时间</th>
 					<th width="60">发布状态</th>
 					<th width="120">操作</th>
 				</tr>
@@ -60,11 +65,13 @@
 					<td><input type="checkbox" value="" name=""></td>
 					<td>{{$v->id}}</td>
 					<td>{{$v->title}}</td>
-					<td  class="text-l">{{$v->content}}</td>
-					<td>{{$v->created_at}}</td>
-					<td>{{$v->updated_at}}</td>
+					<td  class="text-l">{!!$v->editorValue!!}</td>
+					<td>{{date('Y-m-d H:i:s',($v->time))}}</td>
 					<td>{{$v->status}}</td>
-					<td class="f-14 td-manage"><a style="text-decoration:none" onClick="article_stop(this,'10001')" href="javascript:;" title="下架"><i class="Hui-iconfont">&#xe6de;</i></a> <a style="text-decoration:none" class="ml-5" onClick="article_edit('公告编辑','/adminannounce/1/edit','10001')" href="javascript:;" title="编辑"><i class="Hui-iconfont">&#xe6df;</i></a> <a style="text-decoration:none" class="ml-5" onClick="article_del(this,'10001')" href="javascript:;" title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
+					<td class="f-14 td-manage">
+						<a style="text-decoration:none" class="ml-5" href="/adminannounce/{{$v->id}}/edit" title="编辑"><i class="Hui-iconfont">&#xe6df;</i></a> 
+						<a style="text-decoration:none" class="ml-5 del" title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a>
+					</td>
 				</tr>
 				@endforeach
 			</tbody>
@@ -166,6 +173,19 @@ function article_shenqing(obj,id){
 	layer.msg('已提交申请，耐心等待审核!', {icon: 1,time:2000});
 }
 
+ $('.del').click(function(){
+ id = $(this).parents('tr').find('td').eq(1).html();
+ s = $(this).parents('tr');
+ ss = confirm('你确定删除吗');
+	 if(ss){
+	     $.get('/adminannouncedel',{id:id},function(data){
+	     	console.log(data);
+	        if(data==1){
+	            s.remove();
+	        }
+	    });
+	 }
+ });
 </script> 
 </body>
 </html>

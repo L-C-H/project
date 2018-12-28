@@ -31,7 +31,7 @@
 @endif
 <div class="page-container">
 	<div class="text-c">
-		<form action="/adminbrand" method="get">
+		<form action="/admingoods" method="get">
 		<div class="text-c">
 			<input type="text" name="keywords" id="" placeholder=" 商品名称" style="width:250px" class="input-text" value="{{$request['keywords'] or ''}}">
 			<button id="example" class="btn btn-success" type="submit"><i class="Hui-iconfont">&#xe665;</i> 搜商品</button>
@@ -52,7 +52,7 @@
 					<th width="70">商品库存</th>
 					<th width="70">商品类型</th>
 					<th width="70">商品原价格</th>
-					<th>具体描述</th>
+					<th width="100">具体描述</th>
 					<th width="70">上下架</th>
 					<th width="70">商品详情</th>
 					<th width="100">操作</th>
@@ -65,7 +65,7 @@
 					<td>{{$row->id}}</td>
 					<td>{{$row->goods_name}}</td>
 					<td>{{$row->goods_price}}元</td>
-					<td><img src="{{$row->pic}}"></td>
+					<td><img src="{{$row->pic}}" width="80px"></td>
 					<!-- <td class="text-l">{{$row->c_id}}</td> -->
 					<td>{{$row->stock}}</td>
 					<td>{{$row->new}}</td>

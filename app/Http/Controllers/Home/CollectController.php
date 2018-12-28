@@ -15,7 +15,7 @@ class CollectController extends Controller
     public function index()
     {
         //加载收藏夹
-        return view('Home.Collect.collect');
+       
     }
 
     /**
@@ -48,6 +48,7 @@ class CollectController extends Controller
     public function show($id)
     {
         //
+         return view('Home.Collect.collect');
     }
 
     /**

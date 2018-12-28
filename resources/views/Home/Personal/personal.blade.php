@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
 <!-- saved from url=(0038)http://www.yougou.com/my/ucindex.jhtml -->
 <html xmlns="http://www.w3.org/1999/xhtml" data-blockbyte-bs-uid="49981"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
@@ -18,7 +18,7 @@
 		$.ajax({
             type:'post',
             url:"/my/getLogisticsRecordByExpressNo.jhtml",
-            data:{'expressNo':expressNo,'logisticsCode':logisticsCode,'sort':'desc'},
+            data:{'expressNo':expressNo,'logisticsCode':logisticsCode,'sort':'desc'},6
             dataType:"json",
             success:function(result){
                 var html = [];
@@ -163,19 +163,9 @@
         <a href="javascript:;">公告</a>
         <div class="notice-content">
           <ul class="notice-list">
-            
-              <li class="item Red">
-                <a target="_blank" href="http://www.yougou.com/article/201805/3adfa2a3ca664e86ba4a6a8a33988940.shtml#ref=index&amp;po=notice_notice1">优购客服电话变更</a>
-              </li>
-            
-              <li class="item item1 ">
-                <a target="_blank" href="http://www.yougou.com/article/201712/e4de56a20dcf458d88626858531fb8b6.shtml#ref=index&amp;po=notice_notice2">关闭分享购频道</a>
-              </li>
-            
-              <li class="item item1 ">
-                <a target="_blank" href="http://www.yougou.com/article/201607/182fbbbcc43940259e172d1da13cacce.shtml#ref=index&amp;po=notice_notice3">提醒会员谨防诈骗电话</a>
-              </li>
-            
+        @foreach($announce as $v)
+        <li class="item Black"> <a target="_blank" href="/Homenotice/{{$v->id}}">{{$v->title}}</a> </li>  
+        @endforeach
           </ul>
         </div>
       </div>
@@ -186,7 +176,7 @@
 <!-- nav created time: 2018-12-05T14:02:10+08:00 -->
 <div id="logo" class="logo-container fixed-nav">
   <div class="header-logo" style="display: none;">
-    <a href="http://www.yougou.com/">
+    <a href="/Home">
       <img src="/static/Home/images/logo.png" width="98" height="58">
     </a>
   </div>
@@ -194,13 +184,13 @@
     <div class="nav">
       <ul>
         <li id="nav_logo" style="display: inline-block;" class="item-first">
-          <a href="http://www.yougou.com/">
+          <a href="/Home">
             <img src="/static/Home/images/logo.png" width="60" height="38">
           </a>
         </li>
         
           <li class="item" style="padding: 15px 9px;">
-            <a href="http://www.yougou.com/" target="_blank">
+            <a href="/Home" target="_blank">
               首页
             </a>
           </li>
@@ -1409,7 +1399,7 @@
 	<div class="ucwelcomleft">
         <div class="ucwelcol1">
             <span>欢迎您，</span>
-	 			<span class="ucname" title="18820606670">18820606...</span>
+	 			<span class="ucname" title="18820606670">{{$personal->username}}</span>
         		<span <="" span="">
             <span id="ucIndexMsg" class="msgno"><a id="ucIndexMsgLink" href="javascript:void(0);">未读短消息（<span id="uc_index_count">0</span>）</a></span>
         </span></div>
@@ -1432,13 +1422,13 @@
 	<div class="couponul">
     	<ul class="">
             <li>
-            	<a href="http://www.yougou.com/my/coupon.jhtml?couponState=1&amp;t=15444115816113082">优惠券<br><span>10</span> 张</a>
+            	<a href="http://www.yougou.com/my/coupon.jhtml?couponState=1&amp;t=15444115816113082">优惠券<br><span>{{$personal->favorable}}</span> 张</a>
             </li>
             <li>
-            	<a href="http://www.yougou.com/my/giftcard.jhtml?couponState=1&amp;t=15444115816124399">礼品卡<br><span>0</span> 张</a>
+            	<a href="http://www.yougou.com/my/giftcard.jhtml?couponState=1&amp;t=15444115816124399">礼品卡<br><span>{{$personal->gift}}</span> 张</a>
             </li>
             <li>
-            	<a href="http://www.yougou.com/my/point.jhtml?t=15444115816127758">积分<br><span>100</span> 兑换</a>
+            	<a href="http://www.yougou.com/my/point.jhtml?t=15444115816127758">积分<br><span>{{$personal->integral}}</span> 兑换</a>
             </li>
         </ul>
     </div>
@@ -1453,51 +1443,88 @@ YouGou.Util.setHrefStamp('.ucwelcom');
         
 		<!--我最近的订单 start-->
 <div class="zjorder">
-	<div class="zjordertop">
+	<div class="zjordertop" >
 		<h3>我最近的订单</h3>
-		<ul>
-			<li>
-        		<a href="http://www.yougou.com/my/order.jhtml?type=waitpay&amp;t=15444115820026590" target="_blank">待付款&nbsp;<span class="crOrg">1</span></a>
-        	</li>
-            <li>
-            	<a>待评价&nbsp;<span>0</span></a>
-            </li>
-            <li>
-            	<a>待发货&nbsp;<span>0</span></a>
-            </li>
-			<li class="lastli"><a> 退/换货&nbsp;<span>0</span></a>
-		</li></ul>
+		<!-- <ul>
+          <li>
+            <form action="/Homepersonal" method="post" style="position: relative;">
+                    {{csrf_field()}}
+              <a>待付款</a>
+              <input type="hidden" name="status" value="0">
+              <input type="submit" value="未付款" style="background-color: white;border:0px;cursor: pointer;">
+            </form>
+          </li>
+          <li>
+            <form action="/Homepersonal" method="post" style="position: relative;">
+                    {{csrf_field()}}
+              <a>待付款</a>
+              <input type="hidden" name="status" value="1">
+              <input type="submit" value="待评论" style="background-color: white;border:0px;cursor: pointer;">
+            </form>
+            <a>待评价</a>
+          </li>
+          <li>
+             <form action="/Homepersonal" method="post" style="position: relative;">
+                    {{csrf_field()}}
+              <a>待付款</a>
+              <input type="hidden" name="status" value="2">
+              <input type="submit" value="代发货" style="background-color: white;border:0px;cursor: pointer;">
+            </form>
+            <a>待发货</a>
+          </li>
+      <li class="lastli">
+             <form action="/Homepersonal" method="post" style="position: relative;">
+                    {{csrf_field()}}
+              <a>待付款</a>
+              <input type="hidden" name="status" value="3">
+              <input type="submit" value="退换货" style="background-color: white;border:0px;cursor: pointer;">
+            </form>
+            <a> 退/换货</a>
+          </li>
+      </ul> -->
 		<p class="seeallorde">
 			<a href="http://www.yougou.com/my/order.jhtml?t=15444115820029713" target="_blank">查看全部订单</a>
 		</p>
 	</div>
 	
-	<table class="zjorderbody2" cellspacing="1" cellpadding="0" width="200">
-		<colgroup>
-			<col width="571">
-			<col width="106">
-			<col width="153">
-		</colgroup>
-		<tbody>
-								<tr>
+              @foreach($order as $v)
+  <table class="zjorderbody2" cellspacing="1" cellpadding="0" width="200">
+    <colgroup>
+      <col width="571">
+      <col width="106">
+      <col width="153">
+    </colgroup>
+    <tbody>     
+							<tr>
 								<td class="ttd1">
 									<div class="uc_goods_item uc_myorder_item clearfix">
 										<div class="uc_goods_lt clearfix ">
 											<dl id="uc_goods_list1" class="uc_goods_list clearfix">
 												<div style="width: 300px; height: 83px; float: left;">
 														<dt class="info1 relative">
-															<a target="_blank" href="http://www.yougou.com/c-staccato/sku-9d978am9-101049362.shtml?t=154441158200210603">
-																	<img src="/static/Home/images/101049362_01_t.jpg" onerror="this.src=&#39;http://pcs2.ygimg.cn/images/common/60x60.jpg&#39;" width="60" height="60" alt="STACCATO/思加图2019专柜同款休闲尖头低跟女皮鞋9D978AM9" title="STACCATO/思加图2019专柜同款休闲尖头低跟女皮鞋9D978AM9">
-															</a> <span class="pink-size" style="display: none;">33码</span>
+															<a target="_blank" href="">
+																	<img src="{{$v->goods_pic}}" onerror="this.src=&#39;http://pcs2.ygimg.cn/images/common/60x60.jpg&#39;" width="60" height="60" alt="{{$v->goods_name}}" title="{{$v->goods_name}}">
+															</a> <span class="pink-size" style="display: none;"></span>
 														</dt>
 													<dd class="info3new">
-			                                            <span class="tot_goods fl" style="color: rgb(102, 102, 102); cursor: default;">共1件商品</span>
+			                                            <span class="tot_goods fl" style="color: rgb(102, 102, 102); cursor: default;">共{{$v->order_num}}件商品</span>
 			                                        </dd>
 												</div>
 												<dd class="express info2 fl" style="left: 0px; margin-left: 50px;">
 													<p>
-														订单状态： <span class="pinred"> 		等待买家付款
-								                                   </span>
+														订单状态： <span class="pinred">
+                              @if($v->status==0)
+                              未付款
+                              @elseif($v->status==1)
+                              已付款 <br />
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;待发货
+                              @elseif($v->status==2)
+                              <a href="/Homepersonaladd/{{$v->order_id}}">待收货</a>
+                              @elseif($v->status==3)
+                              已收货
+                              <a href="">评论</a>
+                              @endif
+                            </span>
 
 													</p>
 													
@@ -1513,17 +1540,18 @@ YouGou.Util.setHrefStamp('.ucwelcom');
 								<td class="ttd2">
 										<div class="pingjia">
 				                            <p>
-				                                <a href="http://www.yougou.com/order/orderDetails.jhtml?mainOrderNo=NA6218133421702&amp;t=15444115820031170" target="_blank">订单详情</a>
+				                                <a href="/Homepersonal/{{$v->id}}" target="_blank">订单详情</a>
 				                            </p>
 				                        </div>
 								</td>
 							</tr>
-					<!--判断有没有子订单 end-->
-				<!--有主订单 end-->
-			<!--判断有没有主订单  end-->
-			
-		</tbody>
-	</table>
+          <!--判断有没有子订单 end-->
+        <!--有主订单 end-->
+      <!--判断有没有主订单  end-->
+      
+    </tbody>
+  </table>
+              @endforeach
 	
 	<!--组装物流单号数据  end-->
 	<input type="hidden" name="expressCodes" id="expressCodes" value="">
@@ -1837,7 +1865,7 @@ YouGou.Util.setHrefStamp('.ucwelcom');
           <a href="http://www.yougou.com/help/contactus.shtml" class="title">联系我们</a>|
         </li>
         <li>
-          <a href="http://www.yougou.com/friendlink.shtml" class="title">友情链接</a>
+          <a href="/Homelink" class="title">友情链接</a>
         </li>
       </ul>
     </div>

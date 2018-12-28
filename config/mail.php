@@ -54,9 +54,9 @@ return [
     | used globally for all e-mails that are sent by your application.
     |
     */
-
+//需要修改用户名
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
+        'address' => env('MAIL_USERNAME', '13266448908@163.com'),
         'name' => env('MAIL_FROM_NAME', 'Example'),
     ],
 

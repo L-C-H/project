@@ -69,7 +69,11 @@ var _hmt = _hmt || [];
      </div> </li> 
    </ul> 
    <ul class="right-content" id="top_nav"> 
-    <li class="item-frist about_user"> <a rel="nofollow" href="javascript:login();">登录</a> / <a rel="nofollow" href="javascript:register();">注册</a> </li> 
+    @if(session('username'))
+     <li class="item-frist about_user"> <a rel="nofollow" href="/Homelogin/create">欢迎{{session('username')}}</a> / <a rel="nofollow" href="/Homelogin" class="log">注销</a> </li> 
+    @else
+      <li class="item-frist about_user"> <a rel="nofollow" href="/Homelogin/create">登录</a> / <a rel="nofollow" href="/Homeregister/create">注册</a> </li>  
+     @endif 
     <li class="item"> <a href="http://www.yougou.com/my/favorites.jhtml" class="top-collect"> <i class="icon bg-top_collect"></i> <span class="title">收藏</span> </a> </li> 
     <li class="item-cart"> <a href="http://www.yougou.com/order.jhtml"><i class="icon"></i>购物袋</a> </li> 
     <li class="item"> 

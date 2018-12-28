@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
 <!-- saved from url=(0059)http://www.yougou.com/my/address.jhtml?t=154390316149710976 -->
 <html xmlns="http://www.w3.org/1999/xhtml">
  <head> 
@@ -13,12 +13,14 @@
   <script type="text/javascript" src="/static/Home/js/jquery-1.4.2.min.js"></script> 
   <script type="text/javascript" src="/static/Home/js/yg.common.js"></script> 
   <script type="text/javascript" src="/static/Home/js/ygdialog.js"></script> 
-  <link type="text/css" rel="stylesheet" href="/static/Home/css/ygdialog.css" /> 
+  <link type="text/css" rel="stylesheet" href="/static/Home/css/ygdialog.css" />
+  <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
   <script type="text/javascript" src="/static/Home/js/yg.member.js"></script> 
   <script type="text/javascript" src="/static/Home/js/areaselecor.js"></script> 
-  <script type="text/javascript" src="/static/Home/js/jquery.validate.js"></script> 
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <script type="text/javascript" src="/static/Home/js/jquery.validate.js">pt{width:360px!important;height:270px!important}.easemobim-chat-panel.easemobim-mobile{position:absolute!important;width:100%!important;height:100%!important;left:0!important;top:0!important;border-radius:0;box-shadow:none}.easemobim-chat-panel.easemobim-mobile.easemobim-minimized{height:0!important;width:0!important}.easemobim-chat-panel.easemobim-hide{visibility:hidden;width:1px!important;height:1px!important;border:none}.easemobim-chat-panel.easemobim-dragging{display:none}.easemobim-iframe-shadow{left:auto;top:auto;display:none;cursor:move;z-index:16777270;position:fixed;border:none;box-shadow:0 4px 8px rgba(0,0,0,.2);border-radius:4px;background-size:100% 100%;background-repeat:no-repeat}.easemobim-iframe-shadow.easemobim-dragging{display:block}.easemobim-prompt-wrap</script> 
   <script type="text/javascript" src="/static/Home/js/yg.mem.addr.js"></script> 
-  <style type="text/css">.easemobim-mobile-html{position:relative!important;width:100%!important;height:100%!important;padding:0!important;margin:0!important}.easemobim-mobile-body{position:absolute;top:0!important;left:0!important;width:100%!important;height:100%!important;overflow:hidden!important;padding:0!important;margin:0!important}.easemobim-mobile-body>*{display:none!important}.easemobim-mobile-body>.easemobim-chat-panel{display:block!important}.easemobim-chat-panel{z-index:1000;overflow:hidden;position:fixed;border:none;width:0;height:0;-webkit-transition:all .01s;-moz-transition:all .01s;transition:all .01s;box-shadow:0 4px 8px rgba(0,0,0,.2);border-radius:4px}.easemobim-chat-panel.easemobim-minimized{border:none;box-shadow:none;height:37px!important;width:104px!important}.easemobim-chat-panel.easemobim-minimized.easemobim-has-prompt{width:360px!important;height:270px!important}.easemobim-chat-panel.easemobim-mobile{position:absolute!important;width:100%!important;height:100%!important;left:0!important;top:0!important;border-radius:0;box-shadow:none}.easemobim-chat-panel.easemobim-mobile.easemobim-minimized{height:0!important;width:0!important}.easemobim-chat-panel.easemobim-hide{visibility:hidden;width:1px!important;height:1px!important;border:none}.easemobim-chat-panel.easemobim-dragging{display:none}.easemobim-iframe-shadow{left:auto;top:auto;display:none;cursor:move;z-index:16777270;position:fixed;border:none;box-shadow:0 4px 8px rgba(0,0,0,.2);border-radius:4px;background-size:100% 100%;background-repeat:no-repeat}.easemobim-iframe-shadow.easemobim-dragging{display:block}.easemobim-prompt-wrapper{display:none;z-index:16777271;position:fixed;width:30px;height:30px;padding:10px;top:0;bottom:0;margin:auto;left:0;right:0;color:#fff;background-color:#000;text-align:center;border-radius:4px;-webkit-transition:all .5s;-moz-transition:all .5s;transition:all .5s;opacity:.7;-moz-box-sizing:content-box;box-sizing:content-box}.easemobim-prompt-wrapper>.loading{position:relative;width:30px;height:30px;display:inline-block;overflow:hidden;margin:0;padding:0;-webkit-animation:easemobim-loading-frame 1s linear infinite;-moz-animation:easemobim-loading-frame 1s linear infinite;animation:easemobim-loading-frame 1s linear infinite}@-webkit-keyframes easemobim-loading-frame{0%{-webkit-transform:rotate(0);transform:rotate(0)}to{-webkit-transform:rotate(1turn);transform:rotate(1turn)}}@-moz-keyframes easemobim-loading-frame{0%{-moz-transform:rotate(0);transform:rotate(0)}to{-moz-transform:rotate(1turn);transform:rotate(1turn)}}@keyframes easemobim-loading-frame{0%{-webkit-transform:rotate(0);-moz-transform:rotate(0);transform:rotate(0)}to{-webkit-transform:rotate(1turn);-moz-transform:rotate(1turn);transform:rotate(1turn)}}.easemobim-pc-img-view{display:none;position:fixed;top:0;left:0;width:100%;height:100%;z-index:16777270}.easemobim-pc-img-view>.shadow{position:fixed;top:0;left:0;width:100%;height:100%;background-color:#000}.easemobim-pc-img-view>img{max-width:100%;max-height:100%;position:absolute;margin:auto;top:0;right:0;bottom:0;left:0}</style> 
+  <style type="text/css">.easemobim-mobile-html{position:relative!important;width:100%!important;height:100%!important;padding:0!important;margin:0!important}.easemobim-mobile-body{position:absolute;top:0!important;left:0!important;width:100%!important;height:100%!important;overflow:hidden!important;padding:0!important;margin:0!important}.easemobim-mobile-body>*{display:none!important}.easemobim-mobile-body>.easemobim-chat-panel{display:block!important}.easemobim-chat-panel{z-index:1000;overflow:hidden;position:fixed;border:none;width:0;height:0;-webkit-transition:all .01s;-moz-transition:all .01s;transition:all .01s;box-shadow:0 4px 8px rgba(0,0,0,.2);border-radius:4px}.easemobim-chat-panel.easemobim-minimized{border:none;box-shadow:none;height:37px!important;width:104px!important}.easemobim-chat-panel.easemobim-minimized.easemobim-has-promper{display:none;z-index:16777271;position:fixed;width:30px;height:30px;padding:10px;top:0;bottom:0;margin:auto;left:0;right:0;color:#fff;background-color:#000;text-align:center;border-radius:4px;-webkit-transition:all .5s;-moz-transition:all .5s;transition:all .5s;opacity:.7;-moz-box-sizing:content-box;box-sizing:content-box}.easemobim-prompt-wrapper>.loading{position:relative;width:30px;height:30px;display:inline-block;overflow:hidden;margin:0;padding:0;-webkit-animation:easemobim-loading-frame 1s linear infinite;-moz-animation:easemobim-loading-frame 1s linear infinite;animation:easemobim-loading-frame 1s linear infinite}@-webkit-keyframes easemobim-loading-frame{0%{-webkit-transform:rotate(0);transform:rotate(0)}to{-webkit-transform:rotate(1turn);transform:rotate(1turn)}}@-moz-keyframes easemobim-loading-frame{0%{-moz-transform:rotate(0);transform:rotate(0)}to{-moz-transform:rotate(1turn);transform:rotate(1turn)}}@keyframes easemobim-loading-frame{0%{-webkit-transform:rotate(0);-moz-transform:rotate(0);transform:rotate(0)}to{-webkit-transform:rotate(1turn);-moz-transform:rotate(1turn);transform:rotate(1turn)}}.easemobim-pc-img-view{display:none;position:fixed;top:0;left:0;width:100%;height:100%;z-index:16777270}.easemobim-pc-img-view>.shadow{position:fixed;top:0;left:0;width:100%;height:100%;background-color:#000}.easemobim-pc-img-view>img{max-width:100%;max-height:100%;position:absolute;margin:auto;top:0;right:0;bottom:0;left:0}</style> 
   <script src="/static/Home/js/f.txt"></script> 
  </head> 
  <body class="myaddr"> 
@@ -56,9 +58,11 @@
       <a href="javascript:;">公告</a> 
       <div class="notice-content"> 
        <ul class="notice-list"> 
-        <li class="item Red"> <a target="_blank" href="http://www.yougou.com/article/201805/3adfa2a3ca664e86ba4a6a8a33988940.shtml#ref=index&amp;po=notice_notice1">优购客服电话变更</a> </li> 
-        <li class="item item1 "> <a target="_blank" href="http://www.yougou.com/article/201712/e4de56a20dcf458d88626858531fb8b6.shtml#ref=index&amp;po=notice_notice2">关闭分享购频道</a> </li> 
-        <li class="item item1 "> <a target="_blank" href="http://www.yougou.com/article/201607/182fbbbcc43940259e172d1da13cacce.shtml#ref=index&amp;po=notice_notice3">提醒会员谨防诈骗电话</a> </li> 
+        @foreach($data as $v)
+        <li class="item Black"> 
+          <a target="_blank" href="/Homenotice/{{$v->id}}">{{$v->title}}</a>
+        </li>
+        @endforeach
        </ul> 
       </div> 
      </div> </li> 
@@ -68,12 +72,12 @@
   <!-- nav created time: 2018-12-03T14:42:02+08:00 --> 
   <div id="logo" class="logo-container fixed-nav"> 
    <div class="header-logo" style="display: none;"> 
-    <a href="http://www.yougou.com/"> <img src="/static/Home/images/logo.png" width="98" height="58" /> </a> 
+    <a href="/Home"> <img src="/static/Home/images/logo.png" width="98" height="58" /> </a> 
    </div> 
    <div class="nav-container" style="padding-top: 0;"> 
     <div class="nav"> 
      <ul> 
-      <li id="nav_logo" style="display: inline-block;" class="item-first"> <a href="http://www.yougou.com/"> <img src="/static/Home/images/logo.png" width="60" height="38" /> </a> </li> 
+      <li id="nav_logo" style="display: inline-block;" class="item-first"> <a href="/Home"> <img src="/static/Home/images/logo.png" width="60" height="38" /> </a> </li> 
       <li class="item" style="padding: 15px 9px;"> <a href="http://www.yougou.com/" target="_blank"> 首页 </a> </li> 
       <li class="item" style="padding: 15px 9px;"> <a href="http://www.yougou.com/f-0-MXZ-0-1.html" _yg_nav="5b2ba28f59bcda74c9000050" target="_blank"> 女鞋 </a> </li> 
       <li class="item" style="padding: 15px 9px;"> <a href="http://www.yougou.com/f-basto_bata_belle_crocs_hushpuppies_senda_tata_teenmix-Y0A-04Y004-1.html" _yg_nav="53d0e925c7da508b0c000195" target="_blank"> 男鞋 </a> </li> 
@@ -731,77 +735,73 @@
    <!-- right content start--> 
    <div class="u_right fl" id="myaddr_v2"> 
     <h3 class="myaddr_tit">我的收货地址</h3> 
-    <div class="myaddr_div2"> 
-     <a href="javascript:void(0)" id="newAddressBtn" class="myaddr_addbtn">+新增收货地址</a> 
+    <div class="myaddr_div2">
+     <a class="myaddr_addbtn add" style="cursor: pointer;">+新增收货地址</a> 
     </div> 
-    <!-- address list start--> 
-    <div class="myaddr_table" id="addressListDiv"> 
-     <table class="myaddr_list" id="tbl_address" style="border-collapse:collapse" cellpadding="0" cellspacing="0"> 
+    <script src="js/jquery.min.js"></script>
+    <script src="css/bootstrap.min.js"></script>
+    <script src="js/distpicker.data.js"></script>
+    <script src="js/distpicker.js"></script>
+    <script src="js/main.js"></script>
+    <!-- 地址选择 --><!-- 地址选择 --><!-- 地址选择 --><!-- 地址选择 -->
+    <div style="width: 830px;height: 330px;position: absolute;display:none;" class="add2">
+      <form action="/Homeaddress" method="post">
+        <div style="position: relative;top: 25px;">
+          <div data-toggle="distpicker">
+            <div class="form-group">
+              <label class="sr-only" for="province1">Province</label>
+              <select class="form-control" id="province1" name="p_address1"></select>
+            </div>
+            <div class="form-group">
+              <label class="sr-only" for="city1">City</label>
+              <select class="form-control" id="city1" name="p_address2"></select>
+            </div>
+            <div class="form-group">
+              <label class="sr-only" for="district1">District</label>
+              <select class="form-control" id="district1" name="p_address3"></select>
+            </div>
+          </div>
+        </div>
+        <div style="position: absolute;top: 175px;">
+          详细地址：<input type="text" name="p_address" style="width: 700px;height: 20px;"><br><br>
+          收&nbsp;件&nbsp;&nbsp;人：<input type="text" name="p_name" style="width: 700px;height: 20px;"><br><br>
+          收件电话：<input type="text" name="p_phone" style="width: 700px;height: 20px;"s><br><br>
+        </div>
+        {{csrf_field()}}
+        <div style="position: absolute;top: 290px;width: 400px">
+          <input type="hidden" name="u_id" value="{{$personal->id}}">
+          <input type="submit" value="提交" class="btn btn-success">
+        </div>
+      </form>
+      <div style="position: absolute;top: 5px;right: 5px;cursor: pointer;" class="tuichu"><a>X</a></div>
+    </div>
+    <!-- address list start-->
+    <div class="myaddr_table add1" id="addressListDiv" style="display:block;"> 
+     <table class="myaddr_list" id="tbl_address" style="border-collapse:collapse" cellpadding="0" cellspacing="0" > 
       <tbody> 
        <tr> 
-        <th width="136px">收货人</th> 
-        <th width="150px">所在地区</th> 
-        <th width="200px">详细地址</th> 
+        <th width="136px">收货人</th>  
+        <th width="200px">地址</th> 
         <th width="142px">收货人手机</th> 
         <th width="100px"></th> 
         <th width="100px">操作</th> 
-       </tr> 
-       <tr id="3455e17db32f4371bef0a3c1a576184a" default="true" class=""> 
-        <td>钟梓伦</td> 
-        <td>广东省 广州市 天河区</td> 
-        <td>******兄弟连a10</td> 
-        <td>182****8099</td> 
-        <td><span class="cOrg">默认地址</span></td> 
-        <td><p class="cC0c0"><a class="myaddr_mdf" href="javascript:void(0);">修改</a>|<span class="myaddr_del">&nbsp;</span></p></td> 
-       </tr> 
+      </tr> 
+      @foreach($address as $value)
+      <tr id="3455e17db32f4371bef0a3c1a576184a" default="true" class=""> 
+        <td>{{$value->p_name}}</td> 
+        <td>{{$value->p_address}}</td> 
+        <td>{{$value->p_phone}}</td> 
+        <td style="color: white">{{$value->id}}</td>
+        <td><input type="button" value="删除" class="del"></td> 
+       </tr>
+       @endforeach
       </tbody> 
      </table> 
      <p id="addr_alert" style="display:none">请设置默认地址</p> 
     </div> 
     <!-- address list end--> 
     <!-- address form start--> 
-    <div class="myaddr_add" id="addressFormDiv" style="display:none"> 
-     <form method="post" name="addressForm" id="addressForm"> 
-      <p class="titt"><span id="actionTitle">新增收货地址</span><span class="cancel" id="closeFormBtn">X</span></p> 
-      <div class="myaddr_addrow clearfix"> 
-       <p class="tit">所&nbsp;在&nbsp;地&nbsp;区</p> 
-       <span id="district"></span> 
-       <span id="area_tip" class="myaddr_tip" style="display:none">请选择省份</span> 
-      </div> 
-      <div class="myaddr_addrow clearfix"> 
-       <p class="tit">详&nbsp;细&nbsp;地&nbsp;址</p> 
-       <input class="myaddr_input" type="text" id="receivingAddress" name="receivingAddress" /> 
-       <span class="myaddr_tip" id="receivingAddress_tip" style="display:none">请输入收货人地址，要求5-120个字符</span> 
-      </div> 
-      <div class="myaddr_addrow clearfix"> 
-       <p class="tit">收货人姓名</p> 
-       <input style="width:102px" class="myaddr_input" type="text" name="receivingName" id="receivingName" /> 
-       <span class="myaddr_tip" id="receivingName_tip" style="display:none">请输入收货人姓名，要求3-25个字符</span> 
-      </div> 
-      <div class="myaddr_addrow clearfix"> 
-       <p class="tit">收货人手机</p> 
-       <input style="width:136px" class="myaddr_input" type="text" id="receivingMobilePhone" name="receivingMobilePhone" maxlength="11" /> 
-       <span class="myaddr_tip" id="receivingMobilePhone_tip" style="display:none">请输入手机号码</span> 
-      </div> 
-      <div class="myaddr_addrow clearfix"> 
-       <input type="checkbox" name="defaultAddress" id="defaultAddress" /> 
-       <label for="defaultAddress">设置为默认收货地址</label> 
-      </div> 
-      <div class="myaddr_addrow clearfix"> 
-       <input type="hidden" name="actionType" id="actionType" value="create" /> 
-       <input type="hidden" name="addressId" id="addressId" /> 
-       <input type="hidden" name="receivingProvince" id="province" /> 
-       <input type="hidden" name="receivingCity" id="city" /> 
-       <input type="hidden" name="receivingDistrict" id="area" /> 
-       <input type="hidden" name="simpleDistrictName" id="simpleDistrictName" /> 
-       <input type="hidden" name="isDefaultAddress" id="isDefaultAddress" /> 
-       <input type="hidden" name="sex" id="sex" value="0" /> 
-       <input type="hidden" name="payType" id="payType" value="1" /> 
-       <input type="submit" value="保存" class="save" id="saveBtn" style="border:0px;cursor:pointer;" /> 
-       <a class="cancel" id="cancelBtn" href="javascript:void(0);">取消</a> 
-      </div> 
-     </form> 
-    </div> 
+     
     <!-- address form end--> 
    </div> 
    <!-- right content end--> 
@@ -978,7 +978,7 @@
       <li> <a href="http://www.yougou.com/help/zhaopin.shtml" class="title">招贤纳士</a>| </li> 
       <li> <a href="http://www.yougou.com/topics/mobile.shtml" class="title">手机优购</a>| </li> 
       <li> <a href="http://www.yougou.com/help/contactus.shtml" class="title">联系我们</a>| </li> 
-      <li> <a href="http://www.yougou.com/friendlink.shtml" class="title">友情链接</a> </li> 
+      <li> <a href="/Homelink" class="title">友情链接</a> </li> 
      </ul> 
     </div> 
     <div class="copyright"> 
@@ -988,63 +988,36 @@
   </div> 
   <!-- common js --> 
   <span class="none"> 
-   <!-- 1. sourceChannel --> <script type="text/javascript" src="/static/Home/js/sourceChannel.js"></script> 
-   <!-- 2.  mv    --> 
-   <!--<script src="http://pcs1.ygimg.cn/template/common/js/mv.js?4.3.4" type="text/javascript"></script>--> <script type="text/javascript" src="/static/Home/js/mv.js"></script> 
-   <!-- 4. google analytics --> <script>
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-23566531-1']);
-    _gaq.push(['_setDomainName', '.yougou.com']);
-    _gaq.push(['_addOrganic', 'baidu', 'word']);
-    _gaq.push(['_addOrganic', 'baidu', 'wd']);
-    _gaq.push(['_addOrganic', 'soso', 'query']);
-    _gaq.push(['_addOrganic', 'soso', 'key']);
-    _gaq.push(['_addOrganic', '3721', 'name']);
-    _gaq.push(['_addOrganic', 'yodao', 'q']);
-    _gaq.push(['_addOrganic', 'vnet', 'kw']);
-    _gaq.push(['_addOrganic', 'sogou', 'query']);
-    _gaq.push(['_addOrganic', 'sogou', 'keyword']);
-    _gaq.push(['_addOrganic', '360', 'q']);
-    _gaq.push(['_addOrganic', 'so', 'q']);
-    _gaq.push(['_addOrganic', 'haosou', 'q']);
-    _gaq.push(['_addOrganic', 'sm', 'q']);
-    _gaq.push(['_trackPageview']);
-    _gaq.push(['_trackPageLoadTime']);
-    (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://analytic' : 'http://analytic') + '.yougou.com/ga.js?4.3.4';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-</script> 
+   <!-- 1. sourceChannel --> 
    <!-- 5. googleadservices --> 
-   <!-- Google Code for &#35775;&#38382;&#39318;&#39029; Remarketing List --> <script type="text/javascript">
-/* <![CDATA[ */
-var google_conversion_id = 1016027598;
-var google_conversion_language = "en";
-var google_conversion_format = "3";
-var google_conversion_color = "666666";
-var google_conversion_label = "ni7GCOL2nQIQzrO95AM";
-var google_conversion_value = 0;
-/* ]]> */
-</script> <script type="text/javascript" src="/static/Home/js/f(1).txt"></script> 
-   <noscript> 
-    <div style="display:inline;"> 
-     <img height="1" width="1" style="border-style:none;" alt="" src="http://www.googleadservices.com/pagead/conversion/1016027598/?label=ni7GCOL2nQIQzrO95AM&amp;guid=ON&amp;script=0" /> 
-    </div> 
-   </noscript> </span> 
-  <!-- common js end --> 
-  <!----> 
-  <script>
-// url添加时间戳随机数
-try {
-YouGou.Util.setHrefStamp('.uc_right');
-YouGou.Util.setHrefStamp('.u_right');
-}catch (e) {} 
-</script> 
-  <script>
-// 记录网站用户登陆状况
-_gaq.push(['_trackPageview','/PageAction/st/my/left_9']);
-</script> 
-  <div id="ClickTaleDiv" style="display:none;"></div>  
+   <!-- Google Code for &#35775;&#38382;&#39318;&#39029; Remarketing List --> 
+  <div id="ClickTaleDiv" style="display:none;"></div>
+  <script type="text/javascript">
+    $('.add').click(function(){
+      $('.add1').css('display','none');
+      $('.add2').css('display','block');
+    });
+
+    $('.tuichu').click(function(){
+      $('.add1').css('display','block');
+      $('.add2').css('display','none');
+    })
+
+ $('.del').click(function(){
+ id = $(this).parents('tr').find('td').eq(3).html();
+ // alert(id);
+ // console.log(id);
+ s = $(this).parents('tr');
+ ss = confirm('你确定删除吗?');
+   if(ss){
+       $.get('/Homeaddressdel',{id:id},function(data){
+        console.log(data);
+          if(data==1){
+              s.remove();
+          }
+      });
+   }
+ });
+  </script>
  </body>
 </html>
