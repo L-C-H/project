@@ -158,10 +158,11 @@ class GoodsController extends Controller
             //重复字符串函数
             $cate[$key]->name=str_repeat('--|',$len).$value->name;
         }
+        // echo $id;
         $res = DB::table('goods')->where('id','=',$id)->first();
          $p = DB::table('cates')->where('id','=',$res->c_id)->first();
         $r = DB::table('goods_info')->where('g_id','=',$id)->first();
-         // var_dump($p);exit;
+         // var_dump($r);exit;
         //导入商品列表页
         return view('Admin.Goods.edit',['cate'=>$cate,'res'=>$res,'p'=>$p,'r'=>$r]);
     }

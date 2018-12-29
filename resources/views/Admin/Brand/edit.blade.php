@@ -47,7 +47,6 @@
 				<option value="{{$data[2]->id}}">{{$data[8]->name}}</option>
 				<option value="{{$data[3]->id}}">{{$data[9]->name}}</option>
 				<option value="{{$data[4]->id}}">{{$data[10]->name}}</option>
-				<option value="{{$data[5]->id}}">{{$data[11]->name}}</option>
 				</select>
 			</div>
 		</div>
